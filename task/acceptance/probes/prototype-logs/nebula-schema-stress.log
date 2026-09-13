@@ -1,0 +1,4 @@
+2026-09-13T18:12:24.915945+00:00 START 1 / 2 schema_defaults_s
+2026-09-13T18:13:20.362636+00:00 PASSED schema_defaults_s 
+2026-09-13T18:13:20.362662+00:00 START 2 / 2 schema_defaults_i
+2026-09-13T18:14:15.502983+00:00 PASSED schema_defaults_i 

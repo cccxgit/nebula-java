@@ -1,0 +1,3 @@
+USE `qa_20260914_s_double_nonfinite`;
+CREATE TAG `case_tag`(`value` DOUBLE NULL);
+CREATE EDGE `case_edge`(`value` DOUBLE NULL);

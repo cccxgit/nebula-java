@@ -1,0 +1,29 @@
+{
+	"id":"float_signed_zero_s",
+	"startedAt":"2026-09-13T17:34:30.780129715Z",
+	"oracleSha256":"37ce9a61fc0b97fc3e23347fa4151915c3cc92f5747874a88326a8c4b345bfc1",
+	"passed":false,
+	"status":"FAILED",
+	"records":[],
+	"space":"qa_20260914_s_float_signed_zero",
+	"fixtureFileHashes":{
+		"float_signed_zero_s/sample.ngql":{
+			"sha256":"5e80f2dce57dc646cdfbd5164f917d082382f47d217393e9d0c25e1c3f92eb3b",
+			"bytes":530
+		},
+		"float_signed_zero_s/schema.ngql":{
+			"sha256":"8a46fca2798cd96209f87b1d22a75306b8b0c5313f6f58cf6b5cb5d3934e7c4e",
+			"bytes":127
+		},
+		"float_signed_zero_s/data.ngql":{
+			"sha256":"3369dce76b224ee50425ebbcc5964732be7709ae7e34d7d167013da3087206b3",
+			"bytes":204321
+		},
+		"float_signed_zero_s/space.ngql":{
+			"sha256":"2f158da103f48261571945ec346bdc76f4fa3074ab0a187f13c5fd8da1002082",
+			"bytes":109
+		}
+	},
+	"failure":"java.lang.IllegalStateException: Fixture value differs: VERTEX/V:djAwMDAw; field=tag/Y2FzZV90YWc=/prop/dmFsdWU=; expected=[\"float\",\"8000000000000000\"]; actual=[\"float\",\"0000000000000000\"]",
+	"finishedAt":"2026-09-13T17:34:30.877927607Z"
+}

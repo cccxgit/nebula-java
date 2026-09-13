@@ -1,0 +1,260 @@
+{
+  "scope": "Read-only source fixture oracle probes. Expected failures deliberately alter oracle files; database records are not changed. These are not migration acceptance results.",
+  "javaSourceSha256": "80c6b5f16ea4efbd26240732266ebc6b65b19e8de76aac66c7ff8a121121f7bc",
+  "verificationJarSha256": "399f2b2b5d373d73c2edd28f5f82688edef2dbdf4d0907efe9d856eb3eec724a",
+  "cases": [
+    {
+      "id": "vid_values_s",
+      "oracle": "task/acceptance/oracles/vid_values_s.json",
+      "output": "task/acceptance/probes/oracle-probes/vid_values_s-report.json",
+      "argv": [
+        "java",
+        "-cp",
+        "verification/target/nebula-data-verifier-3.8.4.jar:verification/target/fixture-oracle",
+        "FixtureSourceOracle",
+        "--oracle",
+        "task/acceptance/oracles/vid_values_s.json",
+        "--out",
+        "task/acceptance/probes/oracle-probes/vid_values_s-report.json"
+      ],
+      "expectedPassed": true,
+      "exitCode": 0,
+      "actualStatus": "PASSED",
+      "probeMatchedExpectation": true,
+      "validatedRows": 2000,
+      "failure": null
+    },
+    {
+      "id": "float_nonfinite_s",
+      "oracle": "task/acceptance/oracles/float_nonfinite_s.json",
+      "output": "task/acceptance/probes/oracle-probes/float_nonfinite_s-report.json",
+      "argv": [
+        "java",
+        "-cp",
+        "verification/target/nebula-data-verifier-3.8.4.jar:verification/target/fixture-oracle",
+        "FixtureSourceOracle",
+        "--oracle",
+        "task/acceptance/oracles/float_nonfinite_s.json",
+        "--out",
+        "task/acceptance/probes/oracle-probes/float_nonfinite_s-report.json"
+      ],
+      "expectedPassed": true,
+      "exitCode": 0,
+      "actualStatus": "PASSED",
+      "probeMatchedExpectation": true,
+      "validatedRows": 2000,
+      "failure": null
+    },
+    {
+      "id": "geography_mixed_s",
+      "oracle": "task/acceptance/oracles/geography_mixed_s.json",
+      "output": "task/acceptance/probes/oracle-probes/geography_mixed_s-report.json",
+      "argv": [
+        "java",
+        "-cp",
+        "verification/target/nebula-data-verifier-3.8.4.jar:verification/target/fixture-oracle",
+        "FixtureSourceOracle",
+        "--oracle",
+        "task/acceptance/oracles/geography_mixed_s.json",
+        "--out",
+        "task/acceptance/probes/oracle-probes/geography_mixed_s-report.json"
+      ],
+      "expectedPassed": true,
+      "exitCode": 0,
+      "actualStatus": "PASSED",
+      "probeMatchedExpectation": true,
+      "validatedRows": 2000,
+      "failure": null
+    },
+    {
+      "id": "not_null_defaults_i",
+      "oracle": "task/acceptance/oracles/not_null_defaults_i.json",
+      "output": "task/acceptance/probes/oracle-probes/not_null_defaults_i-report.json",
+      "argv": [
+        "java",
+        "-cp",
+        "verification/target/nebula-data-verifier-3.8.4.jar:verification/target/fixture-oracle",
+        "FixtureSourceOracle",
+        "--oracle",
+        "task/acceptance/oracles/not_null_defaults_i.json",
+        "--out",
+        "task/acceptance/probes/oracle-probes/not_null_defaults_i-report.json"
+      ],
+      "expectedPassed": true,
+      "exitCode": 0,
+      "actualStatus": "PASSED",
+      "probeMatchedExpectation": true,
+      "validatedRows": 2000,
+      "failure": null
+    },
+    {
+      "id": "combined_types_s",
+      "oracle": "task/acceptance/oracles/combined_types_s.json",
+      "output": "task/acceptance/probes/oracle-probes/combined_types_s-report.json",
+      "argv": [
+        "java",
+        "-cp",
+        "verification/target/nebula-data-verifier-3.8.4.jar:verification/target/fixture-oracle",
+        "FixtureSourceOracle",
+        "--oracle",
+        "task/acceptance/oracles/combined_types_s.json",
+        "--out",
+        "task/acceptance/probes/oracle-probes/combined_types_s-report.json"
+      ],
+      "expectedPassed": true,
+      "exitCode": 0,
+      "actualStatus": "PASSED",
+      "probeMatchedExpectation": true,
+      "validatedRows": 2000,
+      "failure": null
+    },
+    {
+      "id": "wrong_property",
+      "oracle": "task/acceptance/probes/oracle-probes/wrong_property-expected-fail-oracle.json",
+      "output": "task/acceptance/probes/oracle-probes/wrong_property-report.json",
+      "argv": [
+        "java",
+        "-cp",
+        "verification/target/nebula-data-verifier-3.8.4.jar:verification/target/fixture-oracle",
+        "FixtureSourceOracle",
+        "--oracle",
+        "task/acceptance/probes/oracle-probes/wrong_property-expected-fail-oracle.json",
+        "--out",
+        "task/acceptance/probes/oracle-probes/wrong_property-report.json"
+      ],
+      "expectedPassed": false,
+      "exitCode": 1,
+      "actualStatus": "FAILED",
+      "probeMatchedExpectation": true,
+      "validatedRows": 0,
+      "failure": "java.lang.IllegalStateException: Fixture value differs: VERTEX/V:; field=tag/Y2FzZV90YWc=/prop/dmFsdWU=; expected=[\"string\",\"d3JvbmdfZml4dHVyZV92YWx1ZQ==\"]; actual=[\"string\",\"YmFzZWxpbmU=\"]"
+    },
+    {
+      "id": "lost_empty_tag",
+      "oracle": "task/acceptance/probes/oracle-probes/lost_empty_tag-expected-fail-oracle.json",
+      "output": "task/acceptance/probes/oracle-probes/lost_empty_tag-report.json",
+      "argv": [
+        "java",
+        "-cp",
+        "verification/target/nebula-data-verifier-3.8.4.jar:verification/target/fixture-oracle",
+        "FixtureSourceOracle",
+        "--oracle",
+        "task/acceptance/probes/oracle-probes/lost_empty_tag-expected-fail-oracle.json",
+        "--out",
+        "task/acceptance/probes/oracle-probes/lost_empty_tag-report.json"
+      ],
+      "expectedPassed": false,
+      "exitCode": 1,
+      "actualStatus": "FAILED",
+      "probeMatchedExpectation": true,
+      "validatedRows": 0,
+      "failure": "java.lang.IllegalStateException: Object/Tag/property field set differs: VERTEX/V:djAwMDAw; expected=[$vid, tag/Y2FzZV90YWc=, tag/Y2FzZV90YWc=/prop/dmFsdWU=]; actual=[$vid, tag/Y2FzZV90YWc=, tag/Y2FzZV90YWc=/prop/dmFsdWU=, tag/ZXh0cmFfdGFn]"
+    },
+    {
+      "id": "signed_zero_bit_difference",
+      "oracle": "task/acceptance/probes/oracle-probes/signed_zero_bit_difference-expected-fail-oracle.json",
+      "output": "task/acceptance/probes/oracle-probes/signed_zero_bit_difference-report.json",
+      "argv": [
+        "java",
+        "-cp",
+        "verification/target/nebula-data-verifier-3.8.4.jar:verification/target/fixture-oracle",
+        "FixtureSourceOracle",
+        "--oracle",
+        "task/acceptance/probes/oracle-probes/signed_zero_bit_difference-expected-fail-oracle.json",
+        "--out",
+        "task/acceptance/probes/oracle-probes/signed_zero_bit_difference-report.json"
+      ],
+      "expectedPassed": false,
+      "exitCode": 1,
+      "actualStatus": "FAILED",
+      "probeMatchedExpectation": true,
+      "validatedRows": 0,
+      "failure": "java.lang.IllegalStateException: Fixture value differs: VERTEX/V:djAwMDAw; field=tag/Y2FzZV90YWc=/prop/dmFsdWU=; expected=[\"float\",\"8000000000000000\"]; actual=[\"float\",\"0000000000000000\"]"
+    },
+    {
+      "id": "geography_bad_expression",
+      "oracle": "task/acceptance/probes/oracle-probes/geography_bad_expression-expected-fail-oracle.json",
+      "output": "task/acceptance/probes/oracle-probes/geography_bad_expression-report.json",
+      "argv": [
+        "java",
+        "-cp",
+        "verification/target/nebula-data-verifier-3.8.4.jar:verification/target/fixture-oracle",
+        "FixtureSourceOracle",
+        "--oracle",
+        "task/acceptance/probes/oracle-probes/geography_bad_expression-expected-fail-oracle.json",
+        "--out",
+        "task/acceptance/probes/oracle-probes/geography_bad_expression-report.json"
+      ],
+      "expectedPassed": false,
+      "exitCode": 1,
+      "actualStatus": "FAILED",
+      "probeMatchedExpectation": true,
+      "validatedRows": 0,
+      "failure": "java.lang.IllegalStateException: Non-NULL fixture expression produced NULL/error NULL: ST_GeogFromText(\"POINT(181 0)\")"
+    },
+    {
+      "id": "missing_vid",
+      "oracle": "task/acceptance/probes/oracle-probes/missing_vid-expected-fail-oracle.json",
+      "output": "task/acceptance/probes/oracle-probes/missing_vid-report.json",
+      "argv": [
+        "java",
+        "-cp",
+        "verification/target/nebula-data-verifier-3.8.4.jar:verification/target/fixture-oracle",
+        "FixtureSourceOracle",
+        "--oracle",
+        "task/acceptance/probes/oracle-probes/missing_vid-expected-fail-oracle.json",
+        "--out",
+        "task/acceptance/probes/oracle-probes/missing_vid-report.json"
+      ],
+      "expectedPassed": false,
+      "exitCode": 1,
+      "actualStatus": "FAILED",
+      "probeMatchedExpectation": true,
+      "validatedRows": 0,
+      "failure": "java.lang.IllegalStateException: FETCH did not return exactly one object: VERTEX/V:b3JhY2xlX25vbl9leGlzdGVudF92aWQ="
+    },
+    {
+      "id": "duplicate_vid",
+      "oracle": "task/acceptance/probes/oracle-probes/duplicate_vid-expected-fail-oracle.json",
+      "output": "task/acceptance/probes/oracle-probes/duplicate_vid-report.json",
+      "argv": [
+        "java",
+        "-cp",
+        "verification/target/nebula-data-verifier-3.8.4.jar:verification/target/fixture-oracle",
+        "FixtureSourceOracle",
+        "--oracle",
+        "task/acceptance/probes/oracle-probes/duplicate_vid-expected-fail-oracle.json",
+        "--out",
+        "task/acceptance/probes/oracle-probes/duplicate_vid-report.json"
+      ],
+      "expectedPassed": false,
+      "exitCode": 1,
+      "actualStatus": "FAILED",
+      "probeMatchedExpectation": true,
+      "validatedRows": 2,
+      "failure": "java.lang.IllegalStateException: Duplicate expected complete object key: VERTEX/V:"
+    },
+    {
+      "id": "wrong_vid_capacity",
+      "oracle": "task/acceptance/probes/oracle-probes/wrong_vid_capacity-expected-fail-oracle.json",
+      "output": "task/acceptance/probes/oracle-probes/wrong_vid_capacity-report.json",
+      "argv": [
+        "java",
+        "-cp",
+        "verification/target/nebula-data-verifier-3.8.4.jar:verification/target/fixture-oracle",
+        "FixtureSourceOracle",
+        "--oracle",
+        "task/acceptance/probes/oracle-probes/wrong_vid_capacity-expected-fail-oracle.json",
+        "--out",
+        "task/acceptance/probes/oracle-probes/wrong_vid_capacity-report.json"
+      ],
+      "expectedPassed": false,
+      "exitCode": 1,
+      "actualStatus": "FAILED",
+      "probeMatchedExpectation": true,
+      "validatedRows": 0,
+      "failure": "java.lang.IllegalStateException: Source space VID schema differs from fixture"
+    }
+  ],
+  "allProbeExpectationsMatched": true
+}

@@ -1,0 +1,9 @@
+{
+	"id":"geography_mixed_s",
+	"startedAt":"2026-09-13T17:34:30.987875646Z",
+	"oracleSha256":"35f6ae756d11773a63083455e73d0ae65fac9a2df99c454a67459aea3f01d8f5",
+	"passed":false,
+	"status":"FAILED",
+	"failure":"java.lang.IllegalStateException: Non-NULL fixture expression produced NULL/error NULL: ST_GeogFromText(\"POINT(181 0)\")",
+	"finishedAt":"2026-09-13T17:34:31.094243888Z"
+}

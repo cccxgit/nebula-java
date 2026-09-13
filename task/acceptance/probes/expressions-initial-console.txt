@@ -1,0 +1,55 @@
+(root@nebula) [(none)]> YIELD ST_AsText(ST_Point(-0.0, 0.0)) AS point, ST_IsValid(ST_Point(180, 90)) AS pole;
++---------------+------+
+| point         | pole |
++---------------+------+
+| "POINT(-0 0)" | true |
++---------------+------+
+Got 1 rows (time spent 522µs/643.543µs)
+
+Mon, 14 Sep 2026 01:03:34 CST
+
+(root@nebula) [(none)]> YIELD ST_AsText(ST_GeogFromText("POLYGON((0 0,10 0,10 10,0 10,0 0),(2 2,2 3,3 3,3 2,2 2))")) AS polygon;
++---------------------------------------------------------------------+
+| polygon                                                             |
++---------------------------------------------------------------------+
+| "POLYGON((0 0, 10 0, 10 10, 0 10, 0 0), (2 2, 2 3, 3 3, 3 2, 2 2))" |
++---------------------------------------------------------------------+
+Got 1 rows (time spent 357µs/422.253µs)
+
+Mon, 14 Sep 2026 01:03:34 CST
+
+(root@nebula) [(none)]> YIELD size(rpad("a",65536,"b")) AS long_length;
++-------------+
+| long_length |
++-------------+
+| 65536       |
++-------------+
+Got 1 rows (time spent 873µs/920.013µs)
+
+Mon, 14 Sep 2026 01:03:34 CST
+
+(root@nebula) [(none)]> YIELD 1.7976931348623157e308 AS max_double, 4.9406564584124654e-324 AS min_subnormal, -0.0 AS negative_zero;
++-------------------------+---------------+---------------+
+| max_double              | min_subnormal | negative_zero |
++-------------------------+---------------+---------------+
+| 1.7976931348623157e+308 | 5e-324.0      | -0.0          |
++-------------------------+---------------+---------------+
+Got 1 rows (time spent 275µs/329.499µs)
+
+Mon, 14 Sep 2026 01:03:34 CST
+
+(root@nebula) [(none)]> YIELD time({hour:23,minute:59,second:59,microsecond:999999}) AS microseconds;
++--------------+
+| microseconds |
++--------------+
+| BAD_DATA     |
++--------------+
+Got 1 rows (time spent 274µs/420.803µs)
+
+Mon, 14 Sep 2026 01:03:34 CST
+
+
+
+Bye root!
+Mon, 14 Sep 2026 01:03:34 CST
+

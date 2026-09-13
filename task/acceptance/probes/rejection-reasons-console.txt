@@ -1,0 +1,255 @@
+(root@nebula) [(none)]> USE `qa_20260914_s_reject_vid_domain`;
+Execution succeeded (time spent 961µs/1.117145ms)
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_s_reject_vid_domain]> INSERT VERTEX `case_tag`(`value`) VALUES "\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170":("\162\145\152\145\143\164\145\144");
+[ERROR (-1005)]: Storage Error: The VID must be a 64-bit integer or a string fitting space vertex id length limit.
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_s_reject_vid_domain]> INSERT VERTEX `case_tag`(`value`) VALUES "\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170":("\162\145\152\145\143\164\145\144");
+[ERROR (-1005)]: Storage Error: The VID must be a 64-bit integer or a string fitting space vertex id length limit.
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_s_reject_vid_domain]> INSERT VERTEX `case_tag`(`value`) VALUES "\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170":("\162\145\152\145\143\164\145\144");
+[ERROR (-1005)]: Storage Error: The VID must be a 64-bit integer or a string fitting space vertex id length limit.
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_s_reject_vid_domain]> INSERT VERTEX `case_tag`(`value`) VALUES "\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170\170":("\162\145\152\145\143\164\145\144");
+[ERROR (-1005)]: Storage Error: The VID must be a 64-bit integer or a string fitting space vertex id length limit.
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_s_reject_vid_domain]> USE `qa_20260914_i_reject_vid_domain`;
+Execution succeeded (time spent 528µs/586.426µs)
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_i_reject_vid_domain]> INSERT VERTEX `case_tag`(`value`) VALUES 9223372036854775808:("\162\145\152\145\143\164\145\144");
+[ERROR (-1004)]: SyntaxError: Out of range: near `9223372036854775808'
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_i_reject_vid_domain]> INSERT VERTEX `case_tag`(`value`) VALUES 9223372036854775808:("\162\145\152\145\143\164\145\144");
+[ERROR (-1004)]: SyntaxError: Out of range: near `9223372036854775808'
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_i_reject_vid_domain]> INSERT VERTEX `case_tag`(`value`) VALUES 9223372036854775808:("\162\145\152\145\143\164\145\144");
+[ERROR (-1004)]: SyntaxError: Out of range: near `9223372036854775808'
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_i_reject_vid_domain]> INSERT VERTEX `case_tag`(`value`) VALUES 9223372036854775808:("\162\145\152\145\143\164\145\144");
+[ERROR (-1004)]: SyntaxError: Out of range: near `9223372036854775808'
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_i_reject_vid_domain]> USE `qa_20260914_s_reject_int8_range`;
+Execution succeeded (time spent 393µs/443.116µs)
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_s_reject_int8_range]> INSERT VERTEX `case_tag`(`value`) VALUES "\166\060\060\060\060\060":(-129);
+[ERROR (-1005)]: Storage Error: Out of range value.
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_s_reject_int8_range]> INSERT VERTEX `case_tag`(`value`) VALUES "\166\060\060\060\060\061":(128);
+[ERROR (-1005)]: Storage Error: Out of range value.
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_s_reject_int8_range]> INSERT VERTEX `case_tag`(`value`) VALUES "\166\060\060\060\060\062":(-129);
+[ERROR (-1005)]: Storage Error: Out of range value.
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_s_reject_int8_range]> INSERT VERTEX `case_tag`(`value`) VALUES "\166\060\060\060\060\063":(128);
+[ERROR (-1005)]: Storage Error: Out of range value.
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_s_reject_int8_range]> USE `qa_20260914_i_reject_int8_range`;
+Execution succeeded (time spent 485µs/570.605µs)
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_i_reject_int8_range]> INSERT VERTEX `case_tag`(`value`) VALUES 100:(-129);
+[ERROR (-1005)]: Storage Error: Out of range value.
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_i_reject_int8_range]> INSERT VERTEX `case_tag`(`value`) VALUES 101:(128);
+[ERROR (-1005)]: Storage Error: Out of range value.
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_i_reject_int8_range]> INSERT VERTEX `case_tag`(`value`) VALUES 102:(-129);
+[ERROR (-1005)]: Storage Error: Out of range value.
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_i_reject_int8_range]> INSERT VERTEX `case_tag`(`value`) VALUES 103:(128);
+[ERROR (-1005)]: Storage Error: Out of range value.
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_i_reject_int8_range]> USE `qa_20260914_s_reject_float_infinity`;
+Execution succeeded (time spent 513µs/571.394µs)
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_s_reject_float_infinity]> INSERT VERTEX `case_tag`(`value`) VALUES "\166\060\060\060\060\060":(toFloat("-Infinity"));
+[ERROR (-1005)]: Storage Error: Out of range value.
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_s_reject_float_infinity]> INSERT VERTEX `case_tag`(`value`) VALUES "\166\060\060\060\060\061":(toFloat("Infinity"));
+[ERROR (-1005)]: Storage Error: Out of range value.
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_s_reject_float_infinity]> INSERT VERTEX `case_tag`(`value`) VALUES "\166\060\060\060\060\062":(toFloat("-Infinity"));
+[ERROR (-1005)]: Storage Error: Out of range value.
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_s_reject_float_infinity]> INSERT VERTEX `case_tag`(`value`) VALUES "\166\060\060\060\060\063":(toFloat("Infinity"));
+[ERROR (-1005)]: Storage Error: Out of range value.
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_s_reject_float_infinity]> USE `qa_20260914_i_reject_float_infinity`;
+Execution succeeded (time spent 522µs/568.724µs)
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_i_reject_float_infinity]> INSERT VERTEX `case_tag`(`value`) VALUES 100:(toFloat("-Infinity"));
+[ERROR (-1005)]: Storage Error: Out of range value.
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_i_reject_float_infinity]> INSERT VERTEX `case_tag`(`value`) VALUES 101:(toFloat("Infinity"));
+[ERROR (-1005)]: Storage Error: Out of range value.
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_i_reject_float_infinity]> INSERT VERTEX `case_tag`(`value`) VALUES 102:(toFloat("-Infinity"));
+[ERROR (-1005)]: Storage Error: Out of range value.
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_i_reject_float_infinity]> INSERT VERTEX `case_tag`(`value`) VALUES 103:(toFloat("Infinity"));
+[ERROR (-1005)]: Storage Error: Out of range value.
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_i_reject_float_infinity]> USE `qa_20260914_s_reject_rank_min`;
+Execution succeeded (time spent 577µs/641.601µs)
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_s_reject_rank_min]> INSERT EDGE `case_edge`() VALUES "\166\060\060\060\060\060"->"\166\060\060\060\060\061"@-9223372036854775808:();
+[ERROR (-1004)]: SyntaxError: Out of range: near `9223372036854775808'
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_s_reject_rank_min]> INSERT EDGE `case_edge`() VALUES "\166\060\060\060\060\061"->"\166\060\060\060\060\062"@-9223372036854775808:();
+[ERROR (-1004)]: SyntaxError: Out of range: near `9223372036854775808'
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_s_reject_rank_min]> INSERT EDGE `case_edge`() VALUES "\166\060\060\060\060\062"->"\166\060\060\060\060\063"@-9223372036854775808:();
+[ERROR (-1004)]: SyntaxError: Out of range: near `9223372036854775808'
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_s_reject_rank_min]> INSERT EDGE `case_edge`() VALUES "\166\060\060\060\060\063"->"\166\060\060\060\060\064"@-9223372036854775808:();
+[ERROR (-1004)]: SyntaxError: Out of range: near `9223372036854775808'
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_s_reject_rank_min]> USE `qa_20260914_i_reject_rank_min`;
+Execution succeeded (time spent 563µs/647.711µs)
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_i_reject_rank_min]> INSERT EDGE `case_edge`() VALUES 100->101@-9223372036854775808:();
+[ERROR (-1004)]: SyntaxError: Out of range: near `9223372036854775808'
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_i_reject_rank_min]> INSERT EDGE `case_edge`() VALUES 101->102@-9223372036854775808:();
+[ERROR (-1004)]: SyntaxError: Out of range: near `9223372036854775808'
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_i_reject_rank_min]> INSERT EDGE `case_edge`() VALUES 102->103@-9223372036854775808:();
+[ERROR (-1004)]: SyntaxError: Out of range: near `9223372036854775808'
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_i_reject_rank_min]> INSERT EDGE `case_edge`() VALUES 103->104@-9223372036854775808:();
+[ERROR (-1004)]: SyntaxError: Out of range: near `9223372036854775808'
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_i_reject_rank_min]> USE `qa_20260914_s_reject_geography`;
+Execution succeeded (time spent 548µs/618.594µs)
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_s_reject_geography]> INSERT VERTEX `case_tag`(`value`) VALUES "\166\060\060\060\060\060":(ST_GeogFromText("POINT(181 0)"));
+[ERROR (-1005)]: Wrong value type: ST_GeogFromText("POINT(181 0)")
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_s_reject_geography]> INSERT VERTEX `case_tag`(`value`) VALUES "\166\060\060\060\060\061":(ST_GeogFromText("POINT(0 91)"));
+[ERROR (-1005)]: Wrong value type: ST_GeogFromText("POINT(0 91)")
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_s_reject_geography]> INSERT VERTEX `case_tag`(`value`) VALUES "\166\060\060\060\060\062":(ST_GeogFromText("LINESTRING(0 0)"));
+[ERROR (-1005)]: Wrong value type: ST_GeogFromText("LINESTRING(0 0)")
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_s_reject_geography]> INSERT VERTEX `case_tag`(`value`) VALUES "\166\060\060\060\060\063":(ST_GeogFromText("POLYGON((0 0,1 1,0 0))"));
+[ERROR (-1005)]: Wrong value type: ST_GeogFromText("POLYGON((0 0,1 1,0 0))")
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_s_reject_geography]> USE `qa_20260914_i_reject_geography`;
+Execution succeeded (time spent 518µs/559.969µs)
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_i_reject_geography]> INSERT VERTEX `case_tag`(`value`) VALUES 100:(ST_GeogFromText("POINT(181 0)"));
+[ERROR (-1005)]: Wrong value type: ST_GeogFromText("POINT(181 0)")
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_i_reject_geography]> INSERT VERTEX `case_tag`(`value`) VALUES 101:(ST_GeogFromText("POINT(0 91)"));
+[ERROR (-1005)]: Wrong value type: ST_GeogFromText("POINT(0 91)")
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_i_reject_geography]> INSERT VERTEX `case_tag`(`value`) VALUES 102:(ST_GeogFromText("LINESTRING(0 0)"));
+[ERROR (-1005)]: Wrong value type: ST_GeogFromText("LINESTRING(0 0)")
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+(root@nebula) [qa_20260914_i_reject_geography]> INSERT VERTEX `case_tag`(`value`) VALUES 103:(ST_GeogFromText("POLYGON((0 0,1 1,0 0))"));
+[ERROR (-1005)]: Wrong value type: ST_GeogFromText("POLYGON((0 0,1 1,0 0))")
+
+Mon, 14 Sep 2026 01:27:09 CST
+
+
+
+Bye root!
+Mon, 14 Sep 2026 01:27:09 CST
+

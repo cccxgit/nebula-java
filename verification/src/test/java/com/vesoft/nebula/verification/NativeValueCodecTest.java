@@ -9,12 +9,16 @@ import static org.junit.Assert.fail;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
+import com.vesoft.nebula.Coordinate;
 import com.vesoft.nebula.Date;
 import com.vesoft.nebula.DateTime;
 import com.vesoft.nebula.Duration;
 import com.vesoft.nebula.Edge;
 import com.vesoft.nebula.Geography;
+import com.vesoft.nebula.LineString;
 import com.vesoft.nebula.NullType;
+import com.vesoft.nebula.Point;
+import com.vesoft.nebula.Polygon;
 import com.vesoft.nebula.Tag;
 import com.vesoft.nebula.Time;
 import com.vesoft.nebula.Value;
@@ -223,6 +227,89 @@ public class NativeValueCodecTest {
         Edge missing = edge(1, Collections.emptyMap());
         missing.unsetRanking();
         reject(() -> NativeValueCodec.fields(Value.eVal(missing)));
+    }
+
+    @Test
+    public void geographyPointUsesShapeAndCoordinateBitsAsIndependentNativeFields() {
+        Value point = Value.ggVal(Geography.ptVal(new Point(new Coordinate(1, 2))));
+        assertEquals("[\"geography\",\"point\",[\"3ff0000000000000\",\"4000000000000000\"]]",
+                NativeValueCodec.encode(point));
+        SortedMap<String, String> fields = NativeValueCodec.fields(vertex(tag("place", "location", point)));
+        assertEquals(NativeValueCodec.encode(point), fields.get("tag/cGxhY2U=/prop/bG9jYXRpb24="));
+    }
+
+    @Test
+    public void geographyDistinguishesSignedZeroAndOneBitCoordinateChanges() {
+        Value positive = Value.ggVal(Geography.ptVal(new Point(new Coordinate(0.0, 1.0))));
+        Value negative = Value.ggVal(Geography.ptVal(new Point(new Coordinate(-0.0, 1.0))));
+        Value next = Value.ggVal(Geography.ptVal(new Point(new Coordinate(0.0, Math.nextUp(1.0)))));
+        assertNotEquals(NativeValueCodec.encode(positive), NativeValueCodec.encode(negative));
+        assertNotEquals(NativeValueCodec.encode(positive), NativeValueCodec.encode(next));
+        assertTrue(NativeValueCodec.encode(negative).contains("8000000000000000"));
+        assertTrue(NativeValueCodec.encode(next).contains("3ff0000000000001"));
+    }
+
+    @Test
+    public void geographyPreservesLinePointOrderAndPolygonRingStructure() {
+        Coordinate a = new Coordinate(0, 0);
+        Coordinate b = new Coordinate(2, 0);
+        Coordinate c = new Coordinate(0, 2);
+        List<Coordinate> exterior = Arrays.asList(a, b, b, c, a);
+        List<Coordinate> hole = Arrays.asList(new Coordinate(0.1, 0.1), new Coordinate(0.1, 0.2),
+                new Coordinate(0.2, 0.1), new Coordinate(0.1, 0.1));
+        Value line = Value.ggVal(Geography.lsVal(new LineString(exterior)));
+        Value reverse = Value.ggVal(Geography.lsVal(new LineString(Arrays.asList(a, c, b, b, a))));
+        assertNotEquals(NativeValueCodec.encode(line), NativeValueCodec.encode(reverse));
+        JSONArray linePayload = JSON.parseArray(NativeValueCodec.encode(line));
+        assertEquals("linestring", linePayload.getString(1));
+        assertEquals(5, linePayload.getJSONArray(2).size());
+        Value polygon = Value.ggVal(Geography.pgVal(new Polygon(Arrays.asList(exterior, hole))));
+        Value ringsSwapped = Value.ggVal(Geography.pgVal(new Polygon(Arrays.asList(hole, exterior))));
+        JSONArray polygonPayload = JSON.parseArray(NativeValueCodec.encode(polygon));
+        assertEquals("polygon", polygonPayload.getString(1));
+        assertEquals(2, polygonPayload.getJSONArray(2).size());
+        assertEquals(5, polygonPayload.getJSONArray(2).getJSONArray(0).size());
+        assertEquals(4, polygonPayload.getJSONArray(2).getJSONArray(1).size());
+        assertNotEquals(NativeValueCodec.encode(polygon), NativeValueCodec.encode(ringsSwapped));
+        assertNotEquals(NativeValueCodec.encode(polygon), NativeValueCodec.encode(line));
+    }
+
+    @Test
+    public void oneThousandGeographyCoordinatesKeepExactFiniteBits() {
+        Random random = new Random(0x6372656fL);
+        for (int i = 0; i < 1000; i++) {
+            double x = random.nextDouble() * 360 - 180;
+            double y = random.nextDouble() * 180 - 90;
+            Value value = Value.ggVal(Geography.ptVal(new Point(new Coordinate(x, y))));
+            JSONArray pair = JSON.parseArray(NativeValueCodec.encode(value)).getJSONArray(2);
+            assertEquals(Double.doubleToRawLongBits(x), Long.parseUnsignedLong(pair.getString(0), 16));
+            assertEquals(Double.doubleToRawLongBits(y), Long.parseUnsignedLong(pair.getString(1), 16));
+        }
+    }
+
+    @Test
+    public void geographyRejectsNonFiniteCoordinatesAndMissingNativeComponents() {
+        for (double invalid : new double[]{Double.NaN, Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY}) {
+            reject(() -> NativeValueCodec.encode(Value.ggVal(Geography.ptVal(new Point(new Coordinate(invalid, 0))))));
+            reject(() -> NativeValueCodec.encode(Value.ggVal(Geography.ptVal(new Point(new Coordinate(0, invalid))))));
+        }
+        reject(() -> NativeValueCodec.encode(Value.ggVal(new Geography())));
+        reject(() -> NativeValueCodec.encode(Value.ggVal(Geography.ptVal(new Point()))));
+        reject(() -> NativeValueCodec.encode(Value.ggVal(Geography.ptVal(new Point(new Coordinate())))));
+        reject(() -> NativeValueCodec.encode(Value.ggVal(Geography.lsVal(new LineString()))));
+        reject(() -> NativeValueCodec.encode(Value.ggVal(Geography.pgVal(new Polygon()))));
+        reject(() -> NativeValueCodec.encode(Value.ggVal(Geography.pgVal(
+                new Polygon(Collections.singletonList(null))))));
+    }
+
+    @Test
+    public void geographyEmptyListsRemainStructurallyDistinct() {
+        Value line = Value.ggVal(Geography.lsVal(new LineString(Collections.emptyList())));
+        Value polygon = Value.ggVal(Geography.pgVal(new Polygon(Collections.emptyList())));
+        Value ring = Value.ggVal(Geography.pgVal(new Polygon(Collections.singletonList(Collections.emptyList()))));
+        assertEquals("[\"geography\",\"linestring\",[]]", NativeValueCodec.encode(line));
+        assertEquals("[\"geography\",\"polygon\",[]]", NativeValueCodec.encode(polygon));
+        assertEquals("[\"geography\",\"polygon\",[[]]]", NativeValueCodec.encode(ring));
     }
 
     private static void assertRawBits(double value) {

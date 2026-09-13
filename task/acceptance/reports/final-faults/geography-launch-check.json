@@ -1,0 +1,11 @@
+{
+  "status": "PASSED",
+  "checkedAt": "2026-09-13T18:30:01.721543+00:00",
+  "baseline": "verification/target/task-campaign-final/geography_point_s/case-report.json",
+  "baselineSha256": "bcffabbd1fe55a549920145450eba61f8b797a0c667a3bbdf968d706afba80c9",
+  "executionArtifacts": {
+    "file": "task/acceptance/reports/final-faults/execution-artifacts.json",
+    "sha256": "15fd08458f9afc5a63c1e1728365f8a32d19a1227df942a21f2676b3945ea2fd"
+  },
+  "artifactsUnchanged": true
+}

@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "geography_pilot",
+      "scenarioId": "geography_pilot",
+      "vidType": "FIXED_STRING(128)",
+      "sourceSpace": "qa_geo_260914_a",
+      "targetSpace": "qa_geo_260914_c",
+      "rows": 1000,
+      "description": "GEOGRAPHY ANY/POINT/LINESTRING/POLYGON\u56db\u5217\u51711000\u70b91000\u8fb9\u4e25\u683c\u65f6\u5e8f\u8bd5\u8dd1",
+      "negative": false,
+      "expected": {
+        "vertices": 1000,
+        "edges": 1000,
+        "tags": {
+          "geo": 1000
+        },
+        "edgeTypes": {
+          "geoe": 1000
+        }
+      },
+      "sampleQueries": [
+        "FETCH PROP ON * \"geo_0\" YIELD vertex AS v;",
+        "FETCH PROP ON geoe \"geo_0\"->\"geo_1\"@-500 YIELD edge AS e;",
+        "FETCH PROP ON * \"geo_500\" YIELD vertex AS v;",
+        "FETCH PROP ON geoe \"geo_500\"->\"geo_501\"@0 YIELD edge AS e;",
+        "FETCH PROP ON * \"geo_999\" YIELD vertex AS v;",
+        "FETCH PROP ON geoe \"geo_999\"->\"geo_0\"@499 YIELD edge AS e;"
+      ]
+    }
+  ]
+}

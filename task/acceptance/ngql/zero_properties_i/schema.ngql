@@ -1,0 +1,3 @@
+USE `qa_20260914_i_zero_properties`;
+CREATE TAG `case_tag`();
+CREATE EDGE `case_edge`();

@@ -1,0 +1,245 @@
+{
+  "status": "PASSED",
+  "auditedAt": "2026-09-13T18:32:22.489344+00:00",
+  "sceneCount": 7,
+  "commandLogHashesVerified": 145,
+  "executionArtifacts": {
+    "file": "task/acceptance/reports/final-faults/execution-artifacts.json",
+    "sha256": "15fd08458f9afc5a63c1e1728365f8a32d19a1227df942a21f2676b3945ea2fd"
+  },
+  "finalExecutionAudit": {
+    "file": "task/acceptance/reports/final-faults/final-execution-audit.json",
+    "sha256": "c197220356b4c4dd2cd1fd3023883029b4a27da10f567142a7af12197432b6ac"
+  },
+  "scenes": [
+    {
+      "faultId": "property_change",
+      "report": "task/acceptance/reports/final-faults/qa_fault_260914_final_property_change.json",
+      "archiveSha256Verified": true,
+      "archiveFileCount": 101,
+      "internalReportMatchesOriginalExternal": true,
+      "commandLogHashesVerified": 25,
+      "captures": {
+        "baseline-proof/source": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        },
+        "baseline-proof/target": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        },
+        "source": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        },
+        "target-before": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        },
+        "target-after": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        }
+      },
+      "nativeQueriesArchived": 25,
+      "actualExitAndStatusVerified": true
+    },
+    {
+      "faultId": "edge_key_replace",
+      "report": "task/acceptance/reports/final-faults/qa_fault_260914_final_edge_key_replace.json",
+      "archiveSha256Verified": true,
+      "archiveFileCount": 101,
+      "internalReportMatchesOriginalExternal": true,
+      "commandLogHashesVerified": 25,
+      "captures": {
+        "baseline-proof/source": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        },
+        "baseline-proof/target": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        },
+        "source": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        },
+        "target-before": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        },
+        "target-after": {
+          "status": "INCOMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        }
+      },
+      "nativeQueriesArchived": 25,
+      "actualExitAndStatusVerified": true
+    },
+    {
+      "faultId": "tag_membership",
+      "report": "task/acceptance/reports/final-faults/qa_fault_260914_final_tag_membership.json",
+      "archiveSha256Verified": true,
+      "archiveFileCount": 103,
+      "internalReportMatchesOriginalExternal": true,
+      "commandLogHashesVerified": 26,
+      "captures": {
+        "baseline-proof/source": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        },
+        "baseline-proof/target": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        },
+        "source": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        },
+        "target-before": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        },
+        "target-after": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        }
+      },
+      "nativeQueriesArchived": 26,
+      "actualExitAndStatusVerified": true
+    },
+    {
+      "faultId": "geography_coordinate_bit",
+      "report": "task/acceptance/reports/final-faults/qa_fault_260914_final_geo_geography_coordinate_bit.json",
+      "archiveSha256Verified": true,
+      "archiveFileCount": 105,
+      "internalReportMatchesOriginalExternal": true,
+      "commandLogHashesVerified": 27,
+      "captures": {
+        "baseline-proof/source": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        },
+        "baseline-proof/target": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        },
+        "source": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        },
+        "target-before": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        },
+        "target-after": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        }
+      },
+      "nativeQueriesArchived": 27,
+      "actualExitAndStatusVerified": true
+    },
+    {
+      "faultId": "geography_schema_shape",
+      "report": "task/acceptance/reports/final-faults/qa_fault_260914_final_geo_geography_schema_shape.json",
+      "archiveSha256Verified": true,
+      "archiveFileCount": 105,
+      "internalReportMatchesOriginalExternal": true,
+      "commandLogHashesVerified": 27,
+      "captures": {
+        "baseline-proof/source": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        },
+        "baseline-proof/target": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        },
+        "source": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        },
+        "target-before": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        },
+        "target-after": {
+          "status": "INCOMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        }
+      },
+      "nativeQueriesArchived": 27,
+      "actualExitAndStatusVerified": true
+    },
+    {
+      "faultId": "bundle_integrity",
+      "report": "task/acceptance/reports/final-faults/qa_fault_260914_final_bundle_integrity.json",
+      "archiveSha256Verified": true,
+      "archiveFileCount": 58,
+      "internalReportMatchesOriginalExternal": true,
+      "commandLogHashesVerified": 9,
+      "captures": {
+        "baseline-proof/source": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        },
+        "baseline-proof/target": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        }
+      },
+      "nativeQueriesArchived": 12,
+      "actualExitAndStatusVerified": true
+    },
+    {
+      "faultId": "snapshot_integrity",
+      "report": "task/acceptance/reports/final-faults/qa_fault_260914_final_snapshot_integrity.json",
+      "archiveSha256Verified": true,
+      "archiveFileCount": 58,
+      "internalReportMatchesOriginalExternal": true,
+      "commandLogHashesVerified": 6,
+      "captures": {
+        "baseline-proof/source": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        },
+        "baseline-proof/target": {
+          "status": "COMPLETE",
+          "recordCount": 2000,
+          "sha256Verified": true
+        }
+      },
+      "nativeQueriesArchived": 8,
+      "actualExitAndStatusVerified": true
+    }
+  ]
+}

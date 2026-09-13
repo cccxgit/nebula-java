@@ -1,0 +1,5 @@
+USE `qa_schema_260914_ddl_probe`;
+INSERT VERTEX `defaults_tag`() VALUES 1:(),2:();
+INSERT EDGE `defaults_edge`() VALUES 1->2@0:();
+FETCH PROP ON * 1 YIELD vertex AS v;
+FETCH PROP ON `defaults_edge` 1->2@0 YIELD edge AS e;

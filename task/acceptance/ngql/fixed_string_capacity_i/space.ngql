@@ -1,0 +1,1 @@
+CREATE SPACE `qa_20260914_i_fixed_string_capacity`(partition_num=7,replica_factor=1,vid_type=INT64);

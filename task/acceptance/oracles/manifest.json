@@ -1,0 +1,546 @@
+{
+  "formatVersion": 1,
+  "fixturesSha256": "be1112d62abc4a529a23102b382fed6c089fe7a916858eff2688028dfe757b57",
+  "cases": {
+    "vid_values_s": {
+      "file": "vid_values_s.json",
+      "sha256": "ffebab36a89ce7986bd7f48cf72e5805de50d45ec82ec3d36bfb027bde6d04a9",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "vid_values_i": {
+      "file": "vid_values_i.json",
+      "sha256": "0e7638ecf7e083c2219f035f1cf9c6ade296f0553a308549ffd08fa849a2dbb8",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "bool_values_s": {
+      "file": "bool_values_s.json",
+      "sha256": "70c34a8227c59202e2f02b56a63598d4cfb7568f1a792486d90509e6c0316ef8",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "bool_values_i": {
+      "file": "bool_values_i.json",
+      "sha256": "ea76c23d837a96ab7e7c56873fa1538024a20d7f3544d2d1bdb404663a592c7c",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "int8_values_s": {
+      "file": "int8_values_s.json",
+      "sha256": "4c104e53d4c069b92da5a52f57cb1e20b13ffbe0ce4aaf63487141f7f2495da9",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "int8_values_i": {
+      "file": "int8_values_i.json",
+      "sha256": "18d4fa0548f8106ee5ca7e2a30f2fdfbc35e475cf314895f9f3dc6772fc0878a",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "int16_values_s": {
+      "file": "int16_values_s.json",
+      "sha256": "26fe084a05cbbc1ef6f0c1a760e4e6b6ca2a10d7855c051b1a3d7dfe8e14c5d8",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "int16_values_i": {
+      "file": "int16_values_i.json",
+      "sha256": "f544bcf3180004ea05dc9c3cacffe621ad9feb282a8991b61d75b9f57d982b49",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "int32_values_s": {
+      "file": "int32_values_s.json",
+      "sha256": "6c4161876529d0e10811ae015052f3bd414de23aa1008fe2a32834f248c05b47",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "int32_values_i": {
+      "file": "int32_values_i.json",
+      "sha256": "005410d4e57777c0c914edb723057d0d05edf9a1fe1d0d835fcd718cd052f17a",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "int64_values_s": {
+      "file": "int64_values_s.json",
+      "sha256": "64fafcb5038576f11f040656ec97635e95c4a7a46dfe1f68de251cd85b90b71b",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "int64_values_i": {
+      "file": "int64_values_i.json",
+      "sha256": "d9966b1fe5aa18c712f0d3341f8443101ab29e1d264fcdc9bf87ddec95298529",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "float_finite_s": {
+      "file": "float_finite_s.json",
+      "sha256": "b2ba989cdaa9f6ac3a6ef488f0404c7e76267a1f7822c1c1165a586c41ee5966",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "float_finite_i": {
+      "file": "float_finite_i.json",
+      "sha256": "c287bd290983c036df9108e02d62919686eff4dc5eb78d0b9606b7c7424489e2",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "float_signed_zero_s": {
+      "file": "float_signed_zero_s.json",
+      "sha256": "76ff66404b23661c560a13fd5c4be864f1141f84a30b60785d14f9a01065ea8e",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "float_signed_zero_i": {
+      "file": "float_signed_zero_i.json",
+      "sha256": "53d187577ef17cdeb6001f8bd67bc3d5ff25f2b1d5ad8eaf731020cc2ae4e395",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "float_nonfinite_s": {
+      "file": "float_nonfinite_s.json",
+      "sha256": "0a69e69a4fb9acfdf85450c33c6a3429d187e0d813f3cd32b76210d6c7fd8dea",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "float_nonfinite_i": {
+      "file": "float_nonfinite_i.json",
+      "sha256": "1b4ebbb568230359ad8a70feca2c02700a3c948e1c8140b92dbfb091072c17db",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "double_finite_s": {
+      "file": "double_finite_s.json",
+      "sha256": "5c54aa2d0b71fc9f5b106b5fb5b4315063d484fff0842c46bf5d774d2501c952",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "double_finite_i": {
+      "file": "double_finite_i.json",
+      "sha256": "6f757a3f0b8740c36baf8857eb3c46da869f1e6bcca8d7600be6cc41f8e670fc",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "double_signed_zero_s": {
+      "file": "double_signed_zero_s.json",
+      "sha256": "69344e9437eb801408b07a926dd2b6f204167d57d34caa4227dbf6b28cc14fd8",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "double_signed_zero_i": {
+      "file": "double_signed_zero_i.json",
+      "sha256": "2f19de7d05188543676d3c96785c196b48707df253464e3e4040349a2fe6424b",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "double_nonfinite_s": {
+      "file": "double_nonfinite_s.json",
+      "sha256": "69c3d0237081012ffc44d2376c0bf4ba473f20550b13bf1ab42a648dde03a1d8",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "double_nonfinite_i": {
+      "file": "double_nonfinite_i.json",
+      "sha256": "18278a6f8be3e9dfaa6f3be12ea29631be321f77f6a303e8abae5fb4b1dd3c7c",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "string_special_s": {
+      "file": "string_special_s.json",
+      "sha256": "04c95dcaa6241832e33454743e1f14c6d859d53160671663433fcf5b62170400",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "string_special_i": {
+      "file": "string_special_i.json",
+      "sha256": "80e0ffb942d70f93db55a2a7265384667f46608a468f53b0c3ee3fb46bb23dcf",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "string_all_bytes_s": {
+      "file": "string_all_bytes_s.json",
+      "sha256": "83d5fbb4a5291bdde7f5a42153080107ea0017c24ecad14071096571d7ae6265",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "string_all_bytes_i": {
+      "file": "string_all_bytes_i.json",
+      "sha256": "a58b003bd74e746780bbb88c04ab0260d0f51881248cf0e22d1cb8ccbb7d7c7e",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "string_invalid_utf8_s": {
+      "file": "string_invalid_utf8_s.json",
+      "sha256": "29a1f4c6c883ed3d0b98f8b23d1394c6671c03e128fcfb4e4befffa5359a1f98",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "string_invalid_utf8_i": {
+      "file": "string_invalid_utf8_i.json",
+      "sha256": "74d33f8107c0b1d91393aa553ea114c556e10e1dc8f1c5ee8f6139434e300311",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "string_long_s": {
+      "file": "string_long_s.json",
+      "sha256": "d638983fc5d65fe141a81f50ff6c74fcadf3fcc30de5c6ece91e3e4e8f2b53c5",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "string_long_i": {
+      "file": "string_long_i.json",
+      "sha256": "0b4e902138aea2e04eb1e7005dae92be3c8865801f28b7034b468e0af7184451",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "string_empty_s": {
+      "file": "string_empty_s.json",
+      "sha256": "6d0c59eb9d884dbdb2698093bfd90cc66cb56a9efe65bf069203ba725b85ee85",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "string_empty_i": {
+      "file": "string_empty_i.json",
+      "sha256": "1cd12cded0af98942fcb5787b4ea485e130196dc5dca62a95958fa8e14d8b5b3",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "string_literal_null_s": {
+      "file": "string_literal_null_s.json",
+      "sha256": "aa8284b0f3b58270dd12d50b76958f9f07e2cd3ba7d240cea2393adfc4907eaf",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "string_literal_null_i": {
+      "file": "string_literal_null_i.json",
+      "sha256": "3a1227e530a51416b39ac78c309153958220b22d0cedeaad1e603586dcfb30e6",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "fixed_string_special_s": {
+      "file": "fixed_string_special_s.json",
+      "sha256": "972492ee46c8503f84f5910cc5084e5497bdd259b33a8b70023389632051def7",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "fixed_string_special_i": {
+      "file": "fixed_string_special_i.json",
+      "sha256": "20ff7635a7efe583ae125f8498bc4ef510360899314b610b33b6306cfd83b0c7",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "fixed_string_capacity_s": {
+      "file": "fixed_string_capacity_s.json",
+      "sha256": "75628c8ec9b794045e03a23d6bd3c2b09b1767c0e04c611357261bd31a23ef40",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "fixed_string_capacity_i": {
+      "file": "fixed_string_capacity_i.json",
+      "sha256": "f42f30f46a5a7cace200aa886a5311a240aee659d75f892eabcaac3857eddd9b",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "all_types_null_s": {
+      "file": "all_types_null_s.json",
+      "sha256": "3d7ad51875276362d8c77042af5f62743f051ebf844000e693a9378c32ba2f53",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "all_types_null_i": {
+      "file": "all_types_null_i.json",
+      "sha256": "3bd11e7812ef770b3e1f0aff3b6f1db451fa41c7ed18e307cb1341f899496b63",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "date_values_s": {
+      "file": "date_values_s.json",
+      "sha256": "ac931a84bb19c120fd61019338b02e4f8a992f09fad844dbf1a2cd8344d9a502",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "date_values_i": {
+      "file": "date_values_i.json",
+      "sha256": "39458444b65f6ee6aa22d2653efbd73786ed22a701ee646fb4a1faa0fd8351b4",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "time_microseconds_s": {
+      "file": "time_microseconds_s.json",
+      "sha256": "8ef52a935ea606419ea31bdf955c3e16c196e2cd87707434a72c0e630e509c83",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "time_microseconds_i": {
+      "file": "time_microseconds_i.json",
+      "sha256": "275d6bc14ee1f94de2011329e3091e88a7304f339ec3750f9dc5423830ec5bde",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "datetime_values_s": {
+      "file": "datetime_values_s.json",
+      "sha256": "f7aab25a8fbbf06de9284a02770e81bd1c402da6ba109e59cf8479839c314651",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "datetime_values_i": {
+      "file": "datetime_values_i.json",
+      "sha256": "d33c4822af71b98f4772d4d18766d9c60080fe25773c8b17a47ff4f539ae9f6b",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "timestamp_values_s": {
+      "file": "timestamp_values_s.json",
+      "sha256": "396ae3d304a59e82228aa95f0b0e459fc7a725ca563a40bc7985bbca0ebc9ed4",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "timestamp_values_i": {
+      "file": "timestamp_values_i.json",
+      "sha256": "0ddb5a7ffbc55d6d4958b914a443f95335a3a10458b9c767e27bb512dfac2d1b",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "duration_values_s": {
+      "file": "duration_values_s.json",
+      "sha256": "c68c2c23ff3a12097d60981222936e8489016cc9cb4522f5715f205ad1905c13",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "duration_values_i": {
+      "file": "duration_values_i.json",
+      "sha256": "86fec6ad3b07e4cdad9a987c491a182a8d36f3731a9a6458eea8a960aca661fa",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "duration_microsecond_bounds_s": {
+      "file": "duration_microsecond_bounds_s.json",
+      "sha256": "2c03c98154bfc1b03dcc1d799461e0377cd84b40504cc8bdab285e7e9cd78497",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "duration_microsecond_bounds_i": {
+      "file": "duration_microsecond_bounds_i.json",
+      "sha256": "bfa1460aa892a131189be5c138753f08206f0c3634db694929429136b4cc18e8",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "geography_point_s": {
+      "file": "geography_point_s.json",
+      "sha256": "a272cc6ef191816c51f88d276f23f481434751ac37e9b5284a535a8974a103e7",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "geography_point_i": {
+      "file": "geography_point_i.json",
+      "sha256": "4e698960403e257afd3fdbd3d83d72ee7dea163d41654957fb1a8991d6e35e15",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "geography_line_s": {
+      "file": "geography_line_s.json",
+      "sha256": "abf209f4a6fd63e2f14c397aac5d4ae7f80b08f516a7ee9b4328732d79d1b924",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "geography_line_i": {
+      "file": "geography_line_i.json",
+      "sha256": "165de791e051148af098e2edd16049f70b5565ba8ff82cc9943e89d229198224",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "geography_polygon_s": {
+      "file": "geography_polygon_s.json",
+      "sha256": "ce653446b89805f8bd4c9a2e87240ab364af8abeeaf18459465b1b2dbdd292fd",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "geography_polygon_i": {
+      "file": "geography_polygon_i.json",
+      "sha256": "93bcbf63ece25b8cd948767c5aca7cd1a3a8141b16c1ff0a03989254b0f3d08f",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "geography_mixed_s": {
+      "file": "geography_mixed_s.json",
+      "sha256": "87b1ba2ff6cb1169e583e2ed03f6d71451af27f8eabededf043eaddcb997c8a2",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "geography_mixed_i": {
+      "file": "geography_mixed_i.json",
+      "sha256": "8dc0ab1b166a197ad29238b7e9f225a6e28a08a041d38e3850b4f4abf715e9ae",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "zero_properties_s": {
+      "file": "zero_properties_s.json",
+      "sha256": "ce0f61c78e49f73b32deb17c33a43db184ee5163f49dc91449a95d50acd0082f",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "zero_properties_i": {
+      "file": "zero_properties_i.json",
+      "sha256": "9f77c8163ae489ce4265c3dff339af0c11d8b8ba1cc4efab013bb29bd4cfb2b4",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "multiple_tags_s": {
+      "file": "multiple_tags_s.json",
+      "sha256": "be0faa947d45ef0bd4adc3b5eb6616d9a8d0ad12171cccd51f69b9ecb3158678",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "multiple_tags_i": {
+      "file": "multiple_tags_i.json",
+      "sha256": "0be0424de95efd8bac80237e2308754383147ad23bbea3ef8ada8d5a2e0415a5",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "edge_rank_bounds_s": {
+      "file": "edge_rank_bounds_s.json",
+      "sha256": "ac72ea3817f7d27c690670452aaf1c103f70ce70d3752ce22c746757216041b8",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "edge_rank_bounds_i": {
+      "file": "edge_rank_bounds_i.json",
+      "sha256": "f7f3a9bdd9c2cbfc82f02eaa92c598b45f43eb3dc4de182201340af12ffe43d9",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "self_loops_s": {
+      "file": "self_loops_s.json",
+      "sha256": "9791f38f3d4e97eb28b29396e508eb3ffce6ee055bbc818caf05a601122d8740",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "self_loops_i": {
+      "file": "self_loops_i.json",
+      "sha256": "d3663267951e5b42f6930be498ae60882f30abcd62b8bd24c2ccd41a4914c793",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "parallel_edges_s": {
+      "file": "parallel_edges_s.json",
+      "sha256": "c9deef727f8379e44bc81361c408b6a358627d84e1ba723ecb851669b8dce386",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "parallel_edges_i": {
+      "file": "parallel_edges_i.json",
+      "sha256": "2d8a9368c4c6c4c00ad3e37ee7568d8478de809e48e1fae24ea29a9568d3f035",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "quoted_schema_s": {
+      "file": "quoted_schema_s.json",
+      "sha256": "dc801f71bf7b96c8582cf411a96dd6f37b003c023bae8e03531af97c20cc0435",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "quoted_schema_i": {
+      "file": "quoted_schema_i.json",
+      "sha256": "42626ab38bf43684b4f2d6d4ef8b90be1a523a79afcd22fa78ef98ce9a7f7c77",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "not_null_defaults_s": {
+      "file": "not_null_defaults_s.json",
+      "sha256": "7dfd90c7df6f44465e57015e5f6300356140c5c444306666ded81113411129b1",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "not_null_defaults_i": {
+      "file": "not_null_defaults_i.json",
+      "sha256": "5303df7318490bc5cdfe05248033553eca40afd38cc166235547672e151a514f",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "combined_types_s": {
+      "file": "combined_types_s.json",
+      "sha256": "b87b9c7d178651c06cb7a660da8ec687701fcd047eb68977f6b6554b8550b4b0",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "combined_types_i": {
+      "file": "combined_types_i.json",
+      "sha256": "6d19bf24e18c58212f3159c1bf5ffeb6561861eff976819581ff3c69fc11fcd5",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "pagination_s": {
+      "file": "pagination_s.json",
+      "sha256": "db4326ca46f8466c830b92b44967102d1008e632587dcfeed74713afc3cf67fa",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "pagination_i": {
+      "file": "pagination_i.json",
+      "sha256": "90056e81703a295275b0ecacc8ffd653372fe53414acffdc2ca9b70294ff3857",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "reject_vid_domain_s": {
+      "file": "reject_vid_domain_s.json",
+      "sha256": "b82567b13d8e54813347bf2c85764ae35804a82413c0902b9dd1d26b0b68eb1e",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "reject_vid_domain_i": {
+      "file": "reject_vid_domain_i.json",
+      "sha256": "18e54c3019cb75f02f2337499fbeee72abaaccd47964d2c5b5c63c72ba8f7f30",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "reject_int8_range_s": {
+      "file": "reject_int8_range_s.json",
+      "sha256": "16112bbd7c9eb7815078e29fd5b0c4b9a2d7abcec53c49573ae6d7e2c4ff9899",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "reject_int8_range_i": {
+      "file": "reject_int8_range_i.json",
+      "sha256": "04d0784d3bd9c29c23315e062d7880eaafac81f82a84c5da7135c6b8b3092a4e",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "reject_float_infinity_s": {
+      "file": "reject_float_infinity_s.json",
+      "sha256": "2fdf694c89ea9d359f29e5e1e4f8db88e4f75d7863bc5d4b4e813062cc44ea84",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "reject_float_infinity_i": {
+      "file": "reject_float_infinity_i.json",
+      "sha256": "94c1d7756fef3368e98c84503466f17690e9a352b9113f28a1b34409ee5b0ba3",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "reject_rank_min_s": {
+      "file": "reject_rank_min_s.json",
+      "sha256": "eada27ac622a79e77e24bd1410309d67c457246d7de2d619184896603e2b69db",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "reject_rank_min_i": {
+      "file": "reject_rank_min_i.json",
+      "sha256": "3085a2748e4dac42b7194568f0316066697aaad8057d34b574a812e61a51bd0a",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "reject_geography_s": {
+      "file": "reject_geography_s.json",
+      "sha256": "6c42fc563e693a09a94cc37aa90b701f787f9ebd0e8ed109b0281c29da395200",
+      "vertices": 1000,
+      "edges": 1000
+    },
+    "reject_geography_i": {
+      "file": "reject_geography_i.json",
+      "sha256": "22ee7e6584c48de302a5cd708921755f736e5555d3dd0dd250148592ac692c94",
+      "vertices": 1000,
+      "edges": 1000
+    }
+  }
+}

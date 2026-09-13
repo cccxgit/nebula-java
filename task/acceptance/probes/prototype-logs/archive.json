@@ -1,0 +1,132 @@
+{
+  "archivedAt": "2026-09-13T18:18:33.256778+00:00",
+  "purpose": "Historical prototype and seed/run console output; success claims use final case reports, not these logs.",
+  "files": [
+    {
+      "originalPath": "/tmp/duration-fixture-baseline.json",
+      "archivedFile": "duration-fixture-baseline.json",
+      "bytes": 353501,
+      "sha256": "de9c7706ad114d8ca453e4c95a03aae5315528a1be4de2e77c26340edcd7f3a1"
+    },
+    {
+      "originalPath": "/tmp/duration-fixture-generation.txt",
+      "archivedFile": "duration-fixture-generation.txt",
+      "bytes": 153,
+      "sha256": "1cdb554a4a8f81c18b3b094085afd452eb8841391c323b0f4276861dccc721fc"
+    },
+    {
+      "originalPath": "/tmp/nebula-duration-bounds.log",
+      "archivedFile": "nebula-duration-bounds.log",
+      "bytes": 292,
+      "sha256": "028136b96e7ba46b857692dfaf5af6b6289e8a69c59e9ef00d411f52567f5f05"
+    },
+    {
+      "originalPath": "/tmp/nebula-duration-seeding.log",
+      "archivedFile": "nebula-duration-seeding.log",
+      "bytes": 468,
+      "sha256": "c8374985eba7cd5f8be5663d43d62e4ed87880a380b2295948a293844628bda0"
+    },
+    {
+      "originalPath": "/tmp/nebula-schema-fixed.log",
+      "archivedFile": "nebula-schema-fixed.log",
+      "bytes": 252,
+      "sha256": "0083ea5c17f2c673d72528a5966350adb7a340f3cbd13ac2ab99abb5b13d74f8"
+    },
+    {
+      "originalPath": "/tmp/nebula-schema-stress-seed.log",
+      "archivedFile": "nebula-schema-stress-seed.log",
+      "bytes": 396,
+      "sha256": "d83590023388329d0694bf1e78408a117a7174fc41a5ed0427d1bb654d43886b"
+    },
+    {
+      "originalPath": "/tmp/nebula-schema-stress.log",
+      "archivedFile": "nebula-schema-stress.log",
+      "bytes": 244,
+      "sha256": "4c7e9df5837e8b122419a768d7e06d1e1a377aef98092f99c65d50b6269f0099"
+    },
+    {
+      "originalPath": "/tmp/nebula-console-verify-probe-output.log",
+      "archivedFile": "nebula-console-verify-probe-output.log",
+      "bytes": 2822,
+      "sha256": "431016ca496450b6ec5e6d5cc5955f0c059a12676ba54e9c24f3860bc483817c"
+    },
+    {
+      "originalPath": "/tmp/nebula-console-verify-probe-path",
+      "archivedFile": "nebula-console-verify-probe-path",
+      "bytes": 41,
+      "sha256": "19564546eef8f5c768f2ab059e4deb3a463fa6a745ec4636df2ea9406c618495"
+    },
+    {
+      "originalPath": "/tmp/nebula-console-verify-probe-twj2n27v/cr.csv",
+      "archivedFile": "console-verification-prototype/cr.csv",
+      "bytes": 7,
+      "sha256": "3d6a9a1c9aad7a7760fb99a4b584f5e81fe21a0702c5248357fba487bf05df8c"
+    },
+    {
+      "originalPath": "/tmp/nebula-console-verify-probe-twj2n27v/float_a.csv",
+      "archivedFile": "console-verification-prototype/float_a.csv",
+      "bytes": 6,
+      "sha256": "fa602c741b2161e625a2cb5a3a76d31deec6746cd8cea499ecf30c2a8b2ebd24"
+    },
+    {
+      "originalPath": "/tmp/nebula-console-verify-probe-twj2n27v/float_b.csv",
+      "archivedFile": "console-verification-prototype/float_b.csv",
+      "bytes": 22,
+      "sha256": "3b9832f2b86236bd5ccf9ada82873ed6c4192cdbaa23f8a939d742b8b66bb333"
+    },
+    {
+      "originalPath": "/tmp/nebula-console-verify-probe-twj2n27v/invalid_fe.csv",
+      "archivedFile": "console-verification-prototype/invalid_fe.csv",
+      "bytes": 6,
+      "sha256": "07b81fe60fc4c0e59140fcacd194592ad640a68efbc0f31393cb6e14af0aa737"
+    },
+    {
+      "originalPath": "/tmp/nebula-console-verify-probe-twj2n27v/invalid_ff.csv",
+      "archivedFile": "console-verification-prototype/invalid_ff.csv",
+      "bytes": 6,
+      "sha256": "c0a524ca85f97356309abe2e1d24c1a4b0318d45d059f4f84baea450738339de"
+    },
+    {
+      "originalPath": "/tmp/nebula-console-verify-probe-twj2n27v/lf.csv",
+      "archivedFile": "console-verification-prototype/lf.csv",
+      "bytes": 8,
+      "sha256": "c5bc8284c843d06a746c879b03d26028afcac06834821f818b44876c46d9c978"
+    },
+    {
+      "originalPath": "/tmp/nebula-console-verify-probe-twj2n27v/nul.csv",
+      "archivedFile": "console-verification-prototype/nul.csv",
+      "bytes": 8,
+      "sha256": "276b57d8a22d84f1ce58b17deb53699a6934129e5a0ab0376cf91d6a487a3b16"
+    },
+    {
+      "originalPath": "/tmp/nebula-console-verify-probe-twj2n27v/plain.csv",
+      "archivedFile": "console-verification-prototype/plain.csv",
+      "bytes": 7,
+      "sha256": "3d6a9a1c9aad7a7760fb99a4b584f5e81fe21a0702c5248357fba487bf05df8c"
+    },
+    {
+      "originalPath": "/tmp/nebula-console-verify-probe-twj2n27v/probe.ngql",
+      "archivedFile": "console-verification-prototype/probe.ngql",
+      "bytes": 874,
+      "sha256": "66498a01a5ac338ba2ade63b2db86e257ca3e4ce0081e22b663979ff191d295b"
+    },
+    {
+      "originalPath": "/tmp/nebula-console-verify-probe-twj2n27v/quote.csv",
+      "archivedFile": "console-verification-prototype/quote.csv",
+      "bytes": 7,
+      "sha256": "3d6a9a1c9aad7a7760fb99a4b584f5e81fe21a0702c5248357fba487bf05df8c"
+    },
+    {
+      "originalPath": "/tmp/nebula-console-verify-probe-twj2n27v/replacement.csv",
+      "archivedFile": "console-verification-prototype/replacement.csv",
+      "bytes": 8,
+      "sha256": "1637bfe9bf324bcd1bc7c03c17819de69cd3c88c350a86e134682380a15deffa"
+    },
+    {
+      "originalPath": "/tmp/nebula-console-verify-probe-twj2n27v/slash_quote.csv",
+      "archivedFile": "console-verification-prototype/slash_quote.csv",
+      "bytes": 7,
+      "sha256": "3d6a9a1c9aad7a7760fb99a4b584f5e81fe21a0702c5248357fba487bf05df8c"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+USE `qa_20260914_i_multiple_tags`;
+CREATE TAG `case_tag`(`value` STRING NULL);
+CREATE EDGE `case_edge`(`value` STRING NULL);
+CREATE TAG extra_tag();

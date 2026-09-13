@@ -1,0 +1,3 @@
+USE `qa_20260914_s_int32_values`;
+CREATE TAG `case_tag`(`value` INT32 NULL);
+CREATE EDGE `case_edge`(`value` INT32 NULL);

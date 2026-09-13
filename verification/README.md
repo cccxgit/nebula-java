@@ -6,14 +6,16 @@
 
 流程：**固定 ID 清单 → 源端 FETCH 采集 → 搬迁 → 目标端 FETCH 采集 → 离线比较**。源、目标可以处于不同网络，采集无需同时连接两端。所有数据库操作均为只读；比较命令完全不连接数据库。
 
+扩展验收入口：[全量场景手动测试指导书](../task/acceptance/手动测试指导书.md) · [任务产出报告](../task/任务产出报告.md)。新场景是否通过以对应执行记录为准。
+
 ## 校验范围
 
 - 按同一份清单核对每个点的原生 VID、实际全部 Tag（包括无属性 Tag）、完整属性名称、类型及值。
 - 按 `SRC + Edge 名称 + RANK + DST` 核对边及完整属性。不同空间的内部 Tag/Edge 数字 ID 不参与比较。
 - 字符串按原始字节比较；浮点按返回的 IEEE binary64 位模式比较，区分正零、负零与相邻浮点数；时间按原生字段保留微秒；NULL 与空字符串区分。
-- 相关 Schema 的属性名称、类型与可空性也参与比较。默认表达式、注释、索引、TTL 配置与无关 Schema 不属于内容比较。
+- 相关 Schema 的属性名称、类型与可空性也参与比较，包含 GEOGRAPHY 的通用/限定形状差异。默认表达式、注释、索引、TTL 配置与无关 Schema 不属于内容比较。
 - **只对清单列出的对象负责**。不检查清单是否覆盖全库，不验证全库数量，不查找清单外目标多出的点/边。清单内点多出 Tag 会被发现。清单内对象缺失会使校验无法通过。
-- 支持 BOOL、INT8/16/32/64、FLOAT、DOUBLE、STRING、FIXED_STRING、DATE、TIME、DATETIME、TIMESTAMP、DURATION，以及正常 NULL。不支持实际对象上的 GEOGRAPHY 和异常 NULL 状态。
+- 支持 15 种持久化属性类型：BOOL、INT8/16/32/64、FLOAT、DOUBLE、STRING、FIXED_STRING、DATE、TIME、DATETIME、TIMESTAMP、DURATION、GEOGRAPHY，以及正常 NULL。GEOGRAPHY 包括通用类型（ANY）及 POINT、LINESTRING、POLYGON 形状约束；异常 NULL、非有限地理坐标及未知返回类型不能通过校验。
 
 沿用既定数据约束：无不带 Tag 的点，字符串 VID 与 FIXED_STRING 属性不含 NUL；普通 STRING 可包含 NUL、无效 UTF-8、引号、反斜杠、CR/LF、emoji、组合字符及任意字节。这里比较的是 Graph 接口实际可读的原生数据，不宣称恢复写入服务端前已经丢失的信息。
 
@@ -121,8 +123,15 @@ java -jar verification/target/nebula-data-verifier-3.8.4.jar prepare-ids \
 | `abc<NUL>def` | `["string","YWJjAGRlZg=="]` |
 | INT64 最大值 | `["int","9223372036854775807"]` |
 | DOUBLE 负零 | `["float","8000000000000000"]` |
+| GEOGRAPHY 点 `(1,2)` | `["geography","point",["3ff0000000000000","4000000000000000"]]` |
 
 Tag/属性名称以原始字节 Base64 表示为字段路径；无属性 Tag 仍有 `tag/<名称Base64>` 的 `present` 标记。FLOAT/DOUBLE 的具体 Schema 类型另外存于 manifest；数值载荷始终使用接口返回的 binary64 原始位。比较器解析结构并按键比较，不直接比较含空间名/采集时间的整个文件，也不依赖查询返回顺序。
+
+普通 `fVal` 的 NaN 和正负 Infinity 也按原始位比较；不同 NaN 载荷与正负零不会被归一化成相同值。独立校验能够记录某种位模式，不代表搬迁器可以写入该值：当前搬迁允许 FLOAT 的规范 NaN（`7ff8000000000000`）、DOUBLE 的规范 NaN 和正负 Infinity，拒绝 FLOAT 的正负 Infinity 及会被 Thrift 改变载荷的其他 NaN。异常 `NullType.NaN` 始终报错。见 [搬迁浮点边界](../migration/README.md#浮点重放边界) 与 [只读协议证据](../task/acceptance/probes/scalar-wire-probe.txt)。
+
+GEOGRAPHY 的独立校验载荷是 `geography + shape + 坐标树`：线使用 `[[xBits,yBits],...]`，面使用 `[[[xBits,yBits],...],...]`，所有分量均为 16 位小写 raw binary64 字符串。形状、坐标和环的顺序、负零、单个坐标位差异均参与比较。`GEOGRAPHY` 与 `GEOGRAPHY(POINT)` 即使存了同一个点，相关 Schema 也不相同。非有限坐标报错；工具不做 WKT/JTS 转换或拓扑等价判断。
+
+比较基准是源端实际 FETCH 返回的原生数据。源服务端可能已经规范化几何，因此不要求输入 WKT 文本、相邻重复坐标等规范化前形式在目标原样出现；目标应与源返回的形状树及坐标位一致。
 
 ## 构建与测试
 
@@ -153,6 +162,6 @@ JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 PATH=/usr/lib/jvm/java-8-openjdk-amd
   -Dnebula.verifier.source=fixture_A -Dnebula.verifier.target=disposable_fixture_B
 ```
 
-真实测试覆盖完整类型、极值、微秒、原始字节，以及单个浮点位变化、无属性 Tag 缺失/增加、无属性边缺失、错误查询和恢复后的再次匹配。验收结果见 [验收记录](acceptance/2026-09-13/README.md)。
+2026-09-13 的真实测试覆盖当时已支持的 14 类型、极值、微秒、原始字节，以及单个浮点位变化、无属性 Tag 缺失/增加、无属性边缺失、错误查询和恢复后的再次匹配。历史结果见 [验收记录](acceptance/2026-09-13/README.md)，其范围不包含新增 GEOGRAPHY。地理类型及每场景千条级的扩展结果见 [任务产出报告](../task/任务产出报告.md)，执行步骤见 [全量测试指导书](../task/acceptance/手动测试指导书.md)。
 
 当前版本逐条查询并在内存中比较全部记录，追求正确性和明确失败；需为采集和比较预留足够堆内存，单条数据大小也受服务器/RPC 限制。

@@ -1,0 +1,43 @@
+{
+	"id":"vid_values_s",
+	"startedAt":"2026-09-13T17:34:31.454955709Z",
+	"oracleSha256":"d7b357cab466c501b222752effc05143502e0277d9245b4ff08fb212294f34e9",
+	"passed":false,
+	"status":"FAILED",
+	"records":[
+		{
+			"key":"VERTEX/V:",
+			"variant":"baseline",
+			"fieldCount":3,
+			"fieldsSha256":"424025e3d17b0f33e500aefbdcf9bddd0f351673af86b3e407caeaf5a7a5e71b"
+		},
+		{
+			"key":"EDGE/[\"V:\",\"V:dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dg==\",\"V:LTUwMA==\",\"Y2FzZV9lZGdl\"]",
+			"variant":"baseline",
+			"fieldCount":5,
+			"fieldsSha256":"56333af921f77f40885723a272fe9593610d27f63d460bc03edfc1d17960cc2a"
+		}
+	],
+	"space":"qa_20260914_s_vid_values",
+	"fixtureFileHashes":{
+		"vid_values_s/space.ngql":{
+			"sha256":"f7ae48916723f21137543fc979146da471dd295a0c076610d9e79d621200edb6",
+			"bytes":102
+		},
+		"vid_values_s/sample.ngql":{
+			"sha256":"2c34924b0b788804bb0cbc327aaac4f4fb023497a8885fbeeae75f5038836885",
+			"bytes":4239
+		},
+		"vid_values_s/schema.ngql":{
+			"sha256":"f8fca09aac58bedc0d43393c6f032dd97541403d2114dcabf9b21a93bf320f70",
+			"bytes":122
+		},
+		"vid_values_s/data.ngql":{
+			"sha256":"9c9046fa7b84e339eba9a7ae1b78d0e3323d2983ee09971b97b23c87141cc952",
+			"bytes":604106
+		}
+	},
+	"validatedRows":2,
+	"failure":"java.lang.IllegalStateException: Duplicate expected complete object key: VERTEX/V:",
+	"finishedAt":"2026-09-13T17:34:31.572453576Z"
+}

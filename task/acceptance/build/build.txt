@@ -1,0 +1,445 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.vesoft:examples:jar:3.8.4
+[WARNING] The expression ${parent.version} is deprecated. Please use ${project.parent.version} instead.
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] Inspecting build with total of 4 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 4 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] nebula-java                                                        [pom]
+[INFO] client                                                             [jar]
+[INFO] Nebula CSV Migration                                               [jar]
+[INFO] Nebula Data Verifier                                               [jar]
+[INFO] 
+[INFO] -------------------------< com.vesoft:nebula >--------------------------
+[INFO] Building nebula-java 3.8.4                                         [1/4]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.7:prepare-agent (default) @ nebula ---
+[INFO] argLine set to -javaagent:/home/sch/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/home/sch/nebula/nebula-java/target/jacoco.exec
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.7:report (report) @ nebula ---
+[INFO] Skipping JaCoCo execution due to missing execution data file.
+[INFO] 
+[INFO] -------------------------< com.vesoft:client >--------------------------
+[INFO] Building client 3.8.4                                              [2/4]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.0:check (checkstyle) @ client ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.7:prepare-agent (default) @ client ---
+[INFO] argLine set to -javaagent:/home/sch/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/home/sch/nebula/nebula-java/client/target/jacoco.exec
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.8:add-source (add-source) @ client ---
+[INFO] Source directory: /home/sch/nebula/nebula-java/client/src/main/java added.
+[INFO] Source directory: /home/sch/nebula/nebula-java/client/src/main/generated added.
+[INFO] Source directory: /home/sch/nebula/nebula-java/client/src/main/fbthrift added.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.8:add-test-source (add-test-source) @ client ---
+[INFO] Test Source directory: /home/sch/nebula/nebula-java/client/src/test/java added.
+[INFO] Test Source directory: /home/sch/nebula/nebula-java/client/src/main/java added.
+[INFO] Test Source directory: /home/sch/nebula/nebula-java/client/src/main/generated added.
+[INFO] Test Source directory: /home/sch/nebula/nebula-java/client/src/main/fbthrift added.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ client ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/sch/nebula/nebula-java/client/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ client ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 173 source files to /home/sch/nebula/nebula-java/client/target/classes
+[INFO] /home/sch/nebula/nebula-java/client/src/main/fbthrift/com/facebook/thrift/protocol/TField.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/sch/nebula/nebula-java/client/src/main/fbthrift/com/facebook/thrift/protocol/TField.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ client ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 10 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ client ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 580 source files to /home/sch/nebula/nebula-java/client/target/test-classes
+[INFO] /home/sch/nebula/nebula-java/client/src/test/java/com/vesoft/nebula/client/graph/net/TestSessionPool.java: /home/sch/nebula/nebula-java/client/src/test/java/com/vesoft/nebula/client/graph/net/TestSessionPool.java uses or overrides a deprecated API.
+[INFO] /home/sch/nebula/nebula-java/client/src/test/java/com/vesoft/nebula/client/graph/net/TestSessionPool.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/sch/nebula/nebula-java/client/src/main/fbthrift/com/facebook/thrift/protocol/TField.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/sch/nebula/nebula-java/client/src/main/fbthrift/com/facebook/thrift/protocol/TField.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ client ---
+[INFO] Surefire report directory: /home/sch/nebula/nebula-java/client/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.vesoft.nebula.client.storage.scan.ScanIteratorPaginationTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.528 sec
+Running com.vesoft.nebula.client.storage.scan.PartScanQueueTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+Running com.vesoft.nebula.client.storage.scan.ScanIteratorLifecycleTest
+ERROR [pool-186-thread-1] - Scan vertex failed
+java.lang.NullPointerException
+	at com.vesoft.nebula.client.storage.scan.ScanResultIterator.handleSucceedResult(ScanResultIterator.java:129)
+	at com.vesoft.nebula.client.storage.scan.ScanVertexResultIterator.lambda$next$0(ScanVertexResultIterator.java:145)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+ERROR [pool-188-thread-1] - Scan vertex failed
+java.lang.IllegalStateException: release failed
+	at com.vesoft.nebula.client.storage.scan.ScanIteratorLifecycleTest$RecordingPool.release(ScanIteratorLifecycleTest.java:357)
+	at com.vesoft.nebula.client.storage.scan.ScanVertexResultIterator.lambda$next$0(ScanVertexResultIterator.java:132)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+ERROR [pool-192-thread-1] - Scan vertex failed
+java.lang.Exception: borrow failed
+	at com.vesoft.nebula.client.storage.scan.ScanIteratorLifecycleTest$RecordingPool.getStorageConnection(ScanIteratorLifecycleTest.java:341)
+	at com.vesoft.nebula.client.storage.scan.ScanVertexResultIterator.lambda$next$0(ScanVertexResultIterator.java:127)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+ERROR [Thread-21] - scan interrupted:
+java.lang.InterruptedException
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireSharedInterruptibly(AbstractQueuedSynchronizer.java:998)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1304)
+	at java.util.concurrent.CountDownLatch.await(CountDownLatch.java:231)
+	at com.vesoft.nebula.client.storage.scan.ScanVertexResultIterator.next(ScanVertexResultIterator.java:161)
+	at com.vesoft.nebula.client.storage.scan.ScanIteratorLifecycleTest.lambda$interruptionStopsWorkersAndPreservesInterruptFlag$0(ScanIteratorLifecycleTest.java:147)
+	at java.lang.Thread.run(Thread.java:750)
+ERROR [pool-193-thread-1] - Scan vertex failed
+java.lang.IllegalStateException: scan interrupted
+	at com.vesoft.nebula.client.storage.scan.ScanIteratorLifecycleTest$BlockingConnection.awaitInterruption(ScanIteratorLifecycleTest.java:319)
+	at com.vesoft.nebula.client.storage.scan.ScanIteratorLifecycleTest$BlockingConnection.scanVertex(ScanIteratorLifecycleTest.java:301)
+	at com.vesoft.nebula.client.storage.scan.ScanVertexResultIterator.lambda$next$0(ScanVertexResultIterator.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: java.lang.InterruptedException
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireSharedInterruptibly(AbstractQueuedSynchronizer.java:998)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1304)
+	at java.util.concurrent.CountDownLatch.await(CountDownLatch.java:231)
+	at com.vesoft.nebula.client.storage.scan.ScanIteratorLifecycleTest$BlockingConnection.awaitInterruption(ScanIteratorLifecycleTest.java:315)
+	... 7 more
+ERROR [pool-197-thread-1] - Scan edge failed
+java.lang.NullPointerException
+	at com.vesoft.nebula.client.storage.scan.ScanResultIterator.handleSucceedResult(ScanResultIterator.java:129)
+	at com.vesoft.nebula.client.storage.scan.ScanEdgeResultIterator.lambda$next$0(ScanEdgeResultIterator.java:143)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+ERROR [pool-199-thread-1] - Scan edge failed
+java.lang.IllegalStateException: release failed
+	at com.vesoft.nebula.client.storage.scan.ScanIteratorLifecycleTest$RecordingPool.release(ScanIteratorLifecycleTest.java:357)
+	at com.vesoft.nebula.client.storage.scan.ScanEdgeResultIterator.lambda$next$0(ScanEdgeResultIterator.java:130)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+ERROR [pool-203-thread-1] - Scan edge failed
+java.lang.Exception: borrow failed
+	at com.vesoft.nebula.client.storage.scan.ScanIteratorLifecycleTest$RecordingPool.getStorageConnection(ScanIteratorLifecycleTest.java:341)
+	at com.vesoft.nebula.client.storage.scan.ScanEdgeResultIterator.lambda$next$0(ScanEdgeResultIterator.java:125)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+ERROR [Thread-28] - scan interrupted:
+java.lang.InterruptedException
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireSharedInterruptibly(AbstractQueuedSynchronizer.java:998)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1304)
+	at java.util.concurrent.CountDownLatch.await(CountDownLatch.java:231)
+	at com.vesoft.nebula.client.storage.scan.ScanEdgeResultIterator.next(ScanEdgeResultIterator.java:159)
+	at com.vesoft.nebula.client.storage.scan.ScanIteratorLifecycleTest.lambda$interruptionStopsWorkersAndPreservesInterruptFlag$0(ScanIteratorLifecycleTest.java:145)
+	at java.lang.Thread.run(Thread.java:750)
+ERROR [pool-204-thread-1] - Scan edge failed
+java.lang.IllegalStateException: scan interrupted
+	at com.vesoft.nebula.client.storage.scan.ScanIteratorLifecycleTest$BlockingConnection.awaitInterruption(ScanIteratorLifecycleTest.java:319)
+	at com.vesoft.nebula.client.storage.scan.ScanIteratorLifecycleTest$BlockingConnection.scanEdge(ScanIteratorLifecycleTest.java:307)
+	at com.vesoft.nebula.client.storage.scan.ScanEdgeResultIterator.lambda$next$0(ScanEdgeResultIterator.java:111)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: java.lang.InterruptedException
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireSharedInterruptibly(AbstractQueuedSynchronizer.java:998)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1304)
+	at java.util.concurrent.CountDownLatch.await(CountDownLatch.java:231)
+	at com.vesoft.nebula.client.storage.scan.ScanIteratorLifecycleTest$BlockingConnection.awaitInterruption(ScanIteratorLifecycleTest.java:315)
+	... 7 more
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+
+Results :
+
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.7:report (report) @ client ---
+[INFO] Loading execution data file /home/sch/nebula/nebula-java/client/target/jacoco.exec
+[INFO] Analyzed bundle 'client' with 1390 classes
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:jar (default-jar) @ client ---
+[INFO] Building jar: /home/sch/nebula/nebula-java/client/target/client-3.8.4.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:3.2.0:jar (attach-sources) > generate-sources @ client >>>
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.0:check (checkstyle) @ client ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.7:prepare-agent (default) @ client ---
+[INFO] argLine set to -javaagent:/home/sch/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/home/sch/nebula/nebula-java/client/target/jacoco.exec
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.8:add-source (add-source) @ client ---
+[INFO] Source directory: /home/sch/nebula/nebula-java/client/src/main/java added.
+[INFO] Source directory: /home/sch/nebula/nebula-java/client/src/main/generated added.
+[INFO] Source directory: /home/sch/nebula/nebula-java/client/src/main/fbthrift added.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.8:add-test-source (add-test-source) @ client ---
+[INFO] Test Source directory: /home/sch/nebula/nebula-java/client/src/test/java added.
+[INFO] Test Source directory: /home/sch/nebula/nebula-java/client/src/main/java added.
+[INFO] Test Source directory: /home/sch/nebula/nebula-java/client/src/main/generated added.
+[INFO] Test Source directory: /home/sch/nebula/nebula-java/client/src/main/fbthrift added.
+[INFO] 
+[INFO] <<< maven-source-plugin:3.2.0:jar (attach-sources) < generate-sources @ client <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:3.2.0:jar (attach-sources) @ client ---
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:test-jar (default) @ client ---
+[INFO] Building jar: /home/sch/nebula/nebula-java/client/target/client-3.8.4-tests.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:3.2.0:jar (attach-javadocs) @ client ---
+[INFO] Skipping javadoc generation, everything is up to date.
+[INFO] Building jar: /home/sch/nebula/nebula-java/client/target/client-3.8.4-javadoc.jar
+[INFO] 
+[INFO] ------------------------< com.vesoft:migration >------------------------
+[INFO] Building Nebula CSV Migration 3.8.4                                [3/4]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.7:prepare-agent (default) @ migration ---
+[INFO] argLine set to -javaagent:/home/sch/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/home/sch/nebula/nebula-java/migration/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ migration ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/sch/nebula/nebula-java/migration/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ migration ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /home/sch/nebula/nebula-java/migration/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ migration ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/sch/nebula/nebula-java/migration/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ migration ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 4 source files to /home/sch/nebula/nebula-java/migration/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ migration ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.vesoft.nebula.migration.MigrationBundleTest
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+[INFO] Tests run: 48, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.259 s - in com.vesoft.nebula.migration.MigrationBundleTest
+[INFO] Running com.vesoft.nebula.migration.ValueCodecTest
+[INFO] Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.136 s - in com.vesoft.nebula.migration.ValueCodecTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 85, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.7:report (report) @ migration ---
+[INFO] Loading execution data file /home/sch/nebula/nebula-java/migration/target/jacoco.exec
+[INFO] Analyzed bundle 'Nebula CSV Migration' with 14 classes
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:jar (default-jar) @ migration ---
+[INFO] Building jar: /home/sch/nebula/nebula-java/migration/target/migration-3.8.4.jar
+[INFO] 
+[INFO] --- maven-shade-plugin:3.2.4:shade (default) @ migration ---
+[INFO] Including com.vesoft:client:jar:3.8.4 in the shaded jar.
+[INFO] Including commons-lang:commons-lang:jar:2.6 in the shaded jar.
+[INFO] Including org.apache.commons:commons-lang3:jar:3.8 in the shaded jar.
+[INFO] Including org.slf4j:slf4j-api:jar:1.7.25 in the shaded jar.
+[INFO] Including com.google.guava:guava:jar:32.0.0-jre in the shaded jar.
+[INFO] Including com.google.guava:failureaccess:jar:1.0.1 in the shaded jar.
+[INFO] Including com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava in the shaded jar.
+[INFO] Including com.google.code.findbugs:jsr305:jar:3.0.2 in the shaded jar.
+[INFO] Including org.checkerframework:checker-qual:jar:3.33.0 in the shaded jar.
+[INFO] Including com.google.errorprone:error_prone_annotations:jar:2.18.0 in the shaded jar.
+[INFO] Including com.google.j2objc:j2objc-annotations:jar:2.8 in the shaded jar.
+[INFO] Including commons-codec:commons-codec:jar:1.13 in the shaded jar.
+[INFO] Including org.apache.commons:commons-pool2:jar:2.2 in the shaded jar.
+[INFO] Including javax.servlet:javax.servlet-api:jar:3.0.1 in the shaded jar.
+[INFO] Including com.alibaba:fastjson:jar:1.2.83 in the shaded jar.
+[INFO] Including org.bouncycastle:bcpkix-jdk15on:jar:1.69 in the shaded jar.
+[INFO] Including org.bouncycastle:bcprov-jdk15on:jar:1.69 in the shaded jar.
+[INFO] Including org.bouncycastle:bcutil-jdk15on:jar:1.69 in the shaded jar.
+[INFO] Including org.locationtech.jts:jts-core:jar:1.16.1 in the shaded jar.
+[INFO] Including com.squareup.okhttp3:okhttp:jar:3.14.0 in the shaded jar.
+[INFO] Including com.squareup.okio:okio:jar:1.17.2 in the shaded jar.
+[INFO] Including org.mortbay.jetty.alpn:alpn-boot:jar:8.1.13.v20181017 in the shaded jar.
+[WARNING] alpn-boot-8.1.13.v20181017.jar, bcpkix-jdk15on-1.69.jar, bcprov-jdk15on-1.69.jar, bcutil-jdk15on-1.69.jar, checker-qual-3.33.0.jar, client-3.8.4.jar, commons-codec-1.13.jar, commons-lang-2.6.jar, commons-lang3-3.8.jar, commons-pool2-2.2.jar, error_prone_annotations-2.18.0.jar, failureaccess-1.0.1.jar, fastjson-1.2.83.jar, guava-32.0.0-jre.jar, j2objc-annotations-2.8.jar, javax.servlet-api-3.0.1.jar, jsr305-3.0.2.jar, jts-core-1.16.1.jar, listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar, migration-3.8.4.jar, okhttp-3.14.0.jar, okio-1.17.2.jar, slf4j-api-1.7.25.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/MANIFEST.MF
+[WARNING] checker-qual-3.33.0.jar, commons-codec-1.13.jar, commons-lang-2.6.jar, commons-lang3-3.8.jar, commons-pool2-2.2.jar, fastjson-1.2.83.jar, javax.servlet-api-3.0.1.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/LICENSE.txt
+[WARNING] commons-codec-1.13.jar, commons-lang-2.6.jar, commons-lang3-3.8.jar, commons-pool2-2.2.jar, fastjson-1.2.83.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/NOTICE.txt
+[WARNING] bcpkix-jdk15on-1.69.jar, bcprov-jdk15on-1.69.jar, bcutil-jdk15on-1.69.jar define 1 overlapping classes: 
+[WARNING]   - META-INF.versions.9.module-info
+[WARNING] maven-shade-plugin has detected that some class files are
+[WARNING] present in two or more JARs. When this happens, only one
+[WARNING] single version of the class is copied to the uber jar.
+[WARNING] Usually this is not harmful and you can skip these warnings,
+[WARNING] otherwise try to manually exclude artifacts based on
+[WARNING] mvn dependency:tree -Ddetail=true and the above output.
+[WARNING] See http://maven.apache.org/plugins/maven-shade-plugin/
+[INFO] Replacing original artifact with shaded artifact.
+[INFO] Replacing /home/sch/nebula/nebula-java/migration/target/migration-3.8.4.jar with /home/sch/nebula/nebula-java/migration/target/migration-3.8.4-shaded.jar
+[INFO] 
+[INFO] ----------------------< com.vesoft:verification >-----------------------
+[INFO] Building Nebula Data Verifier 3.8.4                                [4/4]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.7:prepare-agent (default) @ verification ---
+[INFO] argLine set to -javaagent:/home/sch/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/home/sch/nebula/nebula-java/verification/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ verification ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/sch/nebula/nebula-java/verification/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ verification ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ verification ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/sch/nebula/nebula-java/verification/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ verification ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ verification ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.vesoft.nebula.verification.FetchCollectorTest
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.094 s - in com.vesoft.nebula.verification.FetchCollectorTest
+[INFO] Running com.vesoft.nebula.verification.PlanBundleTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.09 s - in com.vesoft.nebula.verification.PlanBundleTest
+[INFO] Running com.vesoft.nebula.verification.IdentifiersTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in com.vesoft.nebula.verification.IdentifiersTest
+[INFO] Running com.vesoft.nebula.verification.OfflineComparatorTest
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 s - in com.vesoft.nebula.verification.OfflineComparatorTest
+[INFO] Running com.vesoft.nebula.verification.NativeValueCodecTest
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 s - in com.vesoft.nebula.verification.NativeValueCodecTest
+[INFO] Running com.vesoft.nebula.verification.VerifierCliTest
+{"comparedAt":"2026-09-13T18:09:56.676Z","comparedRecords":1,"detailsTruncated":false,"differenceFields":0,"differences":[],"differentRecords":0,"errorRecords":0,"matched":true,"planId":"same-plan","scope":"CONTENTS_OF_LISTED_OBJECTS_ONLY","sourceCapturedAt":"2026-09-13T00:00:00Z","sourceSpace":"a","status":"MATCH","targetCapturedAt":"2026-09-13T00:00:00Z","targetSpace":"b"}
+Report: /tmp/junit4580076018978648391/matched/comparison-report.json
+{"comparedAt":"2026-09-13T18:09:56.680Z","comparedRecords":1,"detailsTruncated":false,"differenceFields":1,"differences":[{"field":"tag/dA==/prop/cA==","key":"vertex|V:MQ==","reason":"FIELD_DIFFERS","sourceValue":"[\"string\",\"b25l\"]","targetValue":"[\"string\",\"dHdv\"]"}],"differentRecords":1,"errorRecords":0,"matched":false,"planId":"same-plan","scope":"CONTENTS_OF_LISTED_OBJECTS_ONLY","sourceCapturedAt":"2026-09-13T00:00:00Z","sourceSpace":"a","status":"DIFFERENT","targetCapturedAt":"2026-09-13T00:00:00Z","targetSpace":"c"}
+Report: /tmp/junit4580076018978648391/different/comparison-report.json
+ERROR: IllegalStateException: Unknown option: --soruce
+ERROR: IllegalStateException: Duplicate option: --source
+ERROR: IllegalStateException: Expected --name value arguments
+ERROR: IllegalStateException: Capture records SHA-256 mismatch: /tmp/junit7549537889457314321/b/records.jsonl
+{"comparedAt":"2026-09-13T18:09:56.685Z","comparedRecords":1,"detailsTruncated":false,"differenceFields":0,"differences":[],"differentRecords":0,"errorRecords":0,"matched":true,"planId":"same-plan","scope":"CONTENTS_OF_LISTED_OBJECTS_ONLY","sourceCapturedAt":"2026-09-13T00:00:00Z","sourceSpace":"a","status":"MATCH","targetCapturedAt":"2026-09-13T00:00:00Z","targetSpace":"b"}
+Report: /tmp/junit8190998742346914203/report/comparison-report.json
+ERROR: IllegalStateException: Output directory must be empty: /tmp/junit8190998742346914203/report
+Plan: /tmp/junit3164986011519915220/plan; planId=af7c4bd8-89c3-4d1e-9c1b-4ce2dca81acb; listed vertices=1; listed edges=0
+Scope: contents of listed objects only; no database-wide count assertion.
+ERROR: IllegalStateException: Missing password environment variable: NEBULA_VERIFIER_TEST_ABSENT_PASSWORD_7FC0D42C
+Nebula Data Verifier: separate source/target FETCH capture and offline comparison.
+prepare --migration-dir EXPORT --out PLAN
+prepare-ids --vertices VERTICES_CSV --edges EDGES_CSV --vid-type TYPE --out PLAN
+capture --plan PLAN --space SPACE --out CAPTURE [--host 127.0.0.1] [--port 9669]
+        [--user root] [--password-env NEBULA_PASSWORD] [--timeout-ms 60000]
+compare --source SOURCE_CAPTURE --target TARGET_CAPTURE --out REPORT_DIRECTORY
+All output directories must be new or empty. Copy the SAME plan to both environments.
+Exit codes: 0=success/MATCH, 2=DIFFERENT, 1=ERROR/incomplete capture.
+Scope: listed objects only; strings compare raw bytes, floating values compare raw bits.
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in com.vesoft.nebula.verification.VerifierCliTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.7:report (report) @ verification ---
+[INFO] Loading execution data file /home/sch/nebula/nebula-java/verification/target/jacoco.exec
+[INFO] Analyzed bundle 'Nebula Data Verifier' with 22 classes
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:jar (default-jar) @ verification ---
+[INFO] Building jar: /home/sch/nebula/nebula-java/verification/target/nebula-data-verifier-3.8.4.jar
+[INFO] 
+[INFO] --- maven-shade-plugin:3.2.4:shade (default) @ verification ---
+[INFO] Including com.vesoft:client:jar:3.8.4 in the shaded jar.
+[INFO] Including commons-lang:commons-lang:jar:2.6 in the shaded jar.
+[INFO] Including org.apache.commons:commons-lang3:jar:3.8 in the shaded jar.
+[INFO] Including org.slf4j:slf4j-api:jar:1.7.25 in the shaded jar.
+[INFO] Including com.google.guava:guava:jar:32.0.0-jre in the shaded jar.
+[INFO] Including com.google.guava:failureaccess:jar:1.0.1 in the shaded jar.
+[INFO] Including com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava in the shaded jar.
+[INFO] Including com.google.code.findbugs:jsr305:jar:3.0.2 in the shaded jar.
+[INFO] Including org.checkerframework:checker-qual:jar:3.33.0 in the shaded jar.
+[INFO] Including com.google.errorprone:error_prone_annotations:jar:2.18.0 in the shaded jar.
+[INFO] Including com.google.j2objc:j2objc-annotations:jar:2.8 in the shaded jar.
+[INFO] Including commons-codec:commons-codec:jar:1.13 in the shaded jar.
+[INFO] Including org.apache.commons:commons-pool2:jar:2.2 in the shaded jar.
+[INFO] Including javax.servlet:javax.servlet-api:jar:3.0.1 in the shaded jar.
+[INFO] Including com.alibaba:fastjson:jar:1.2.83 in the shaded jar.
+[INFO] Including org.bouncycastle:bcpkix-jdk15on:jar:1.69 in the shaded jar.
+[INFO] Including org.bouncycastle:bcprov-jdk15on:jar:1.69 in the shaded jar.
+[INFO] Including org.bouncycastle:bcutil-jdk15on:jar:1.69 in the shaded jar.
+[INFO] Including org.locationtech.jts:jts-core:jar:1.16.1 in the shaded jar.
+[INFO] Including com.squareup.okhttp3:okhttp:jar:3.14.0 in the shaded jar.
+[INFO] Including com.squareup.okio:okio:jar:1.17.2 in the shaded jar.
+[INFO] Including org.mortbay.jetty.alpn:alpn-boot:jar:8.1.13.v20181017 in the shaded jar.
+[WARNING] alpn-boot-8.1.13.v20181017.jar, bcpkix-jdk15on-1.69.jar, bcprov-jdk15on-1.69.jar, bcutil-jdk15on-1.69.jar, checker-qual-3.33.0.jar, client-3.8.4.jar, commons-codec-1.13.jar, commons-lang-2.6.jar, commons-lang3-3.8.jar, commons-pool2-2.2.jar, error_prone_annotations-2.18.0.jar, failureaccess-1.0.1.jar, fastjson-1.2.83.jar, guava-32.0.0-jre.jar, j2objc-annotations-2.8.jar, javax.servlet-api-3.0.1.jar, jsr305-3.0.2.jar, jts-core-1.16.1.jar, listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar, nebula-data-verifier-3.8.4.jar, okhttp-3.14.0.jar, okio-1.17.2.jar, slf4j-api-1.7.25.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/MANIFEST.MF
+[WARNING] checker-qual-3.33.0.jar, commons-codec-1.13.jar, commons-lang-2.6.jar, commons-lang3-3.8.jar, commons-pool2-2.2.jar, fastjson-1.2.83.jar, javax.servlet-api-3.0.1.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/LICENSE.txt
+[WARNING] commons-codec-1.13.jar, commons-lang-2.6.jar, commons-lang3-3.8.jar, commons-pool2-2.2.jar, fastjson-1.2.83.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/NOTICE.txt
+[WARNING] bcpkix-jdk15on-1.69.jar, bcprov-jdk15on-1.69.jar, bcutil-jdk15on-1.69.jar define 1 overlapping classes: 
+[WARNING]   - META-INF.versions.9.module-info
+[WARNING] maven-shade-plugin has detected that some class files are
+[WARNING] present in two or more JARs. When this happens, only one
+[WARNING] single version of the class is copied to the uber jar.
+[WARNING] Usually this is not harmful and you can skip these warnings,
+[WARNING] otherwise try to manually exclude artifacts based on
+[WARNING] mvn dependency:tree -Ddetail=true and the above output.
+[WARNING] See http://maven.apache.org/plugins/maven-shade-plugin/
+[INFO] Replacing original artifact with shaded artifact.
+[INFO] Replacing /home/sch/nebula/nebula-java/verification/target/nebula-data-verifier-3.8.4.jar with /home/sch/nebula/nebula-java/verification/target/verification-3.8.4-shaded.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for nebula-java 3.8.4:
+[INFO] 
+[INFO] nebula-java ........................................ SUCCESS [  0.099 s]
+[INFO] client ............................................. SUCCESS [ 16.031 s]
+[INFO] Nebula CSV Migration ............................... SUCCESS [  2.270 s]
+[INFO] Nebula Data Verifier ............................... SUCCESS [  1.845 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  20.545 s
+[INFO] Finished at: 2026-09-14T02:09:57+08:00
+[INFO] ------------------------------------------------------------------------

@@ -1,0 +1,12 @@
+{
+  "comparedAt": "2026-09-13T18:16:25.162958+00:00",
+  "matched": true,
+  "status": "MATCH",
+  "differences": [],
+  "sourceSpace": "qa_schema_260914_i_source",
+  "targetSpace": "qa_schema_260914_i_target",
+  "sourceSnapshotSha256": "00156fc500e72d88de16242b71ebd7a3005ab154fb3e083a5c1b4f80290dfff9",
+  "targetSnapshotSha256": "8e05d78488453f775eee5b2d51195c708f26f37523f2265bd9d4877364e1b8d7",
+  "comparedTables": 2,
+  "comparedDefaultExpressions": 60
+}

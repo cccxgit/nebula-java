@@ -1,0 +1,587 @@
+{
+  "id": "geography_polygon_s",
+  "scenarioId": "geography_polygon",
+  "vidType": "FIXED_STRING(256)",
+  "description": "POLYGON内环、方向归一化、日期线和高精度；以源原生读取值为比较基准",
+  "sourceSpace": "qa_20260914_s_geography_polygon",
+  "targetSpace": "qa_20260914_s_geography_polygon_target_final",
+  "expected": {
+    "vertices": 1000,
+    "edges": 1000,
+    "tags": {
+      "case_tag": 1000
+    },
+    "edgeTypes": {
+      "case_edge": 1000
+    }
+  },
+  "startedAt": "2026-09-13T18:29:50.622929+00:00",
+  "status": "PASSED",
+  "steps": [
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-cp",
+        "/home/sch/nebula/nebula-java/verification/target/nebula-data-verifier-3.8.4.jar:/home/sch/nebula/nebula-java/verification/target/fixture-oracle",
+        "FixtureSourceOracle",
+        "--oracle",
+        "/home/sch/nebula/nebula-java/task/acceptance/oracles/geography_polygon_s.json",
+        "--space",
+        "qa_20260914_s_geography_polygon",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "9669",
+        "--user",
+        "root",
+        "--out",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/source-fixture-oracle.json"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/source-fixture-oracle.txt",
+      "startedAt": "2026-09-13T18:29:50.640789+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 3.331,
+      "sha256": "9f9d10cd79562d1e4c40fd6490042a142a763a3e574415dc51d84121004356d2",
+      "finishedAt": "2026-09-13T18:29:53.972680+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/source-stats/submit-stats.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/source-stats/submit-stats.txt",
+      "startedAt": "2026-09-13T18:29:53.974470+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "sha256": "d2c426fe24ab2dc338e7862b5d1e0f6fd0af258ddd4e8f1e361cb02f440040a5",
+      "finishedAt": "2026-09-13T18:29:53.982063+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/source-stats/job-0.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/source-stats/job-0.txt",
+      "startedAt": "2026-09-13T18:29:53.982213+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "sha256": "a0bbf03d5b3c04719ccdc109d0ba183fd2f2888e54e550b8800a53358ae12ea2",
+      "finishedAt": "2026-09-13T18:29:53.990011+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/source-stats/show-stats.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/source-stats/show-stats.txt",
+      "startedAt": "2026-09-13T18:29:53.990145+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "sha256": "414107eee8ba7e8a4c20352fa766bbcc0ea55a0c47adf95776e426e3d83c354a",
+      "finishedAt": "2026-09-13T18:29:53.997728+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/source-console/fetch-samples.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/source-console/fetch-samples.txt",
+      "startedAt": "2026-09-13T18:29:53.997938+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.016,
+      "sha256": "1f8924d67b505a6a88d0c6c0887891fce3f8e3d9c9713f850511e4e5ea1b10c9",
+      "finishedAt": "2026-09-13T18:29:54.013657+00:00"
+    },
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-jar",
+        "/home/sch/nebula/nebula-java/migration/target/migration-3.8.4.jar",
+        "export",
+        "--source-space",
+        "qa_20260914_s_geography_polygon",
+        "--directory",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/bundle",
+        "--source-host",
+        "127.0.0.1",
+        "--source-graph-port",
+        "9669",
+        "--source-meta-port",
+        "9559",
+        "--source-user",
+        "root",
+        "--scan-limit",
+        "113"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/migration-export.txt",
+      "startedAt": "2026-09-13T18:29:54.013893+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.62,
+      "sha256": "c411fe4468e2bba7cb5e022db49b3f36336138c1764401e035710a1e2e113c6d",
+      "finishedAt": "2026-09-13T18:29:54.633544+00:00"
+    },
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-jar",
+        "/home/sch/nebula/nebula-java/verification/target/nebula-data-verifier-3.8.4.jar",
+        "prepare",
+        "--migration-dir",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/bundle",
+        "--out",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/plan"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/prepare.txt",
+      "startedAt": "2026-09-13T18:29:54.633673+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.164,
+      "sha256": "05259404fb15a117835ab901e1aed971a8a150674d12ba0354b91737b3ff59d2",
+      "finishedAt": "2026-09-13T18:29:54.798219+00:00"
+    },
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-jar",
+        "/home/sch/nebula/nebula-java/verification/target/nebula-data-verifier-3.8.4.jar",
+        "capture",
+        "--plan",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/plan",
+        "--space",
+        "qa_20260914_s_geography_polygon",
+        "--out",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/source",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "9669",
+        "--user",
+        "root"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/source-capture.txt",
+      "startedAt": "2026-09-13T18:29:54.798396+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 3.385,
+      "sha256": "440213ebae907136cf131a51b684d756c8cf414020547e74506b75ae30f99e6f",
+      "finishedAt": "2026-09-13T18:29:58.183199+00:00"
+    },
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-jar",
+        "/home/sch/nebula/nebula-java/migration/target/migration-3.8.4.jar",
+        "import",
+        "--target-space",
+        "qa_20260914_s_geography_polygon_target_final",
+        "--directory",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/bundle",
+        "--target-host",
+        "127.0.0.1",
+        "--target-graph-port",
+        "9669",
+        "--target-meta-port",
+        "9559",
+        "--target-user",
+        "root",
+        "--schema-wait-ms",
+        "20000",
+        "--scan-limit",
+        "113"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/migration-import.txt",
+      "startedAt": "2026-09-13T18:29:58.183376+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 42.875,
+      "sha256": "978a2ff1d5f0f0479edfd6843b568e3691c13d74e4f963202ff8299efb52b658",
+      "finishedAt": "2026-09-13T18:30:41.058284+00:00"
+    },
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-jar",
+        "/home/sch/nebula/nebula-java/verification/target/nebula-data-verifier-3.8.4.jar",
+        "capture",
+        "--plan",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/plan",
+        "--space",
+        "qa_20260914_s_geography_polygon_target_final",
+        "--out",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/target",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "9669",
+        "--user",
+        "root"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/target-capture.txt",
+      "startedAt": "2026-09-13T18:30:41.058447+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 3.077,
+      "sha256": "2d7d7e55fff224a708cae4adf8dddac080266f3f8ed7e986681f882e20aa9cae",
+      "finishedAt": "2026-09-13T18:30:44.135554+00:00"
+    },
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-jar",
+        "/home/sch/nebula/nebula-java/verification/target/nebula-data-verifier-3.8.4.jar",
+        "compare",
+        "--source",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/source",
+        "--target",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/target",
+        "--out",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/comparison"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/compare.txt",
+      "startedAt": "2026-09-13T18:30:44.135734+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.267,
+      "sha256": "f17a5dff856afd41b577a17ba9658dcf3685e083cce808a45f8b14678d5f1939",
+      "finishedAt": "2026-09-13T18:30:44.402608+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/target-stats/submit-stats.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/target-stats/submit-stats.txt",
+      "startedAt": "2026-09-13T18:30:44.402917+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "sha256": "0fa300bed63b580be58c91936797fd885e6213ed799a5f23ba7d684ffb674bad",
+      "finishedAt": "2026-09-13T18:30:44.410939+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/target-stats/job-0.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/target-stats/job-0.txt",
+      "startedAt": "2026-09-13T18:30:44.411102+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "sha256": "a7f395e6abae768ea902c68a79d1c64aab5d43417d0f939f62ef865c2d8e0056",
+      "finishedAt": "2026-09-13T18:30:44.419007+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/target-stats/show-stats.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/target-stats/show-stats.txt",
+      "startedAt": "2026-09-13T18:30:44.419188+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "sha256": "60ab9d10932e28c0a3498d977fe7cc91a6e5ce5693a67a1a14236d20849dbedd",
+      "finishedAt": "2026-09-13T18:30:44.426920+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/target-console/fetch-samples.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/geography_polygon_s/target-console/fetch-samples.txt",
+      "startedAt": "2026-09-13T18:30:44.427165+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.016,
+      "sha256": "5e2396d4d51c056a0a072bc23d8872c88f3d72ef7316519e60581134cda50445",
+      "finishedAt": "2026-09-13T18:30:44.442899+00:00"
+    }
+  ],
+  "dataRowsPerScene": 1000,
+  "schemaWaitMillis": 20000,
+  "variantCounts": {
+    "POLYGON((0 0,2 0,2 2,0 0))": 200,
+    "POLYGON((0 0,0 2,2 2,2 0,0 0))": 200,
+    "POLYGON((0 0,10 0,10 10,0 10,0 0),(2 2,2 4,4 4,4 2,2 2))": 200,
+    "POLYGON((179 -1,-179 -1,-179 1,179 1,179 -1))": 200,
+    "POLYGON((0.000000000000001 0,1.000000000000001 0,1 1,0.000000000000001 0))": 200
+  },
+  "negative": false,
+  "scanLimit": 113,
+  "migrationJarSha256": "f760ab235da35fadc8a0ffb1db7f1a26e9522bdb7b22732bab755524cd721c54",
+  "verificationJarSha256": "dc8ecf68fe311d64c15efa08cfec2d6db1ed61956be5c31ac3d8df404b5cc099",
+  "fixtureFileHashes": {
+    "geography_polygon_s/space.ngql": {
+      "bytes": 109,
+      "sha256": "8aceeadff405f37873392488202c194497f55395392729bb68a92909f8ca6374"
+    },
+    "geography_polygon_s/schema.ngql": {
+      "bytes": 153,
+      "sha256": "b89ec873ec94c0a8a909d9f8a39a592c4b0ff1110a7913c12f2b8d3906751921"
+    },
+    "geography_polygon_s/data.ngql": {
+      "bytes": 305721,
+      "sha256": "fa150bee216b08d24001a02a6ca652f0d8e90798ce6a2348bc932392e403fa49"
+    },
+    "geography_polygon_s/sample.ngql": {
+      "bytes": 530,
+      "sha256": "7b99701fe011c0dfafd2ad74dae2eb7d7f1a92ffc59b606d3fa9f2fff9d4cfa1"
+    }
+  },
+  "sourceFixtureOracle": {
+    "id": "geography_polygon_s",
+    "startedAt": "2026-09-13T18:29:50.712136597Z",
+    "oracleSha256": "ce653446b89805f8bd4c9a2e87240ab364af8abeeaf18459465b1b2dbdd292fd",
+    "passed": true,
+    "status": "PASSED",
+    "space": "qa_20260914_s_geography_polygon",
+    "fixtureFileHashes": {
+      "geography_polygon_s/sample.ngql": {
+        "sha256": "7b99701fe011c0dfafd2ad74dae2eb7d7f1a92ffc59b606d3fa9f2fff9d4cfa1",
+        "bytes": 530
+      },
+      "geography_polygon_s/space.ngql": {
+        "sha256": "8aceeadff405f37873392488202c194497f55395392729bb68a92909f8ca6374",
+        "bytes": 109
+      },
+      "geography_polygon_s/schema.ngql": {
+        "sha256": "b89ec873ec94c0a8a909d9f8a39a592c4b0ff1110a7913c12f2b8d3906751921",
+        "bytes": 153
+      },
+      "geography_polygon_s/data.ngql": {
+        "sha256": "fa150bee216b08d24001a02a6ca652f0d8e90798ce6a2348bc932392e403fa49",
+        "bytes": 305721
+      }
+    },
+    "validatedRows": 2000,
+    "validatedVertices": 1000,
+    "validatedEdges": 1000,
+    "variantCounts": {
+      "POLYGON((0 0,0 2,2 2,2 0,0 0))": 200,
+      "POLYGON((0 0,10 0,10 10,0 10,0 0),(2 2,2 4,4 4,4 2,2 2))": 200,
+      "POLYGON((0 0,2 0,2 2,0 0))": 200,
+      "POLYGON((0.000000000000001 0,1.000000000000001 0,1 1,0.000000000000001 0))": 200,
+      "POLYGON((179 -1,-179 -1,-179 1,179 1,179 -1))": 200
+    },
+    "expectedAndActualFieldsSha256": "d4624ed0640d6dc7a1b033c19667260ca4d6b62aa7428e032e8c011522704934",
+    "expressionGroups": 5,
+    "schemaMatched": true,
+    "comparison": "Native fields are exact; only FLOAT float32 promotion is applied. GEOGRAPHY expected values use ST_GeogFromText YIELD, which normalizes and validates on the source server; the oracle never normalizes FETCH values.",
+    "finishedAt": "2026-09-13T18:29:53.890446025Z",
+    "reportSha256": "839f50998de07820e52e3cb4a92619d1c889d887460a27f0bcb83aacfda6c294"
+  },
+  "sourceStats": {
+    "jobId": 633,
+    "finished": true,
+    "counts": {
+      "tag/case_tag": 1000,
+      "edge/case_edge": 1000,
+      "space/vertices": 1000,
+      "space/edges": 1000
+    },
+    "expectedCounts": {
+      "space/vertices": 1000,
+      "space/edges": 1000,
+      "tag/case_tag": 1000,
+      "edge/case_edge": 1000
+    },
+    "matchedExpected": true
+  },
+  "sourceConsole": {
+    "queries": 6,
+    "tablesSha256": "d0ffa4dc55e109ed4e3860291f2a6e785ba37920dfa8ea020ba907a771ee8111"
+  },
+  "sourceCapture": {
+    "capturedAt": "2026-09-13T18:29:54.929915612Z",
+    "errorCount": 0,
+    "errors": [],
+    "formatVersion": 1,
+    "missingCount": 0,
+    "okCount": 2000,
+    "planDigest": "34059a5e3d761f6456a03792086cdb5fb36871a592211a26eff372e3060144af",
+    "planId": "c701cc2f-515e-4d79-a873-399edc2348dd",
+    "recordCount": 2000,
+    "recordsSha256": "759f570ba3ebbbc792f8f7c6bb1b90302777bfb370a81caf8404b18e5024ab19",
+    "requestedCount": 2000,
+    "requestedKeysSha256": "2db126388423b09e6222ef36ba0329a85e6166c82a03cb5688c1aeeadfb9211e",
+    "schemas": {
+      "EDGE/V:Y2FzZV9lZGdl": "{\"V:dmFsdWU=\":{\"nullable\":true,\"type\":\"GEOGRAPHY(POLYGON)\"}}",
+      "TAG/V:Y2FzZV90YWc=": "{\"V:dmFsdWU=\":{\"nullable\":true,\"type\":\"GEOGRAPHY(POLYGON)\"}}"
+    },
+    "space": "qa_20260914_s_geography_polygon",
+    "status": "COMPLETE",
+    "valueFormat": "nebula-native-fields-v1",
+    "vidType": "FIXED_STRING(256)"
+  },
+  "sourceBaselineFinishedAt": "2026-09-13T18:29:58.183313+00:00",
+  "targetImportStartedAt": "2026-09-13T18:29:58.183318+00:00",
+  "targetImportFinishedAt": "2026-09-13T18:30:41.058299+00:00",
+  "migrationVerification": {
+    "edgeRows": 1000,
+    "matched": true,
+    "rowsByTable": {
+      "TAG/case_tag": 1000,
+      "EDGE/case_edge": 1000
+    },
+    "sourceRechecked": false,
+    "sourceSpace": "qa_20260914_s_geography_polygon",
+    "tagRows": 1000,
+    "targetSpace": "qa_20260914_s_geography_polygon_target_final",
+    "verifiedAt": "2026-09-13T18:30:41.026073209Z"
+  },
+  "targetCapture": {
+    "capturedAt": "2026-09-13T18:30:41.174110760Z",
+    "errorCount": 0,
+    "errors": [],
+    "formatVersion": 1,
+    "missingCount": 0,
+    "okCount": 2000,
+    "planDigest": "34059a5e3d761f6456a03792086cdb5fb36871a592211a26eff372e3060144af",
+    "planId": "c701cc2f-515e-4d79-a873-399edc2348dd",
+    "recordCount": 2000,
+    "recordsSha256": "759f570ba3ebbbc792f8f7c6bb1b90302777bfb370a81caf8404b18e5024ab19",
+    "requestedCount": 2000,
+    "requestedKeysSha256": "2db126388423b09e6222ef36ba0329a85e6166c82a03cb5688c1aeeadfb9211e",
+    "schemas": {
+      "EDGE/V:Y2FzZV9lZGdl": "{\"V:dmFsdWU=\":{\"nullable\":true,\"type\":\"GEOGRAPHY(POLYGON)\"}}",
+      "TAG/V:Y2FzZV90YWc=": "{\"V:dmFsdWU=\":{\"nullable\":true,\"type\":\"GEOGRAPHY(POLYGON)\"}}"
+    },
+    "space": "qa_20260914_s_geography_polygon_target_final",
+    "status": "COMPLETE",
+    "valueFormat": "nebula-native-fields-v1",
+    "vidType": "FIXED_STRING(256)"
+  },
+  "verification": {
+    "comparedAt": "2026-09-13T18:30:44.324955263Z",
+    "comparedRecords": 2000,
+    "detailsTruncated": false,
+    "differenceFields": 0,
+    "differences": [],
+    "differentRecords": 0,
+    "errorRecords": 0,
+    "matched": true,
+    "planId": "c701cc2f-515e-4d79-a873-399edc2348dd",
+    "scope": "CONTENTS_OF_LISTED_OBJECTS_ONLY",
+    "sourceCapturedAt": "2026-09-13T18:29:54.929915612Z",
+    "sourceSpace": "qa_20260914_s_geography_polygon",
+    "status": "MATCH",
+    "targetCapturedAt": "2026-09-13T18:30:41.174110760Z",
+    "targetSpace": "qa_20260914_s_geography_polygon_target_final"
+  },
+  "targetStats": {
+    "jobId": 642,
+    "finished": true,
+    "counts": {
+      "tag/case_tag": 1000,
+      "edge/case_edge": 1000,
+      "space/vertices": 1000,
+      "space/edges": 1000
+    },
+    "expectedCounts": {
+      "space/vertices": 1000,
+      "space/edges": 1000,
+      "tag/case_tag": 1000,
+      "edge/case_edge": 1000
+    },
+    "matchedExpected": true
+  },
+  "targetConsole": {
+    "queries": 6,
+    "tablesSha256": "d0ffa4dc55e109ed4e3860291f2a6e785ba37920dfa8ea020ba907a771ee8111"
+  },
+  "consoleSamplesMatched": true,
+  "statsMatched": true,
+  "finishedAt": "2026-09-13T18:30:44.443020+00:00",
+  "archive": {
+    "file": "task/acceptance/artifacts/final/geography_polygon_s.tar.gz",
+    "bytes": 306104,
+    "sha256": "544aec444947d34c4a9034ee5b867191782d1dbcc53baae3b79b0337552f4f70"
+  }
+}

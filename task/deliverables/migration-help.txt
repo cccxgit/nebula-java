@@ -1,0 +1,20 @@
+Nebula CSV migration (Java 8+)
+  migrate --source-space A --target-space B --directory DIR
+  export  --source-space A --directory DIR
+  import  --target-space B --directory DIR
+  verify  --target-space B --directory DIR
+  inspect --directory DIR
+
+Connections: --source-host/--target-host, --source-graph-port/--target-graph-port,
+--source-meta-port/--target-meta-port, --source-user/--target-user.
+Defaults: 127.0.0.1, graph 9669, meta 9559, root.
+Passwords: NEBULA_PASSWORD or NEBULA_SOURCE_PASSWORD/NEBULA_TARGET_PASSWORD;
+override with --source-password-env/--target-password-env.
+--scan-limit 100 --timeout-ms 60000 --schema-wait-ms 20000
+
+Keep the source quiescent. Target must not exist; export directory must be empty.
+GEOGRAPHY supports POINT, LINESTRING, POLYGON and shape-constrained schemas.
+No active TTL, untagged vertices, or NUL-containing fixed strings/VIDs.
+Edge rank Long.MIN_VALUE is rejected because the 3.6 INSERT grammar cannot express it.
+Rows are compared by complete keys and exact native-value encoding.
+No automatic retry or resume; errors return exit code 1.

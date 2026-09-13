@@ -1,0 +1,99 @@
+{
+  "status": "PASSED",
+  "totals": {
+    "tests": 196,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "suites": [
+    {
+      "module": "client",
+      "suite": "com.vesoft.nebula.client.storage.scan.ScanIteratorPaginationTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "client",
+      "suite": "com.vesoft.nebula.client.storage.scan.ScanIteratorLifecycleTest",
+      "tests": 12,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "client",
+      "suite": "com.vesoft.nebula.client.storage.scan.PartScanQueueTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "migration",
+      "suite": "com.vesoft.nebula.migration.MigrationBundleTest",
+      "tests": 48,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "migration",
+      "suite": "com.vesoft.nebula.migration.ValueCodecTest",
+      "tests": 37,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "verification",
+      "suite": "com.vesoft.nebula.verification.PlanBundleTest",
+      "tests": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "verification",
+      "suite": "com.vesoft.nebula.verification.IdentifiersTest",
+      "tests": 12,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "verification",
+      "suite": "com.vesoft.nebula.verification.FetchCollectorTest",
+      "tests": 27,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "verification",
+      "suite": "com.vesoft.nebula.verification.OfflineComparatorTest",
+      "tests": 18,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "verification",
+      "suite": "com.vesoft.nebula.verification.VerifierCliTest",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "verification",
+      "suite": "com.vesoft.nebula.verification.NativeValueCodecTest",
+      "tests": 19,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ]
+}

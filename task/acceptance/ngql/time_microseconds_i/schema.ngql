@@ -1,0 +1,3 @@
+USE `qa_20260914_i_time_microseconds`;
+CREATE TAG `case_tag`(`value` TIME NULL);
+CREATE EDGE `case_edge`(`value` TIME NULL);

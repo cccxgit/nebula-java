@@ -137,7 +137,8 @@ public final class MigrationCli {
             + "override with --source-password-env/--target-password-env.\n"
             + "--scan-limit 100 --timeout-ms 60000 --schema-wait-ms 20000\n\n"
             + "Keep the source quiescent. Target must not exist; export directory must be empty.\n"
-            + "No GEOGRAPHY, active TTL, untagged vertices, or NUL-containing fixed strings/VIDs.\n"
+            + "GEOGRAPHY supports POINT, LINESTRING, POLYGON and shape-constrained schemas.\n"
+            + "No active TTL, untagged vertices, or NUL-containing fixed strings/VIDs.\n"
             + "Edge rank Long.MIN_VALUE is rejected because the 3.6 INSERT grammar cannot express it.\n"
             + "Rows are compared by complete keys and exact native-value encoding.\n"
             + "No automatic retry or resume; errors return exit code 1.");

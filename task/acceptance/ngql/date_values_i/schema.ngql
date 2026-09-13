@@ -1,0 +1,3 @@
+USE `qa_20260914_i_date_values`;
+CREATE TAG `case_tag`(`value` DATE NULL);
+CREATE EDGE `case_edge`(`value` DATE NULL);

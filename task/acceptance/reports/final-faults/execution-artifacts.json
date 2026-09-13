@@ -1,0 +1,41 @@
+{
+  "recordedAt": "2026-09-13T18:14:46.160077+00:00",
+  "purpose": "Record exact final-run executable and fixture identities; completion audit will verify these identities remain unchanged.",
+  "files": [
+    {
+      "file": "migration/target/migration-3.8.4.jar",
+      "bytes": 16715572,
+      "sha256": "f760ab235da35fadc8a0ffb1db7f1a26e9522bdb7b22732bab755524cd721c54"
+    },
+    {
+      "file": "verification/target/nebula-data-verifier-3.8.4.jar",
+      "bytes": 16721092,
+      "sha256": "dc8ecf68fe311d64c15efa08cfec2d6db1ed61956be5c31ac3d8df404b5cc099"
+    },
+    {
+      "file": "task/deliverables/migration-3.8.4.jar",
+      "bytes": 16715572,
+      "sha256": "f760ab235da35fadc8a0ffb1db7f1a26e9522bdb7b22732bab755524cd721c54"
+    },
+    {
+      "file": "task/deliverables/nebula-data-verifier-3.8.4.jar",
+      "bytes": 16721092,
+      "sha256": "dc8ecf68fe311d64c15efa08cfec2d6db1ed61956be5c31ac3d8df404b5cc099"
+    },
+    {
+      "file": "task/acceptance/run_campaign.py",
+      "bytes": 24670,
+      "sha256": "d9fa786c243bfbb6a4d67e42e0302c158b1d77f465da1754310d750e158135e6"
+    },
+    {
+      "file": "task/acceptance/run_fault_campaign.py",
+      "bytes": 38919,
+      "sha256": "d20eceda09a5c34ce11878cc211b5e1bdf4530292dce551bced56c875cdf2be8"
+    },
+    {
+      "file": "task/acceptance/ngql/scenarios.json",
+      "bytes": 426850,
+      "sha256": "be1112d62abc4a529a23102b382fed6c089fe7a916858eff2688028dfe757b57"
+    }
+  ]
+}

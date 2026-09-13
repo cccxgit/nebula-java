@@ -1,0 +1,3 @@
+USE `qa_20260914_i_reject_rank_min`;
+CREATE TAG `case_tag`();
+CREATE EDGE `case_edge`();

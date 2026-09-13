@@ -1,15 +1,22 @@
 package com.vesoft.nebula.migration;
 
+import com.vesoft.nebula.Coordinate;
 import com.vesoft.nebula.Date;
 import com.vesoft.nebula.DateTime;
 import com.vesoft.nebula.Duration;
+import com.vesoft.nebula.Geography;
+import com.vesoft.nebula.LineString;
 import com.vesoft.nebula.NullType;
+import com.vesoft.nebula.Point;
+import com.vesoft.nebula.Polygon;
 import com.vesoft.nebula.Time;
 import com.vesoft.nebula.Value;
 import java.nio.charset.StandardCharsets;
 import java.time.DateTimeException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -21,7 +28,9 @@ import java.util.regex.Pattern;
  * {@code V:} followed by padded, unwrapped standard Base64. Strings are raw bytes.
  * Floating-point payloads are the scanned double's raw 64 bits as 16 lowercase hex
  * characters, including for FLOAT columns. This codec does not guarantee that a
- * database server will accept non-finite values when replayed.
+ * database server will accept non-finite values when replayed. Geography payloads are compact
+ * JSON shape trees with raw binary64 coordinates; point order, ring order and signed zero
+ * are retained exactly as read from the source, without geometric normalization.
  */
 public final class ValueCodec {
     private static final long MAX_TIMESTAMP = Long.MAX_VALUE / 1_000_000_000L;
@@ -94,6 +103,14 @@ public final class ValueCodec {
                 Duration duration = value.getDuVal();
                 payload = array(duration.months, duration.seconds, duration.microseconds);
                 break;
+            case "geography":
+            case "geography(point)":
+            case "geography(linestring)":
+            case "geography(polygon)":
+                requireField(value, Value.GGVAL, type);
+                checkShape(value.getGgVal(), type);
+                payload = ascii(geography(value.getGgVal()));
+                break;
             default:
                 requireField(value, Value.SVAL, type);
                 payload = value.getSVal();
@@ -165,6 +182,13 @@ public final class ValueCodec {
                 range(duration[0], Integer.MIN_VALUE, Integer.MAX_VALUE, "duration months");
                 range(duration[2], Integer.MIN_VALUE, Integer.MAX_VALUE, "duration microseconds");
                 return Value.duVal(new Duration(duration[1], (int) duration[2], (int) duration[0]));
+            case "geography":
+            case "geography(point)":
+            case "geography(linestring)":
+            case "geography(polygon)":
+                Geography geography = new GeographyParser(text).parse();
+                checkShape(geography, type);
+                return Value.ggVal(geography);
             default:
                 throw invalid("Unsupported schema type: " + type);
         }
@@ -174,7 +198,8 @@ public final class ValueCodec {
         if (schemaType == null) {
             throw invalid("Schema type is required");
         }
-        String normalized = schemaType.trim().toLowerCase(Locale.ROOT);
+        String normalized = schemaType.trim().toLowerCase(Locale.ROOT)
+                .replaceAll("\\s*([()])\\s*", "$1");
         if (normalized.equals("int")) {
             return "int64";
         }
@@ -192,6 +217,10 @@ public final class ValueCodec {
             case "datetime":
             case "timestamp":
             case "duration":
+            case "geography":
+            case "geography(point)":
+            case "geography(linestring)":
+            case "geography(polygon)":
                 return normalized;
             default:
                 Matcher matcher = FIXED_STRING.matcher(normalized);
@@ -207,6 +236,183 @@ public final class ValueCodec {
     private static void requireField(Value value, int expected, String type) {
         if (value.getSetField() != expected) {
             throw invalid("Native Value field " + value.getSetField() + " does not match " + type);
+        }
+    }
+
+    private static void checkShape(Geography value, String type) {
+        if (value == null || value.getFieldValue() == null) {
+            throw invalid("Missing native Geography shape");
+        }
+        int actual = value.getSetField();
+        if (actual != Geography.PTVAL && actual != Geography.LSVAL && actual != Geography.PGVAL) {
+            throw invalid("Unsupported native Geography shape: " + actual);
+        }
+        if (type.equals("geography(point)") && actual != Geography.PTVAL
+                || type.equals("geography(linestring)") && actual != Geography.LSVAL
+                || type.equals("geography(polygon)") && actual != Geography.PGVAL) {
+            throw invalid("Native Geography shape does not match " + type);
+        }
+    }
+
+    private static String geography(Geography value) {
+        StringBuilder result = new StringBuilder();
+        switch (value.getSetField()) {
+            case Geography.PTVAL:
+                result.append("[\"point\",");
+                coordinate(result, value.getPtVal().coord);
+                break;
+            case Geography.LSVAL:
+                result.append("[\"linestring\",");
+                coordinates(result, value.getLsVal().coordList);
+                break;
+            case Geography.PGVAL:
+                result.append("[\"polygon\",[");
+                List<List<Coordinate>> rings = value.getPgVal().coordListList;
+                if (rings == null) {
+                    throw invalid("Missing Geography rings");
+                }
+                for (int i = 0; i < rings.size(); i++) {
+                    if (i != 0) {
+                        result.append(',');
+                    }
+                    coordinates(result, rings.get(i));
+                }
+                result.append(']');
+                break;
+            default:
+                throw invalid("Unsupported native Geography shape");
+        }
+        return result.append(']').toString();
+    }
+
+    private static void coordinates(StringBuilder result, List<Coordinate> values) {
+        if (values == null) {
+            throw invalid("Missing Geography coordinate sequence");
+        }
+        result.append('[');
+        for (int i = 0; i < values.size(); i++) {
+            if (i != 0) {
+                result.append(',');
+            }
+            coordinate(result, values.get(i));
+        }
+        result.append(']');
+    }
+
+    private static void coordinate(StringBuilder result, Coordinate value) {
+        if (value == null || !value.isSetX() || !value.isSetY()) {
+            throw invalid("Missing Geography coordinate component");
+        }
+        if (!Double.isFinite(value.x) || !Double.isFinite(value.y)) {
+            throw invalid("Geography coordinate must be finite");
+        }
+        result.append("[\"").append(rawBits(value.x)).append("\",\"")
+                .append(rawBits(value.y)).append("\"]");
+    }
+
+    private static String rawBits(double value) {
+        String hex = Long.toHexString(Double.doubleToRawLongBits(value));
+        return "0000000000000000".substring(hex.length()) + hex;
+    }
+
+    /** Parses only the fixed-depth, canonical geography grammar; no permissive JSON coercions. */
+    private static final class GeographyParser {
+        private final String text;
+        private int position;
+
+        GeographyParser(String text) {
+            this.text = text;
+        }
+
+        Geography parse() {
+            expect("[\"");
+            int shapeEnd = text.indexOf('"', position);
+            if (shapeEnd < 0) {
+                throw invalid("Missing Geography shape name");
+            }
+            String shape = text.substring(position, shapeEnd);
+            position = shapeEnd;
+            expect("\",");
+            Geography result;
+            switch (shape) {
+                case "point":
+                    result = Geography.ptVal(new Point(coordinate()));
+                    break;
+                case "linestring":
+                    result = Geography.lsVal(new LineString(coordinates()));
+                    break;
+                case "polygon":
+                    expect("[");
+                    List<List<Coordinate>> rings = new ArrayList<>();
+                    if (!take("]")) {
+                        do {
+                            rings.add(coordinates());
+                        } while (take(","));
+                        expect("]");
+                    }
+                    result = Geography.pgVal(new Polygon(rings));
+                    break;
+                default:
+                    throw invalid("Unsupported Geography shape name: " + shape);
+            }
+            expect("]");
+            if (position != text.length()) {
+                throw invalid("Trailing Geography payload content");
+            }
+            return result;
+        }
+
+        private List<Coordinate> coordinates() {
+            expect("[");
+            List<Coordinate> result = new ArrayList<>();
+            if (!take("]")) {
+                do {
+                    result.add(coordinate());
+                } while (take(","));
+                expect("]");
+            }
+            return result;
+        }
+
+        private Coordinate coordinate() {
+            expect("[");
+            double x = number();
+            expect(",");
+            double y = number();
+            expect("]");
+            return new Coordinate(x, y);
+        }
+
+        private double number() {
+            expect("\"");
+            if (text.length() - position < 17) {
+                throw invalid("Incomplete Geography coordinate bit pattern");
+            }
+            String hex = text.substring(position, position + 16);
+            if (!FLOAT_BITS.matcher(hex).matches()) {
+                throw invalid("Geography coordinate must contain 16 lowercase hex digits");
+            }
+            position += 16;
+            expect("\"");
+            double value = Double.longBitsToDouble(Long.parseUnsignedLong(hex, 16));
+            if (!Double.isFinite(value)) {
+                throw invalid("Geography coordinate must be finite");
+            }
+            return value;
+        }
+
+        private boolean take(String token) {
+            if (text.startsWith(token, position)) {
+                position += token.length();
+                return true;
+            }
+            return false;
+        }
+
+        private void expect(String token) {
+            if (!take(token)) {
+                throw invalid("Non-canonical Geography payload at offset " + position);
+            }
         }
     }
 

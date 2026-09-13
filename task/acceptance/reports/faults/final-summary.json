@@ -1,0 +1,641 @@
+{
+  "status": "PASSED",
+  "updatedAt": "2026-09-13T17:54:26.781807+00:00",
+  "selectionPolicy": "Latest finished report recursively per faultId; historical failed run retained separately.",
+  "expectedScenes": 7,
+  "completedScenes": 7,
+  "passedScenes": 7,
+  "failedScenes": 0,
+  "passMeaning": "All injected faults were detected and never accepted as MATCH.",
+  "mainAcceptanceCaseCount": 90,
+  "mainAcceptanceNote": "Main 90-case migration campaign is separate; this report covers only the seven accuracy fault scenes.",
+  "scenes": [
+    {
+      "id": "qa_fault_260914_property_change",
+      "faultId": "property_change",
+      "status": "PASSED",
+      "baselineCaseId": "bool_values_s",
+      "controlCounts": {
+        "vertices": 1000,
+        "edges": 1000,
+        "tags": {
+          "case_tag": 1000
+        },
+        "edgeTypes": {
+          "case_edge": 1000
+        }
+      },
+      "sourceSpace": "qa_20260914_s_bool_values",
+      "targetSpace": "qa_fault_260914_property_change",
+      "expectedStatus": "DIFFERENT",
+      "actual": {
+        "status": "DIFFERENT",
+        "matched": false,
+        "comparedRecords": 2000,
+        "differentRecords": 1,
+        "errorRecords": 0,
+        "exitCode": 2,
+        "countsStayedEqual": true
+      },
+      "sourceStatsAfterFault": {
+        "jobId": 173,
+        "finished": true,
+        "counts": {
+          "tag/case_tag": 1000,
+          "edge/case_edge": 1000,
+          "space/vertices": 1000,
+          "space/edges": 1000
+        },
+        "expectedCounts": {
+          "space/vertices": 1000,
+          "space/edges": 1000,
+          "tag/case_tag": 1000,
+          "edge/case_edge": 1000
+        },
+        "matchedExpected": true
+      },
+      "targetStatsAfterFault": {
+        "jobId": 174,
+        "finished": true,
+        "counts": {
+          "tag/case_tag": 1000,
+          "edge/case_edge": 1000,
+          "space/vertices": 1000,
+          "space/edges": 1000
+        },
+        "expectedCounts": {
+          "space/vertices": 1000,
+          "space/edges": 1000,
+          "tag/case_tag": 1000,
+          "edge/case_edge": 1000
+        },
+        "matchedExpected": true
+      },
+      "faultConsole": {
+        "source": {
+          "queryCount": 7,
+          "returnedTables": 7,
+          "errors": [],
+          "tablesSha256": "4b8f133565c2f7438824b24943274d595edac7b300681996d6451ed54cc0abd7"
+        },
+        "target": {
+          "queryCount": 7,
+          "returnedTables": 7,
+          "errors": [],
+          "tablesSha256": "f86e138cefa666acdfade74837940d182ca91b1d046b31f6a5304d448a282be7"
+        },
+        "tablesMatched": false,
+        "expected": "DIFFERENT"
+      },
+      "report": "task/acceptance/reports/faults/qa_fault_260914_property_change.json",
+      "markdown": "task/acceptance/reports/faults/qa_fault_260914_property_change.md",
+      "archive": {
+        "file": "task/acceptance/artifacts/faults/qa_fault_260914_property_change.tar.gz",
+        "bytes": 208920,
+        "sha256": "c150a7d34d2ed262020425882e995e04603015be18dce5cbbb3e78bb5785c7dd"
+      }
+    },
+    {
+      "id": "qa_fault_260914_r2_edge_key_replace",
+      "faultId": "edge_key_replace",
+      "status": "PASSED",
+      "baselineCaseId": "bool_values_s",
+      "controlCounts": {
+        "vertices": 1000,
+        "edges": 1000,
+        "tags": {
+          "case_tag": 1000
+        },
+        "edgeTypes": {
+          "case_edge": 1000
+        }
+      },
+      "sourceSpace": "qa_20260914_s_bool_values",
+      "targetSpace": "qa_fault_260914_r2_edge_key_replace",
+      "expectedStatus": "ERROR",
+      "actual": {
+        "status": "ERROR",
+        "matched": false,
+        "comparedRecords": 1999,
+        "differentRecords": 0,
+        "errorRecords": 1,
+        "exitCode": 1,
+        "countsStayedEqual": true
+      },
+      "sourceStatsAfterFault": {
+        "jobId": 208,
+        "finished": true,
+        "counts": {
+          "tag/case_tag": 1000,
+          "edge/case_edge": 1000,
+          "space/vertices": 1000,
+          "space/edges": 1000
+        },
+        "expectedCounts": {
+          "space/vertices": 1000,
+          "space/edges": 1000,
+          "tag/case_tag": 1000,
+          "edge/case_edge": 1000
+        },
+        "matchedExpected": true
+      },
+      "targetStatsAfterFault": {
+        "jobId": 209,
+        "finished": true,
+        "counts": {
+          "tag/case_tag": 1000,
+          "edge/case_edge": 1000,
+          "space/vertices": 1000,
+          "space/edges": 1000
+        },
+        "expectedCounts": {
+          "space/vertices": 1000,
+          "space/edges": 1000,
+          "tag/case_tag": 1000,
+          "edge/case_edge": 1000
+        },
+        "matchedExpected": true
+      },
+      "faultConsole": {
+        "source": {
+          "queryCount": 8,
+          "returnedTables": 8,
+          "emptyResults": 1,
+          "errors": [],
+          "tablesSha256": "1ea4847fc06c2742a60237f1b0a83f8134a7a650d4890026d4c796aef3741507"
+        },
+        "target": {
+          "queryCount": 8,
+          "returnedTables": 8,
+          "emptyResults": 1,
+          "errors": [],
+          "tablesSha256": "b7d6321f97882c76889e74077a5c68a0c58e38958ec3fdad48f37f9ee35818b0"
+        },
+        "tablesMatched": false,
+        "expected": "DIFFERENT_OR_MISSING"
+      },
+      "report": "task/acceptance/reports/faults/qa_fault_260914_r2_edge_key_replace.json",
+      "markdown": "task/acceptance/reports/faults/qa_fault_260914_r2_edge_key_replace.md",
+      "archive": {
+        "file": "task/acceptance/artifacts/faults/qa_fault_260914_r2_edge_key_replace.tar.gz",
+        "bytes": 209455,
+        "sha256": "57ae5b4699dd2e73c882543b390f460dd22b4830b6f0da26e87c5b929efed0f5"
+      }
+    },
+    {
+      "id": "qa_fault_260914_r2_tag_membership",
+      "faultId": "tag_membership",
+      "status": "PASSED",
+      "baselineCaseId": "bool_values_s",
+      "controlCounts": {
+        "vertices": 1000,
+        "edges": 1000,
+        "tags": {
+          "case_tag": 1000
+        },
+        "edgeTypes": {
+          "case_edge": 1000
+        }
+      },
+      "sourceSpace": "qa_20260914_s_bool_values",
+      "targetSpace": "qa_fault_260914_r2_tag_membership",
+      "expectedStatus": "DIFFERENT",
+      "actual": {
+        "status": "DIFFERENT",
+        "matched": false,
+        "comparedRecords": 2000,
+        "differentRecords": 1,
+        "errorRecords": 0,
+        "exitCode": 2,
+        "countsStayedEqual": false
+      },
+      "sourceStatsAfterFault": {
+        "jobId": 224,
+        "finished": true,
+        "counts": {
+          "tag/case_tag": 1000,
+          "edge/case_edge": 1000,
+          "space/vertices": 1000,
+          "space/edges": 1000
+        },
+        "expectedCounts": {
+          "space/vertices": 1000,
+          "space/edges": 1000,
+          "tag/case_tag": 1000,
+          "edge/case_edge": 1000
+        },
+        "matchedExpected": true
+      },
+      "targetStatsAfterFault": {
+        "jobId": 225,
+        "finished": true,
+        "counts": {
+          "tag/case_tag": 999,
+          "tag/fault_extra": 1,
+          "edge/case_edge": 1000,
+          "space/vertices": 1000,
+          "space/edges": 1000
+        },
+        "expectedCounts": {
+          "space/vertices": 1000,
+          "space/edges": 1000,
+          "tag/case_tag": 999,
+          "tag/fault_extra": 1,
+          "edge/case_edge": 1000
+        },
+        "matchedExpected": true
+      },
+      "faultConsole": {
+        "source": {
+          "queryCount": 7,
+          "returnedTables": 7,
+          "emptyResults": 0,
+          "errors": [],
+          "tablesSha256": "4b8f133565c2f7438824b24943274d595edac7b300681996d6451ed54cc0abd7"
+        },
+        "target": {
+          "queryCount": 7,
+          "returnedTables": 7,
+          "emptyResults": 0,
+          "errors": [],
+          "tablesSha256": "564886fafc73f35c6a90138a1e647895acd6d51ab42aeabf8df03cd8a6653f51"
+        },
+        "tablesMatched": false,
+        "expected": "DIFFERENT"
+      },
+      "report": "task/acceptance/reports/faults/qa_fault_260914_r2_tag_membership.json",
+      "markdown": "task/acceptance/reports/faults/qa_fault_260914_r2_tag_membership.md",
+      "archive": {
+        "file": "task/acceptance/artifacts/faults/qa_fault_260914_r2_tag_membership.tar.gz",
+        "bytes": 209949,
+        "sha256": "ed2d15ff320b67ad82749c2843dbfc2eb1cfeb1928ca3d76331a1d92d4b84e8f"
+      }
+    },
+    {
+      "id": "qa_fault_260914_geo_geography_coordinate_bit",
+      "faultId": "geography_coordinate_bit",
+      "status": "PASSED",
+      "baselineCaseId": "geography_point_s",
+      "controlCounts": {
+        "vertices": 1000,
+        "edges": 1000,
+        "tags": {
+          "case_tag": 1000
+        },
+        "edgeTypes": {
+          "case_edge": 1000
+        }
+      },
+      "sourceSpace": "qa_20260914_s_geography_point",
+      "targetSpace": "qa_fault_260914_geo_geography_coordinate_bit",
+      "expectedStatus": "DIFFERENT",
+      "actual": {
+        "status": "DIFFERENT",
+        "matched": false,
+        "comparedRecords": 2000,
+        "differentRecords": 1,
+        "errorRecords": 0,
+        "exitCode": 2,
+        "coordinateMutation": {
+          "record": "vertex|V:djAwMDA0",
+          "oldXBits": "40667fffffffffff",
+          "newXBits": "40667ffffffffffe",
+          "xor": "0000000000000001",
+          "unchangedYBits": "3cd203af9ee75616",
+          "nativeOneBitChangeConfirmed": true
+        },
+        "countsStayedEqual": true
+      },
+      "sourceStatsAfterFault": {
+        "jobId": 316,
+        "finished": true,
+        "counts": {
+          "tag/case_tag": 1000,
+          "edge/case_edge": 1000,
+          "space/vertices": 1000,
+          "space/edges": 1000
+        },
+        "expectedCounts": {
+          "space/vertices": 1000,
+          "space/edges": 1000,
+          "tag/case_tag": 1000,
+          "edge/case_edge": 1000
+        },
+        "matchedExpected": true
+      },
+      "targetStatsAfterFault": {
+        "jobId": 317,
+        "finished": true,
+        "counts": {
+          "tag/case_tag": 1000,
+          "edge/case_edge": 1000,
+          "space/vertices": 1000,
+          "space/edges": 1000
+        },
+        "expectedCounts": {
+          "space/vertices": 1000,
+          "space/edges": 1000,
+          "tag/case_tag": 1000,
+          "edge/case_edge": 1000
+        },
+        "matchedExpected": true
+      },
+      "faultConsole": {
+        "source": {
+          "queryCount": 7,
+          "returnedTables": 7,
+          "emptyResults": 0,
+          "errors": [],
+          "tablesSha256": "0839e637dbc489bade79e8189bdc79a8340c233fc9ffb743420c2a5ad4404e2e"
+        },
+        "target": {
+          "queryCount": 7,
+          "returnedTables": 7,
+          "emptyResults": 0,
+          "errors": [],
+          "tablesSha256": "3a7ae57bff84575391b7bca43c30a27fe2f747ec0ef48dd6750be397bea6f340"
+        },
+        "tablesMatched": false,
+        "expected": "DISPLAY_MAY_MATCH",
+        "displayPrecisionIsNotNativeEquality": true
+      },
+      "report": "task/acceptance/reports/faults/qa_fault_260914_geo_geography_coordinate_bit.json",
+      "markdown": "task/acceptance/reports/faults/qa_fault_260914_geo_geography_coordinate_bit.md",
+      "archive": {
+        "file": "task/acceptance/artifacts/faults/qa_fault_260914_geo_geography_coordinate_bit.tar.gz",
+        "bytes": 243737,
+        "sha256": "bbe488159fefddb7e98350be1ad9a4dc7f02e026496c26413a6b778e873ce5cb"
+      }
+    },
+    {
+      "id": "qa_fault_260914_geo_geography_schema_shape",
+      "faultId": "geography_schema_shape",
+      "status": "PASSED",
+      "baselineCaseId": "geography_point_s",
+      "controlCounts": {
+        "vertices": 1000,
+        "edges": 1000,
+        "tags": {
+          "case_tag": 1000
+        },
+        "edgeTypes": {
+          "case_edge": 1000
+        }
+      },
+      "sourceSpace": "qa_20260914_s_geography_point",
+      "targetSpace": "qa_fault_260914_geo_geography_schema_shape",
+      "expectedStatus": "ERROR",
+      "actual": {
+        "status": "ERROR",
+        "matched": false,
+        "comparedRecords": 1000,
+        "differentRecords": 0,
+        "errorRecords": 1000,
+        "exitCode": 1,
+        "countsStayedEqual": true
+      },
+      "sourceStatsAfterFault": {
+        "jobId": 339,
+        "finished": true,
+        "counts": {
+          "tag/case_tag": 1000,
+          "edge/case_edge": 1000,
+          "space/vertices": 1000,
+          "space/edges": 1000
+        },
+        "expectedCounts": {
+          "space/vertices": 1000,
+          "space/edges": 1000,
+          "tag/case_tag": 1000,
+          "edge/case_edge": 1000
+        },
+        "matchedExpected": true
+      },
+      "targetStatsAfterFault": {
+        "jobId": 340,
+        "finished": true,
+        "counts": {
+          "tag/case_tag": 1000,
+          "edge/case_edge": 1000,
+          "space/vertices": 1000,
+          "space/edges": 1000
+        },
+        "expectedCounts": {
+          "space/vertices": 1000,
+          "space/edges": 1000,
+          "tag/case_tag": 1000,
+          "edge/case_edge": 1000
+        },
+        "matchedExpected": true
+      },
+      "faultConsole": {
+        "source": {
+          "queryCount": 6,
+          "returnedTables": 6,
+          "emptyResults": 0,
+          "errors": [],
+          "tablesSha256": "7dbe4cdb29d3f9a96d3cb9ecf4d8f8913391beb48686f45aab9887b418cc479a"
+        },
+        "target": {
+          "queryCount": 6,
+          "returnedTables": 6,
+          "emptyResults": 0,
+          "errors": [],
+          "tablesSha256": "7dbe4cdb29d3f9a96d3cb9ecf4d8f8913391beb48686f45aab9887b418cc479a"
+        },
+        "tablesMatched": true,
+        "expected": "SAME_OR_QUERY_ERROR"
+      },
+      "report": "task/acceptance/reports/faults/qa_fault_260914_geo_geography_schema_shape.json",
+      "markdown": "task/acceptance/reports/faults/qa_fault_260914_geo_geography_schema_shape.md",
+      "archive": {
+        "file": "task/acceptance/artifacts/faults/qa_fault_260914_geo_geography_schema_shape.tar.gz",
+        "bytes": 252806,
+        "sha256": "ac77d3c96668c658dd8676fc3210bed20f9ecf9c9b11dcb1b265a10de8e51eb3"
+      }
+    },
+    {
+      "id": "qa_fault_260914_r2_bundle_integrity",
+      "faultId": "bundle_integrity",
+      "status": "PASSED",
+      "baselineCaseId": "bool_values_s",
+      "controlCounts": {
+        "vertices": 1000,
+        "edges": 1000,
+        "tags": {
+          "case_tag": 1000
+        },
+        "edgeTypes": {
+          "case_edge": 1000
+        }
+      },
+      "sourceSpace": "qa_20260914_s_bool_values",
+      "targetSpace": null,
+      "expectedStatus": "ERROR",
+      "actual": {
+        "status": "ERROR",
+        "matched": false,
+        "subchecks": {
+          "csv_hash": {
+            "expectedStatus": "ERROR",
+            "actualStatus": "ERROR",
+            "status": "PASSED",
+            "verificationPrepare": {
+              "expectedStatus": "ERROR",
+              "actualStatus": "ERROR",
+              "exitCode": 1,
+              "expectedReason": "CSV SHA-256 mismatch",
+              "reasonObserved": true,
+              "logSha256": "e2de1853b5d29a1b9b9b494b2afee83c07ad7fe6000f7faa47354e17c8099a39"
+            },
+            "migrationImport": {
+              "expectedStatus": "ERROR",
+              "actualStatus": "ERROR",
+              "exitCode": 1,
+              "expectedReason": "CSV SHA-256 mismatch",
+              "reasonObserved": true,
+              "logSha256": "35ede0b28134b2a36d54682b7d64ce2f1820924134e6696cc2d73f3fba9c1592"
+            },
+            "targetAbsence": {
+              "before": {
+                "targetSpace": "qa_fault_260914_r2_bundle_csv_hash",
+                "absent": true,
+                "log": "/home/sch/nebula/nebula-java/verification/target/task-fault-campaign-r2/bundle_integrity/csv_hash/space-check/before-import.txt",
+                "logSha256": "30b8aec7dd05e43b6b16796ae0bd4e0d60916618df03992a83c0dda537a91118"
+              },
+              "after": {
+                "targetSpace": "qa_fault_260914_r2_bundle_csv_hash",
+                "absent": true,
+                "log": "/home/sch/nebula/nebula-java/verification/target/task-fault-campaign-r2/bundle_integrity/csv_hash/space-check/after-import.txt",
+                "logSha256": "4fd63638fb266d8f2578863b4626d42bbe5c38c53c7897a384fff9347f8e4b5b"
+              },
+              "absentBeforeAndAfter": true
+            }
+          },
+          "duplicate_key": {
+            "expectedStatus": "ERROR",
+            "actualStatus": "ERROR",
+            "status": "PASSED",
+            "verificationPrepare": {
+              "expectedStatus": "ERROR",
+              "actualStatus": "ERROR",
+              "exitCode": 1,
+              "expectedReason": "Duplicate Tag record",
+              "reasonObserved": true,
+              "logSha256": "165db322268cc9fc892741ef2fb38982831a5d88e4224d88a75ba40ad4326591"
+            },
+            "migrationImport": {
+              "expectedStatus": "ERROR",
+              "actualStatus": "ERROR",
+              "exitCode": 1,
+              "expectedReason": "Duplicate complete key in CSV",
+              "reasonObserved": true,
+              "logSha256": "dc15bf591bd0823f3ac3408ebd0e3c7ddfd500ab3e820cdd01ebf8cb73e75589"
+            },
+            "targetAbsence": {
+              "before": {
+                "targetSpace": "qa_fault_260914_r2_bundle_duplicate_key",
+                "absent": true,
+                "log": "/home/sch/nebula/nebula-java/verification/target/task-fault-campaign-r2/bundle_integrity/duplicate_key/space-check/before-import.txt",
+                "logSha256": "30c4599b208596a1966e86182bcc24caf7f92f0cb9e1be41a1884cd65c91e979"
+              },
+              "after": {
+                "targetSpace": "qa_fault_260914_r2_bundle_duplicate_key",
+                "absent": true,
+                "log": "/home/sch/nebula/nebula-java/verification/target/task-fault-campaign-r2/bundle_integrity/duplicate_key/space-check/after-import.txt",
+                "logSha256": "816df282e95dd43d328e9ed401bd0892d0e7589bc49bc2ad59519dcdfa895253"
+              },
+              "absentBeforeAndAfter": true
+            }
+          }
+        }
+      },
+      "sourceStatsAfterFault": null,
+      "targetStatsAfterFault": null,
+      "faultConsole": null,
+      "report": "task/acceptance/reports/faults/qa_fault_260914_r2_bundle_integrity.json",
+      "markdown": "task/acceptance/reports/faults/qa_fault_260914_r2_bundle_integrity.md",
+      "archive": {
+        "file": "task/acceptance/artifacts/faults/qa_fault_260914_r2_bundle_integrity.tar.gz",
+        "bytes": 120785,
+        "sha256": "1c0368101b30c36a549161eaba8ebe8de45dba92892f4d774a07757acddf2b7f"
+      }
+    },
+    {
+      "id": "qa_fault_260914_r2_snapshot_integrity",
+      "faultId": "snapshot_integrity",
+      "status": "PASSED",
+      "baselineCaseId": "bool_values_s",
+      "controlCounts": {
+        "vertices": 1000,
+        "edges": 1000,
+        "tags": {
+          "case_tag": 1000
+        },
+        "edgeTypes": {
+          "case_edge": 1000
+        }
+      },
+      "sourceSpace": "qa_20260914_s_bool_values",
+      "targetSpace": null,
+      "expectedStatus": "ERROR",
+      "actual": {
+        "status": "ERROR",
+        "matched": false,
+        "subchecks": {
+          "truncation": {
+            "status": "ERROR",
+            "matched": false,
+            "comparedRecords": 0,
+            "differentRecords": 0,
+            "errorRecords": 0
+          },
+          "wrong_plan": {
+            "status": "ERROR",
+            "matched": false,
+            "comparedRecords": 0,
+            "differentRecords": 0,
+            "errorRecords": 0
+          },
+          "same_missing": {
+            "status": "ERROR",
+            "matched": false,
+            "comparedRecords": 0,
+            "differentRecords": 0,
+            "errorRecords": 2000
+          },
+          "false_complete": {
+            "status": "ERROR",
+            "matched": false,
+            "comparedRecords": 0,
+            "differentRecords": 0,
+            "errorRecords": 0
+          }
+        },
+        "allCompareExitCodes": 1
+      },
+      "sourceStatsAfterFault": null,
+      "targetStatsAfterFault": null,
+      "faultConsole": null,
+      "report": "task/acceptance/reports/faults/qa_fault_260914_r2_snapshot_integrity.json",
+      "markdown": "task/acceptance/reports/faults/qa_fault_260914_r2_snapshot_integrity.md",
+      "archive": {
+        "file": "task/acceptance/artifacts/faults/qa_fault_260914_r2_snapshot_integrity.tar.gz",
+        "bytes": 211974,
+        "sha256": "03c1be72edb429ef4f373407095ce3f9c5d1e9efab817ab443310d331eb51a4a"
+      }
+    }
+  ],
+  "resolvedHarnessIncidents": [
+    {
+      "failureReport": "task/acceptance/reports/faults/qa_fault_260914_edge_key_replace.json",
+      "failure": "Unterminated console result table",
+      "failedAt": "2026-09-13T17:39:50.040784+00:00",
+      "latestRetestReport": "task/acceptance/reports/faults/qa_fault_260914_r2_edge_key_replace.json",
+      "latestRetestStatus": "PASSED",
+      "productBug": false,
+      "resolution": "Fault console parser now recognizes the Empty set terminator while preserving raw output; retested using a new target and output directory."
+    }
+  ],
+  "evidenceAudit": "task/acceptance/reports/faults/final-evidence-audit.json"
+}

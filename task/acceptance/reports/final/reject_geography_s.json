@@ -1,0 +1,909 @@
+{
+  "id": "reject_geography_s",
+  "scenarioId": "reject_geography",
+  "vidType": "FIXED_STRING(256)",
+  "description": "非法经纬度、非法线/多边形写入NOT NULL地理属性必须拒绝",
+  "sourceSpace": "qa_20260914_s_reject_geography",
+  "targetSpace": "qa_20260914_s_reject_geography_target_final",
+  "expected": {
+    "vertices": 1000,
+    "edges": 1000,
+    "tags": {
+      "case_tag": 1000
+    },
+    "edgeTypes": {
+      "case_edge": 1000
+    }
+  },
+  "startedAt": "2026-09-13T18:39:11.335975+00:00",
+  "status": "PASSED",
+  "steps": [
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/before-rejection-stats/submit-stats.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/before-rejection-stats/submit-stats.txt",
+      "startedAt": "2026-09-13T18:39:11.353613+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "sha256": "dc2e88ed3c1113ab75dd30285f6d1e96b15991511228136cf4aa3eeac7f2b690",
+      "finishedAt": "2026-09-13T18:39:11.361221+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/before-rejection-stats/job-0.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/before-rejection-stats/job-0.txt",
+      "startedAt": "2026-09-13T18:39:11.361370+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.007,
+      "sha256": "04b5d431605d5bc498893e573a9d29adcffd16bc859a4ac8a40eca55031c35ea",
+      "finishedAt": "2026-09-13T18:39:11.368939+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/before-rejection-stats/show-stats.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/before-rejection-stats/show-stats.txt",
+      "startedAt": "2026-09-13T18:39:11.369070+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "sha256": "0f1c88fbe3d6c645fc118629d3f4811bf07fc3991acefa2c87c04e0f07527b44",
+      "finishedAt": "2026-09-13T18:39:11.376661+00:00"
+    },
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-jar",
+        "/home/sch/nebula/nebula-java/migration/target/migration-3.8.4.jar",
+        "export",
+        "--source-space",
+        "qa_20260914_s_reject_geography",
+        "--directory",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/rejection-control-bundle",
+        "--source-host",
+        "127.0.0.1",
+        "--source-graph-port",
+        "9669",
+        "--source-meta-port",
+        "9559",
+        "--source-user",
+        "root",
+        "--scan-limit",
+        "113"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/control-export.txt",
+      "startedAt": "2026-09-13T18:39:11.376835+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.668,
+      "sha256": "a12891cae25b68ea9fdfea9eba9e22b0cad997d6e72de252eda7b4ced0672c7b",
+      "finishedAt": "2026-09-13T18:39:12.044467+00:00"
+    },
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-jar",
+        "/home/sch/nebula/nebula-java/verification/target/nebula-data-verifier-3.8.4.jar",
+        "prepare",
+        "--migration-dir",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/rejection-control-bundle",
+        "--out",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/rejection-control-plan"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/control-prepare.txt",
+      "startedAt": "2026-09-13T18:39:12.044553+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.164,
+      "sha256": "1195be58b7a2258f057d515349582174649711e5924b9b324cf3541961343901",
+      "finishedAt": "2026-09-13T18:39:12.208870+00:00"
+    },
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-jar",
+        "/home/sch/nebula/nebula-java/verification/target/nebula-data-verifier-3.8.4.jar",
+        "capture",
+        "--plan",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/rejection-control-plan",
+        "--space",
+        "qa_20260914_s_reject_geography",
+        "--out",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/before-rejection",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "9669",
+        "--user",
+        "root"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/before-rejection.txt",
+      "startedAt": "2026-09-13T18:39:12.208968+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 3.224,
+      "sha256": "b3e425585d4fb0ee5f1fe52d020a93b14643b590b424b6b881f8e7a6e2a8019e",
+      "finishedAt": "2026-09-13T18:39:15.433171+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/task/acceptance/ngql/reject_geography_s/data.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/rejected-inserts.txt",
+      "startedAt": "2026-09-13T18:39:15.433335+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.267,
+      "sha256": "e922d134f62fc96db3b94225422a41650831347b68d6789410942bfef8da5077",
+      "finishedAt": "2026-09-13T18:39:15.700902+00:00"
+    },
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-jar",
+        "/home/sch/nebula/nebula-java/verification/target/nebula-data-verifier-3.8.4.jar",
+        "capture",
+        "--plan",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/rejection-control-plan",
+        "--space",
+        "qa_20260914_s_reject_geography",
+        "--out",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/after-rejection",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "9669",
+        "--user",
+        "root"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/after-rejection.txt",
+      "startedAt": "2026-09-13T18:39:15.703454+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 3.177,
+      "sha256": "da0b5b35a030f5d0536ea8dda457aac73641855b9fd6599b8ecf122859c80ab2",
+      "finishedAt": "2026-09-13T18:39:18.880497+00:00"
+    },
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-jar",
+        "/home/sch/nebula/nebula-java/verification/target/nebula-data-verifier-3.8.4.jar",
+        "compare",
+        "--source",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/before-rejection",
+        "--target",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/after-rejection",
+        "--out",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/rejection-comparison"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/rejection-compare.txt",
+      "startedAt": "2026-09-13T18:39:18.880641+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.265,
+      "sha256": "4b6358a875a098aab9fb5563450f3236f9f84608260c553f395e8935a3130de6",
+      "finishedAt": "2026-09-13T18:39:19.145897+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/after-rejection-stats/submit-stats.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/after-rejection-stats/submit-stats.txt",
+      "startedAt": "2026-09-13T18:39:19.146046+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "sha256": "737af0ae51d6c146bc47317aa9f86d6d0414669495e5865e2a4705b87f3edb3e",
+      "finishedAt": "2026-09-13T18:39:19.154321+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/after-rejection-stats/job-0.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/after-rejection-stats/job-0.txt",
+      "startedAt": "2026-09-13T18:39:19.154455+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "sha256": "9e86311f3e7925c286d2e4cf3d93bffbc76215f1074223d22f2a0bec4e2bd4ab",
+      "finishedAt": "2026-09-13T18:39:19.162217+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/after-rejection-stats/job-1.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/after-rejection-stats/job-1.txt",
+      "startedAt": "2026-09-13T18:39:20.163372+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "sha256": "ce2170f3b226320e8b92a7774c04d534626eda2b688fce40e790e1b639dc4b05",
+      "finishedAt": "2026-09-13T18:39:20.171327+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/after-rejection-stats/show-stats.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/after-rejection-stats/show-stats.txt",
+      "startedAt": "2026-09-13T18:39:20.171455+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "sha256": "51b85e7b7ad4ba9684ae76218217557176fb5af8484a21a0399b0077292bc61e",
+      "finishedAt": "2026-09-13T18:39:20.179042+00:00"
+    },
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-cp",
+        "/home/sch/nebula/nebula-java/verification/target/nebula-data-verifier-3.8.4.jar:/home/sch/nebula/nebula-java/verification/target/fixture-oracle",
+        "FixtureSourceOracle",
+        "--oracle",
+        "/home/sch/nebula/nebula-java/task/acceptance/oracles/reject_geography_s.json",
+        "--space",
+        "qa_20260914_s_reject_geography",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "9669",
+        "--user",
+        "root",
+        "--out",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/source-fixture-oracle.json"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/source-fixture-oracle.txt",
+      "startedAt": "2026-09-13T18:39:20.179397+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 3.43,
+      "sha256": "58362f5bd69748c893d7fef7a37c2016b61d8c88581761ae955bc6f2bcedef3a",
+      "finishedAt": "2026-09-13T18:39:23.610043+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/source-stats/submit-stats.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/source-stats/submit-stats.txt",
+      "startedAt": "2026-09-13T18:39:23.611610+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "sha256": "9e739cf0f6517c1c1d9d4267413c2ac342558b4e450106409051a90f1dd64e63",
+      "finishedAt": "2026-09-13T18:39:23.619391+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/source-stats/job-0.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/source-stats/job-0.txt",
+      "startedAt": "2026-09-13T18:39:23.619564+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "sha256": "b48080f538d8910c7319a0138d8bde8067eaa3d336b32f21dcb8657027868798",
+      "finishedAt": "2026-09-13T18:39:23.627696+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/source-stats/show-stats.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/source-stats/show-stats.txt",
+      "startedAt": "2026-09-13T18:39:23.627857+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "sha256": "abd80267132bdd98924cd50edaa4ed3192ca127e722b591335cee26b1eb4d129",
+      "finishedAt": "2026-09-13T18:39:23.635918+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/source-console/fetch-samples.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/source-console/fetch-samples.txt",
+      "startedAt": "2026-09-13T18:39:23.636251+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.016,
+      "sha256": "5bfb9f23615e18b084b1b2913c120a4b574d52c618a97d9830ad98e66bfed0c3",
+      "finishedAt": "2026-09-13T18:39:23.652206+00:00"
+    },
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-jar",
+        "/home/sch/nebula/nebula-java/migration/target/migration-3.8.4.jar",
+        "export",
+        "--source-space",
+        "qa_20260914_s_reject_geography",
+        "--directory",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/bundle",
+        "--source-host",
+        "127.0.0.1",
+        "--source-graph-port",
+        "9669",
+        "--source-meta-port",
+        "9559",
+        "--source-user",
+        "root",
+        "--scan-limit",
+        "113"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/migration-export.txt",
+      "startedAt": "2026-09-13T18:39:23.652360+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.615,
+      "sha256": "df66e3b514352f634ecf28983fb52a01da8154f5aad822158bd2017e4141a0a5",
+      "finishedAt": "2026-09-13T18:39:24.267099+00:00"
+    },
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-jar",
+        "/home/sch/nebula/nebula-java/verification/target/nebula-data-verifier-3.8.4.jar",
+        "prepare",
+        "--migration-dir",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/bundle",
+        "--out",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/plan"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/prepare.txt",
+      "startedAt": "2026-09-13T18:39:24.267162+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.168,
+      "sha256": "2d9c02bd17354d8d277ba03af173b697ed1030272631bb4cc262ef76f4095616",
+      "finishedAt": "2026-09-13T18:39:24.435322+00:00"
+    },
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-jar",
+        "/home/sch/nebula/nebula-java/verification/target/nebula-data-verifier-3.8.4.jar",
+        "capture",
+        "--plan",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/plan",
+        "--space",
+        "qa_20260914_s_reject_geography",
+        "--out",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/source",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "9669",
+        "--user",
+        "root"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/source-capture.txt",
+      "startedAt": "2026-09-13T18:39:24.435429+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 3.536,
+      "sha256": "f0e6c3aa7105e147febd49544b8735a3d33399432f4bc1429f1991efdaea4953",
+      "finishedAt": "2026-09-13T18:39:27.971406+00:00"
+    },
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-jar",
+        "/home/sch/nebula/nebula-java/migration/target/migration-3.8.4.jar",
+        "import",
+        "--target-space",
+        "qa_20260914_s_reject_geography_target_final",
+        "--directory",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/bundle",
+        "--target-host",
+        "127.0.0.1",
+        "--target-graph-port",
+        "9669",
+        "--target-meta-port",
+        "9559",
+        "--target-user",
+        "root",
+        "--schema-wait-ms",
+        "20000",
+        "--scan-limit",
+        "113"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/migration-import.txt",
+      "startedAt": "2026-09-13T18:39:27.971516+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 42.815,
+      "sha256": "23d1290ea33d806d8df552b15f7dbe2b693abce17b93f7a7a53efba6a93e8396",
+      "finishedAt": "2026-09-13T18:40:10.786386+00:00"
+    },
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-jar",
+        "/home/sch/nebula/nebula-java/verification/target/nebula-data-verifier-3.8.4.jar",
+        "capture",
+        "--plan",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/plan",
+        "--space",
+        "qa_20260914_s_reject_geography_target_final",
+        "--out",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/target",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "9669",
+        "--user",
+        "root"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/target-capture.txt",
+      "startedAt": "2026-09-13T18:40:10.786544+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 3.333,
+      "sha256": "90220ea9972127d3c36ab5c8958751135485569933ff6367b5c9776a221bf42f",
+      "finishedAt": "2026-09-13T18:40:14.119691+00:00"
+    },
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-jar",
+        "/home/sch/nebula/nebula-java/verification/target/nebula-data-verifier-3.8.4.jar",
+        "compare",
+        "--source",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/source",
+        "--target",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/target",
+        "--out",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/comparison"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/compare.txt",
+      "startedAt": "2026-09-13T18:40:14.120345+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.268,
+      "sha256": "26c78882efcf5b7db8b1668c83b6dc935c9ad895d93e6da1dcc1496ad5ccb8ed",
+      "finishedAt": "2026-09-13T18:40:14.388651+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/target-stats/submit-stats.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/target-stats/submit-stats.txt",
+      "startedAt": "2026-09-13T18:40:14.389709+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.012,
+      "sha256": "d3e24d9fe4af814dbe91630ab29817e61fee097fbb34a84c14dc6911c5f546ba",
+      "finishedAt": "2026-09-13T18:40:14.401757+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/target-stats/job-0.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/target-stats/job-0.txt",
+      "startedAt": "2026-09-13T18:40:14.401957+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "sha256": "9e1076b461a7a5b22a016b6d96e3cc75c30fb4779570d4b47f626e382aa895ec",
+      "finishedAt": "2026-09-13T18:40:14.410237+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/target-stats/show-stats.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/target-stats/show-stats.txt",
+      "startedAt": "2026-09-13T18:40:14.410433+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "sha256": "c66047720a387b7371cacddbeb5b11910cb1a328c7447b919a4b7f9903fddee6",
+      "finishedAt": "2026-09-13T18:40:14.418150+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/target-console/fetch-samples.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/reject_geography_s/target-console/fetch-samples.txt",
+      "startedAt": "2026-09-13T18:40:14.418527+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.018,
+      "sha256": "e5ecf5b211680f430c031d1a3d22057750c32f9f5d1bda24d6b89497dfc593d7",
+      "finishedAt": "2026-09-13T18:40:14.436577+00:00"
+    }
+  ],
+  "dataRowsPerScene": 1000,
+  "schemaWaitMillis": 20000,
+  "variantCounts": {
+    "baseline": 1000
+  },
+  "negative": true,
+  "scanLimit": 113,
+  "migrationJarSha256": "f760ab235da35fadc8a0ffb1db7f1a26e9522bdb7b22732bab755524cd721c54",
+  "verificationJarSha256": "dc8ecf68fe311d64c15efa08cfec2d6db1ed61956be5c31ac3d8df404b5cc099",
+  "fixtureFileHashes": {
+    "reject_geography_s/control.ngql": {
+      "bytes": 233320,
+      "sha256": "382c5683c28fac21bbb85e30a7ad52f2ff46baa9a0fce1ddddb5f890fe87e631"
+    },
+    "reject_geography_s/space.ngql": {
+      "bytes": 108,
+      "sha256": "6c8ed67b9cd0a370cb69b197851c561a3d06c736c11c205d8ba6bbf423fe6a35"
+    },
+    "reject_geography_s/schema.ngql": {
+      "bytes": 142,
+      "sha256": "56a1fa610cb21287217d2bc1c4503b698663ab9a721611be5be3007a2e402c2b"
+    },
+    "reject_geography_s/data.ngql": {
+      "bytes": 106038,
+      "sha256": "fe07e67ef991acdee17424228baa6846f78c810cc856a929d19343b8f947600c"
+    },
+    "reject_geography_s/sample.ngql": {
+      "bytes": 529,
+      "sha256": "2a0bc1f541cf188292d5420516e5443d3051414026f14759d27b79644b7abd91"
+    }
+  },
+  "rejectedInputValidation": {
+    "rejectedRequests": 1000,
+    "expectedRejectedRequests": 1000,
+    "errorCodes": [
+      "-1005"
+    ],
+    "errorMessages": [
+      "Wrong value type: ST_GeogFromText(\"LINESTRING(0 0)\")",
+      "Wrong value type: ST_GeogFromText(\"POINT(0 91)\")",
+      "Wrong value type: ST_GeogFromText(\"POINT(181 0)\")",
+      "Wrong value type: ST_GeogFromText(\"POLYGON((0 0,1 1,0 0))\")"
+    ],
+    "controlContentUnchanged": true,
+    "controlStatsUnchanged": true
+  },
+  "sourceFixtureOracle": {
+    "id": "reject_geography_s",
+    "startedAt": "2026-09-13T18:39:20.254366270Z",
+    "oracleSha256": "6c42fc563e693a09a94cc37aa90b701f787f9ebd0e8ed109b0281c29da395200",
+    "passed": true,
+    "status": "PASSED",
+    "space": "qa_20260914_s_reject_geography",
+    "fixtureFileHashes": {
+      "reject_geography_s/space.ngql": {
+        "sha256": "6c8ed67b9cd0a370cb69b197851c561a3d06c736c11c205d8ba6bbf423fe6a35",
+        "bytes": 108
+      },
+      "reject_geography_s/schema.ngql": {
+        "sha256": "56a1fa610cb21287217d2bc1c4503b698663ab9a721611be5be3007a2e402c2b",
+        "bytes": 142
+      },
+      "reject_geography_s/data.ngql": {
+        "sha256": "fe07e67ef991acdee17424228baa6846f78c810cc856a929d19343b8f947600c",
+        "bytes": 106038
+      },
+      "reject_geography_s/sample.ngql": {
+        "sha256": "2a0bc1f541cf188292d5420516e5443d3051414026f14759d27b79644b7abd91",
+        "bytes": 529
+      },
+      "reject_geography_s/control.ngql": {
+        "sha256": "382c5683c28fac21bbb85e30a7ad52f2ff46baa9a0fce1ddddb5f890fe87e631",
+        "bytes": 233320
+      }
+    },
+    "validatedRows": 2000,
+    "validatedVertices": 1000,
+    "validatedEdges": 1000,
+    "variantCounts": {
+      "positive_control": 1000
+    },
+    "expectedAndActualFieldsSha256": "585f19d200f8ea799a328dd44543b7502859f73462b603b77ce019d7906c67f4",
+    "expressionGroups": 1,
+    "schemaMatched": true,
+    "comparison": "Native fields are exact; only FLOAT float32 promotion is applied. GEOGRAPHY expected values use ST_GeogFromText YIELD, which normalizes and validates on the source server; the oracle never normalizes FETCH values.",
+    "finishedAt": "2026-09-13T18:39:23.557539286Z",
+    "reportSha256": "e2a2c1ec7d17251b1722327ebb4378bb4cb38d2f7b74f5c73629144794251692"
+  },
+  "sourceStats": {
+    "jobId": 756,
+    "finished": true,
+    "counts": {
+      "tag/case_tag": 1000,
+      "edge/case_edge": 1000,
+      "space/vertices": 1000,
+      "space/edges": 1000
+    },
+    "expectedCounts": {
+      "space/vertices": 1000,
+      "space/edges": 1000,
+      "tag/case_tag": 1000,
+      "edge/case_edge": 1000
+    },
+    "matchedExpected": true
+  },
+  "sourceConsole": {
+    "queries": 6,
+    "tablesSha256": "43d28378326d7bd01744e541582a6df69861b3226375909796dc1ec4671d60d0"
+  },
+  "sourceCapture": {
+    "capturedAt": "2026-09-13T18:39:24.572294471Z",
+    "errorCount": 0,
+    "errors": [],
+    "formatVersion": 1,
+    "missingCount": 0,
+    "okCount": 2000,
+    "planDigest": "33ad0d21775cb87a6b308ac39bb9ec567958ec79452758aee476793b3265af55",
+    "planId": "88b4e074-29dc-4811-a152-ce60dad0c527",
+    "recordCount": 2000,
+    "recordsSha256": "915dac74a11bfc58742747952e9f571c40f03e61a150d8e9e61c9da79db4c08f",
+    "requestedCount": 2000,
+    "requestedKeysSha256": "2db126388423b09e6222ef36ba0329a85e6166c82a03cb5688c1aeeadfb9211e",
+    "schemas": {
+      "EDGE/V:Y2FzZV9lZGdl": "{\"V:dmFsdWU=\":{\"nullable\":false,\"type\":\"GEOGRAPHY\"}}",
+      "TAG/V:Y2FzZV90YWc=": "{\"V:dmFsdWU=\":{\"nullable\":false,\"type\":\"GEOGRAPHY\"}}"
+    },
+    "space": "qa_20260914_s_reject_geography",
+    "status": "COMPLETE",
+    "valueFormat": "nebula-native-fields-v1",
+    "vidType": "FIXED_STRING(256)"
+  },
+  "sourceBaselineFinishedAt": "2026-09-13T18:39:27.971479+00:00",
+  "targetImportStartedAt": "2026-09-13T18:39:27.971481+00:00",
+  "targetImportFinishedAt": "2026-09-13T18:40:10.786404+00:00",
+  "migrationVerification": {
+    "edgeRows": 1000,
+    "matched": true,
+    "rowsByTable": {
+      "TAG/case_tag": 1000,
+      "EDGE/case_edge": 1000
+    },
+    "sourceRechecked": false,
+    "sourceSpace": "qa_20260914_s_reject_geography",
+    "tagRows": 1000,
+    "targetSpace": "qa_20260914_s_reject_geography_target_final",
+    "verifiedAt": "2026-09-13T18:40:10.747177488Z"
+  },
+  "targetCapture": {
+    "capturedAt": "2026-09-13T18:40:10.911181280Z",
+    "errorCount": 0,
+    "errors": [],
+    "formatVersion": 1,
+    "missingCount": 0,
+    "okCount": 2000,
+    "planDigest": "33ad0d21775cb87a6b308ac39bb9ec567958ec79452758aee476793b3265af55",
+    "planId": "88b4e074-29dc-4811-a152-ce60dad0c527",
+    "recordCount": 2000,
+    "recordsSha256": "915dac74a11bfc58742747952e9f571c40f03e61a150d8e9e61c9da79db4c08f",
+    "requestedCount": 2000,
+    "requestedKeysSha256": "2db126388423b09e6222ef36ba0329a85e6166c82a03cb5688c1aeeadfb9211e",
+    "schemas": {
+      "EDGE/V:Y2FzZV9lZGdl": "{\"V:dmFsdWU=\":{\"nullable\":false,\"type\":\"GEOGRAPHY\"}}",
+      "TAG/V:Y2FzZV90YWc=": "{\"V:dmFsdWU=\":{\"nullable\":false,\"type\":\"GEOGRAPHY\"}}"
+    },
+    "space": "qa_20260914_s_reject_geography_target_final",
+    "status": "COMPLETE",
+    "valueFormat": "nebula-native-fields-v1",
+    "vidType": "FIXED_STRING(256)"
+  },
+  "verification": {
+    "comparedAt": "2026-09-13T18:40:14.295729258Z",
+    "comparedRecords": 2000,
+    "detailsTruncated": false,
+    "differenceFields": 0,
+    "differences": [],
+    "differentRecords": 0,
+    "errorRecords": 0,
+    "matched": true,
+    "planId": "88b4e074-29dc-4811-a152-ce60dad0c527",
+    "scope": "CONTENTS_OF_LISTED_OBJECTS_ONLY",
+    "sourceCapturedAt": "2026-09-13T18:39:24.572294471Z",
+    "sourceSpace": "qa_20260914_s_reject_geography",
+    "status": "MATCH",
+    "targetCapturedAt": "2026-09-13T18:40:10.911181280Z",
+    "targetSpace": "qa_20260914_s_reject_geography_target_final"
+  },
+  "targetStats": {
+    "jobId": 760,
+    "finished": true,
+    "counts": {
+      "tag/case_tag": 1000,
+      "edge/case_edge": 1000,
+      "space/vertices": 1000,
+      "space/edges": 1000
+    },
+    "expectedCounts": {
+      "space/vertices": 1000,
+      "space/edges": 1000,
+      "tag/case_tag": 1000,
+      "edge/case_edge": 1000
+    },
+    "matchedExpected": true
+  },
+  "targetConsole": {
+    "queries": 6,
+    "tablesSha256": "43d28378326d7bd01744e541582a6df69861b3226375909796dc1ec4671d60d0"
+  },
+  "consoleSamplesMatched": true,
+  "statsMatched": true,
+  "finishedAt": "2026-09-13T18:40:14.437086+00:00",
+  "archive": {
+    "file": "task/acceptance/artifacts/final/reject_geography_s.tar.gz",
+    "bytes": 379859,
+    "sha256": "c27899bb0fea359d45da6b2fdcb5fe4b43a2088820b3b5a73ea9504b08722ee2"
+  }
+}

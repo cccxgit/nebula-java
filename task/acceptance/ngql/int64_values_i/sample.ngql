@@ -1,0 +1,7 @@
+USE `qa_20260914_i_int64_values`;
+FETCH PROP ON * 100 YIELD vertex AS v;
+FETCH PROP ON `case_edge` 100->101@-500 YIELD edge AS e;
+FETCH PROP ON * 600 YIELD vertex AS v;
+FETCH PROP ON `case_edge` 600->601@0 YIELD edge AS e;
+FETCH PROP ON * 1099 YIELD vertex AS v;
+FETCH PROP ON `case_edge` 1099->100@499 YIELD edge AS e;

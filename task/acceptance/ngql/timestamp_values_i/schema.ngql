@@ -1,0 +1,3 @@
+USE `qa_20260914_i_timestamp_values`;
+CREATE TAG `case_tag`(`value` TIMESTAMP NULL);
+CREATE EDGE `case_edge`(`value` TIMESTAMP NULL);

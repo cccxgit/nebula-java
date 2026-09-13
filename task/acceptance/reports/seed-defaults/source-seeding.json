@@ -1,0 +1,154 @@
+{
+  "startedAt": "2026-09-13T17:18:30.878049+00:00",
+  "status": "PASSED",
+  "cases": [
+    "not_null_defaults_s",
+    "not_null_defaults_i"
+  ],
+  "steps": [
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/task/acceptance/ngql/not_null_defaults_s/space.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-seed-defaults/source-seeding/not_null_defaults_s/spaceFile.txt",
+      "startedAt": "2026-09-13T17:18:30.878122+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "sha256": "f8fff37abc2e93ad16d2a5d4d722f0931d5026bf71fc1ebaa0df9b13cd08f00a",
+      "finishedAt": "2026-09-13T17:18:30.885895+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/task/acceptance/ngql/not_null_defaults_i/space.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-seed-defaults/source-seeding/not_null_defaults_i/spaceFile.txt",
+      "startedAt": "2026-09-13T17:18:30.885995+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.009,
+      "sha256": "c4510d56693110a5627cfdfff23c6ff2d64005c9b23a190b0d7f52647559bd75",
+      "finishedAt": "2026-09-13T17:18:30.895392+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/task/acceptance/ngql/not_null_defaults_s/schema.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-seed-defaults/source-seeding/not_null_defaults_s/schemaFile.txt",
+      "startedAt": "2026-09-13T17:18:50.916297+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "sha256": "122e07dbb146407207de2e268c4044c6f3cfe60da8a0bf12cec1568359a41d27",
+      "finishedAt": "2026-09-13T17:18:50.924049+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/task/acceptance/ngql/not_null_defaults_i/schema.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-seed-defaults/source-seeding/not_null_defaults_i/schemaFile.txt",
+      "startedAt": "2026-09-13T17:18:50.924126+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "sha256": "20ac0ffa2c6e6b997119445d54d7dd31efed8f862f0f7c2338c933a278917fc9",
+      "finishedAt": "2026-09-13T17:18:50.931761+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/task/acceptance/ngql/not_null_defaults_s/data.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-seed-defaults/source-seeding/not_null_defaults_s/dataFile.txt",
+      "startedAt": "2026-09-13T17:19:10.951271+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 2.03,
+      "sha256": "053bb510dbc2acfbafae69c30c91a2d4cbff2756c4f294e7320ad419f0c9d51f",
+      "finishedAt": "2026-09-13T17:19:12.981362+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/task/acceptance/ngql/not_null_defaults_i/data.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-seed-defaults/source-seeding/not_null_defaults_i/dataFile.txt",
+      "startedAt": "2026-09-13T17:19:12.981446+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 2.024,
+      "sha256": "1de851ee442730bd134a84e4724cd66b613c643f8f2c43770bf4dddfa50f14d1",
+      "finishedAt": "2026-09-13T17:19:15.005896+00:00"
+    }
+  ],
+  "finishedAt": "2026-09-13T17:19:15.005911+00:00",
+  "archive": {
+    "file": "task/acceptance/artifacts/seed-defaults/source-seeding.tar.gz",
+    "bytes": 62711,
+    "sha256": "ebf7e675b52a9eb22bd32bde02907e1621adf1ccedcde7611fb829e3274ab9be"
+  }
+}

@@ -1,0 +1,29 @@
+{
+	"id":"multiple_tags_s",
+	"startedAt":"2026-09-13T17:34:30.591462408Z",
+	"oracleSha256":"1c8ee912a75c65c4e3bd5434ca63efb5388fa835c9f117569b9ae504ceeb377e",
+	"passed":false,
+	"status":"FAILED",
+	"records":[],
+	"space":"qa_20260914_s_multiple_tags",
+	"fixtureFileHashes":{
+		"multiple_tags_s/sample.ngql":{
+			"sha256":"928773550d0d410909595e32f4f5865d3d590c197a53d68d8d8956bd067f6f7b",
+			"bytes":526
+		},
+		"multiple_tags_s/space.ngql":{
+			"sha256":"18e3067f85b558a158ee4e004d8753f328a9afff111a9e358147f01a71ed3471",
+			"bytes":105
+		},
+		"multiple_tags_s/data.ngql":{
+			"sha256":"218655061cf465a7582fad4263b97a3af90a6d032fd109272578d2754d624fe6",
+			"bytes":307317
+		},
+		"multiple_tags_s/schema.ngql":{
+			"sha256":"ffec0fa795dd800ece218eb87588a1ec2c6f83b8aad91f727f39223b29fe991b",
+			"bytes":149
+		}
+	},
+	"failure":"java.lang.IllegalStateException: Object/Tag/property field set differs: VERTEX/V:djAwMDAw; expected=[$vid, tag/Y2FzZV90YWc=, tag/Y2FzZV90YWc=/prop/dmFsdWU=]; actual=[$vid, tag/Y2FzZV90YWc=, tag/Y2FzZV90YWc=/prop/dmFsdWU=, tag/ZXh0cmFfdGFn]",
+	"finishedAt":"2026-09-13T17:34:30.682950040Z"
+}

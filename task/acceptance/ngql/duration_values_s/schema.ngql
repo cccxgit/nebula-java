@@ -1,0 +1,3 @@
+USE `qa_20260914_s_duration_values`;
+CREATE TAG `case_tag`(`value` DURATION NULL);
+CREATE EDGE `case_edge`(`value` DURATION NULL);

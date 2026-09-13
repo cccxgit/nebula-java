@@ -1,0 +1,3 @@
+USE `qa_20260914_s_not_null_defaults`;
+CREATE TAG `case_tag`(`required_int` INT64 NOT NULL DEFAULT 42,`required_text` STRING NOT NULL DEFAULT "\144\145\146\141\165\154\164\054\047\042\134\015\012\360\237\230\200",`required_bool` BOOL NOT NULL DEFAULT true,`required_date` DATE NOT NULL DEFAULT date("2024-02-29"));
+CREATE EDGE `case_edge`(`required_int` INT64 NOT NULL DEFAULT 42,`required_text` STRING NOT NULL DEFAULT "\144\145\146\141\165\154\164\054\047\042\134\015\012\360\237\230\200",`required_bool` BOOL NOT NULL DEFAULT true,`required_date` DATE NOT NULL DEFAULT date("2024-02-29"));

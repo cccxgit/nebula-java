@@ -1,0 +1,27 @@
+Scope: read-only native parameter YIELD, FETCH, StorageClient.scanVertex; no INSERT or migration.
+StartedAt: 2026-09-13T17:33:26.787569+00:00
+Command: java -cp migration/target/migration-3.8.4.jar task/acceptance/probes/ScalarWireProbe.java
+JavaSourceSHA256: ae8162cabe7df2e7a87b8d6d33c076bd898d5a5202761b2aaee12dba54895d00
+MigrationJarSHA256: 2bdaa243bb9604e083c0fc9b17cb79c53959954f0826c1fc0b6da87e7a9df70d
+ExitCode: 0
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+PARAM 0000000000000000 -> 0000000000000000
+PARAM 8000000000000000 -> 8000000000000000
+PARAM 0000000000000001 -> 0000000000000001
+PARAM 7fefffffffffffff -> 7fefffffffffffff
+PARAM 7ff0000000000000 -> 7ff0000000000000
+PARAM fff0000000000000 -> fff0000000000000
+PARAM 7ff8000000000000 -> 7ff8000000000000
+PARAM 7ff8000000000001 -> 7ff8000000000000
+PARAM fff8000000000042 -> 7ff8000000000000
+FETCH qa_20260914_s_float_nonfinite 7ff8000000000000
+FETCH qa_20260914_i_float_nonfinite 7ff8000000000000
+FETCH qa_20260914_s_double_nonfinite 7ff8000000000000
+FETCH qa_20260914_i_double_nonfinite 7ff8000000000000
+SCAN qa_20260914_s_float_nonfinite {7ff8000000000000=1000}
+SCAN qa_20260914_i_float_nonfinite {7ff8000000000000=1000}
+SCAN qa_20260914_s_double_nonfinite {7ff0000000000000=333, 7ff8000000000000=334, fff0000000000000=333}
+SCAN qa_20260914_i_double_nonfinite {7ff0000000000000=333, 7ff8000000000000=334, fff0000000000000=333}

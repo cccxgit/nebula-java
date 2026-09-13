@@ -1,0 +1,1 @@
+CREATE SPACE `qa_20260914_s_float_signed_zero`(partition_num=7,replica_factor=1,vid_type=FIXED_STRING(256));

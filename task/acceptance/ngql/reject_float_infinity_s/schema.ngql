@@ -1,0 +1,3 @@
+USE `qa_20260914_s_reject_float_infinity`;
+CREATE TAG `case_tag`(`value` FLOAT NULL);
+CREATE EDGE `case_edge`(`value` FLOAT NULL);

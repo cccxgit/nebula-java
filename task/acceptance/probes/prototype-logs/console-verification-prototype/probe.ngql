@@ -1,0 +1,22 @@
+:csv /tmp/nebula-console-verify-probe-twj2n27v/quote.csv
+YIELD "a\"b" AS v;
+:csv /tmp/nebula-console-verify-probe-twj2n27v/slash_quote.csv
+YIELD "a\\\"b" AS v;
+:csv /tmp/nebula-console-verify-probe-twj2n27v/plain.csv
+YIELD "ab" AS v;
+:csv /tmp/nebula-console-verify-probe-twj2n27v/invalid_ff.csv
+YIELD "\377" AS v;
+:csv /tmp/nebula-console-verify-probe-twj2n27v/invalid_fe.csv
+YIELD "\376" AS v;
+:csv /tmp/nebula-console-verify-probe-twj2n27v/replacement.csv
+YIELD "\357\277\275" AS v;
+:csv /tmp/nebula-console-verify-probe-twj2n27v/cr.csv
+YIELD "a\rb" AS v;
+:csv /tmp/nebula-console-verify-probe-twj2n27v/lf.csv
+YIELD "a\nb" AS v;
+:csv /tmp/nebula-console-verify-probe-twj2n27v/nul.csv
+YIELD "a\000b" AS v;
+:csv /tmp/nebula-console-verify-probe-twj2n27v/float_a.csv
+YIELD 0.1 AS v;
+:csv /tmp/nebula-console-verify-probe-twj2n27v/float_b.csv
+YIELD 0.10000000000000002 AS v;

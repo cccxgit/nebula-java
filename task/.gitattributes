@@ -1,0 +1,3 @@
+# Test logs are byte-preserved evidence; trailing spaces come from the tools.
+acceptance/**/*.txt -whitespace
+acceptance/**/*.log -whitespace

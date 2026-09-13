@@ -1,0 +1,1 @@
+CREATE SPACE `qa_schema_260914_s_source`(partition_num=7,replica_factor=1,vid_type=FIXED_STRING(256)) comment = "\351\273\230\350\256\244\054\047\042\134\015\012\011\000\360\237\230\200\145\314\201\377\376";

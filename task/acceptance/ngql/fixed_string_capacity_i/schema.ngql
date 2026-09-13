@@ -1,0 +1,3 @@
+USE `qa_20260914_i_fixed_string_capacity`;
+CREATE TAG `case_tag`(`value` FIXED_STRING(128) NULL);
+CREATE EDGE `case_edge`(`value` FIXED_STRING(128) NULL);

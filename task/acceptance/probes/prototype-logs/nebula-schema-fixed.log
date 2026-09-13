@@ -1,0 +1,4 @@
+2026-09-13T18:10:43.884474+00:00 START 1 / 2 not_null_defaults_s
+2026-09-13T18:11:38.101305+00:00 PASSED not_null_defaults_s 
+2026-09-13T18:11:38.101332+00:00 START 2 / 2 not_null_defaults_i
+2026-09-13T18:12:33.175894+00:00 PASSED not_null_defaults_i 

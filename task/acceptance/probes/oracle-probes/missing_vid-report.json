@@ -1,0 +1,29 @@
+{
+	"id":"vid_values_s",
+	"startedAt":"2026-09-13T17:34:31.230424299Z",
+	"oracleSha256":"c471d87852f89c5d81c0e3b7ce9833df706bdd5520283165a979c0964ba95900",
+	"passed":false,
+	"status":"FAILED",
+	"records":[],
+	"space":"qa_20260914_s_vid_values",
+	"fixtureFileHashes":{
+		"vid_values_s/space.ngql":{
+			"sha256":"f7ae48916723f21137543fc979146da471dd295a0c076610d9e79d621200edb6",
+			"bytes":102
+		},
+		"vid_values_s/sample.ngql":{
+			"sha256":"2c34924b0b788804bb0cbc327aaac4f4fb023497a8885fbeeae75f5038836885",
+			"bytes":4239
+		},
+		"vid_values_s/schema.ngql":{
+			"sha256":"f8fca09aac58bedc0d43393c6f032dd97541403d2114dcabf9b21a93bf320f70",
+			"bytes":122
+		},
+		"vid_values_s/data.ngql":{
+			"sha256":"9c9046fa7b84e339eba9a7ae1b78d0e3323d2983ee09971b97b23c87141cc952",
+			"bytes":604106
+		}
+	},
+	"failure":"java.lang.IllegalStateException: FETCH did not return exactly one object: VERTEX/V:b3JhY2xlX25vbl9leGlzdGVudF92aWQ=",
+	"finishedAt":"2026-09-13T17:34:31.341213665Z"
+}

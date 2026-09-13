@@ -1,0 +1,3 @@
+USE `qa_20260914_i_edge_rank_bounds`;
+CREATE TAG `case_tag`(`value` STRING NULL);
+CREATE EDGE `case_edge`(`value` STRING NULL);

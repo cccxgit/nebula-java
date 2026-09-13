@@ -1,0 +1,14 @@
+{
+  "caseId": "schema_defaults_i",
+  "comparedAt": "2026-09-13T18:16:42.898062+00:00",
+  "matched": true,
+  "status": "MATCH",
+  "comparedRows": 2000,
+  "comparedVertices": 1000,
+  "comparedEdges": 1000,
+  "completeRecordEntriesMatched": true,
+  "orderedFieldsSha256ListsMatched": true,
+  "sourceOracleSha256": "cdc1f9b8652b6ad954d8c0fbc21625b17f903c29d68814af092cd29d115ed855",
+  "targetOracleSha256": "38b20156c01c52fcd128a9bb3bf961a3130b51b7c9dc532a7dc2668953285fc8",
+  "fieldsSha256ListSha256": "32a6a404e7902045f4dd052865517bf5bf99dd12316da99738ed78f7719a7e5d"
+}

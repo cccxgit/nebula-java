@@ -1,0 +1,121 @@
+{
+  "allExpectationsMatched": true,
+  "scriptSha256": "2d4b5262eabb375d3398503e12103da33ffad43c9d20a31df0974d332e602cf0",
+  "probeScriptSha256": "6745f3fedf2b2c0815ef46b6e47c83800c701eb06bf25e398da8ee8efb661032",
+  "originalArchiveSha256": "441432b19a06740a86b9c8bb2d83edf565f40d8dc1f6b0db8364ac710609b4cb",
+  "probes": [
+    {
+      "probe": "unchanged",
+      "expected": "PASS",
+      "expectationMatched": true,
+      "actualError": null
+    },
+    {
+      "probe": "archive_size",
+      "expected": "REJECT",
+      "expectationMatched": true,
+      "actualError": "Archive byte count mismatch"
+    },
+    {
+      "probe": "archive_sha",
+      "expected": "REJECT",
+      "expectationMatched": true,
+      "actualError": "SHA-256 mismatch: archive"
+    },
+    {
+      "probe": "case_report",
+      "expected": "REJECT",
+      "expectationMatched": true,
+      "actualError": "Internal/external case-report differs beyond archive field"
+    },
+    {
+      "probe": "missing_log",
+      "expected": "REJECT",
+      "expectationMatched": true,
+      "actualError": "Step log missing from archive: source-fixture-oracle.txt"
+    },
+    {
+      "probe": "log_bytes",
+      "expected": "REJECT",
+      "expectationMatched": true,
+      "actualError": "SHA-256 mismatch: step log source-fixture-oracle.txt"
+    },
+    {
+      "probe": "csv_bytes",
+      "expected": "REJECT",
+      "expectationMatched": true,
+      "actualError": "SHA-256 mismatch: bundle/0000_tag.csv"
+    },
+    {
+      "probe": "csv_count",
+      "expected": "REJECT",
+      "expectationMatched": true,
+      "actualError": "Bundle CSV row count differs"
+    },
+    {
+      "probe": "plan_csv_bytes",
+      "expected": "REJECT",
+      "expectationMatched": true,
+      "actualError": "SHA-256 mismatch: plan/vertices.csv"
+    },
+    {
+      "probe": "plan_count",
+      "expected": "REJECT",
+      "expectationMatched": true,
+      "actualError": "Plan CSV header/count differs"
+    },
+    {
+      "probe": "capture_missing_row",
+      "expected": "REJECT",
+      "expectationMatched": true,
+      "actualError": "Snapshot complete keys/counts differ from plan"
+    },
+    {
+      "probe": "capture_error_record",
+      "expected": "REJECT",
+      "expectationMatched": true,
+      "actualError": "Capture record is not OK: vertex|V:MTA0"
+    },
+    {
+      "probe": "wrong_plan_id",
+      "expected": "REJECT",
+      "expectationMatched": true,
+      "actualError": "Snapshot belongs to a different plan"
+    },
+    {
+      "probe": "changed_target_value",
+      "expected": "REJECT",
+      "expectationMatched": true,
+      "actualError": "Actual source/target native field strings differ"
+    },
+    {
+      "probe": "duplicate_tar_member",
+      "expected": "REJECT",
+      "expectationMatched": true,
+      "actualError": "Duplicate tar member: bool_values_i/plan/plan.json"
+    },
+    {
+      "probe": "duplicate_json_key",
+      "expected": "REJECT",
+      "expectationMatched": true,
+      "actualError": "Duplicate JSON object key: status"
+    },
+    {
+      "probe": "final_requires_all_93",
+      "expectedExit": 1,
+      "actualExit": 1,
+      "status": "FAILED",
+      "expectationMatched": true,
+      "missingReports": 92
+    },
+    {
+      "probe": "partial_is_not_final",
+      "expectedExit": 0,
+      "actualExit": 0,
+      "status": "PARTIAL",
+      "expectationMatched": true,
+      "missingReports": 92
+    }
+  ],
+  "scope": "Original files and database untouched; only temporary archive copies were altered."
+}

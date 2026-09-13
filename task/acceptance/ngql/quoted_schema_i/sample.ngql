@@ -1,0 +1,7 @@
+USE `qa_20260914_i_quoted_schema`;
+FETCH PROP ON * 100 YIELD vertex AS v;
+FETCH PROP ON `edge with space` 100->101@-500 YIELD edge AS e;
+FETCH PROP ON * 600 YIELD vertex AS v;
+FETCH PROP ON `edge with space` 600->601@0 YIELD edge AS e;
+FETCH PROP ON * 1099 YIELD vertex AS v;
+FETCH PROP ON `edge with space` 1099->100@499 YIELD edge AS e;

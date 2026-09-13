@@ -14,6 +14,8 @@ public final class SchemaManifest {
     public int replicaFactor;
     public String charset;
     public String collation;
+    /** Null means absent; an empty Base64 string means a present empty COMMENT. */
+    public String spaceCommentBase64;
     public String showCreateSpace;
     public List<Table> tables = new ArrayList<>();
 
@@ -22,6 +24,8 @@ public final class SchemaManifest {
         public String name;
         public String file;
         public String createStatement;
+        /** Complete native Meta Schema in canonical Thrift binary form; SHOW CREATE is display-only. */
+        public String nativeSchemaBase64;
         public List<Column> columns = new ArrayList<>();
         public long rowCount;
         public String sha256;

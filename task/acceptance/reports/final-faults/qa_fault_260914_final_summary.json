@@ -1,0 +1,154 @@
+{
+  "status": "PASSED",
+  "updatedAt": "2026-09-13T18:17:05.879769+00:00",
+  "expectedScenes": 5,
+  "completedScenes": 5,
+  "passedScenes": 5,
+  "failedScenes": 0,
+  "pendingScenes": 0,
+  "selectedFaults": [
+    "property_change",
+    "edge_key_replace",
+    "tag_membership",
+    "bundle_integrity",
+    "snapshot_integrity"
+  ],
+  "passMeaning": "Expected faults were detected, never accepted as MATCH",
+  "scenes": [
+    {
+      "id": "qa_fault_260914_final_property_change",
+      "faultId": "property_change",
+      "status": "PASSED",
+      "controlCounts": {
+        "vertices": 1000,
+        "edges": 1000,
+        "tags": {
+          "case_tag": 1000
+        },
+        "edgeTypes": {
+          "case_edge": 1000
+        }
+      },
+      "expectedStatus": "DIFFERENT",
+      "actual": {
+        "faultDetected": true,
+        "acceptedAsMatch": false
+      },
+      "failure": null,
+      "archive": {
+        "file": "task/acceptance/artifacts/final-faults/qa_fault_260914_final_property_change.tar.gz",
+        "bytes": 209284,
+        "sha256": "497ab2e321b972bc021c6cc676bcc827af89e752830d4a1a49a41301887dfec4"
+      },
+      "report": "/home/sch/nebula/nebula-java/task/acceptance/reports/final-faults/qa_fault_260914_final_property_change.json"
+    },
+    {
+      "id": "qa_fault_260914_final_edge_key_replace",
+      "faultId": "edge_key_replace",
+      "status": "PASSED",
+      "controlCounts": {
+        "vertices": 1000,
+        "edges": 1000,
+        "tags": {
+          "case_tag": 1000
+        },
+        "edgeTypes": {
+          "case_edge": 1000
+        }
+      },
+      "expectedStatus": "ERROR",
+      "actual": {
+        "faultDetected": true,
+        "acceptedAsMatch": false
+      },
+      "failure": null,
+      "archive": {
+        "file": "task/acceptance/artifacts/final-faults/qa_fault_260914_final_edge_key_replace.tar.gz",
+        "bytes": 209874,
+        "sha256": "e22d6d114d4982dc2374037fb84524f24231febddb7cd3ff9d133b15834aab83"
+      },
+      "report": "/home/sch/nebula/nebula-java/task/acceptance/reports/final-faults/qa_fault_260914_final_edge_key_replace.json"
+    },
+    {
+      "id": "qa_fault_260914_final_tag_membership",
+      "faultId": "tag_membership",
+      "status": "PASSED",
+      "controlCounts": {
+        "vertices": 1000,
+        "edges": 1000,
+        "tags": {
+          "case_tag": 1000
+        },
+        "edgeTypes": {
+          "case_edge": 1000
+        }
+      },
+      "expectedStatus": "DIFFERENT",
+      "actual": {
+        "faultDetected": true,
+        "acceptedAsMatch": false
+      },
+      "failure": null,
+      "archive": {
+        "file": "task/acceptance/artifacts/final-faults/qa_fault_260914_final_tag_membership.tar.gz",
+        "bytes": 210138,
+        "sha256": "0283add9cec6b95829433cba80b440e98e59f822b052c4c84ca2912ccb63109c"
+      },
+      "report": "/home/sch/nebula/nebula-java/task/acceptance/reports/final-faults/qa_fault_260914_final_tag_membership.json"
+    },
+    {
+      "id": "qa_fault_260914_final_bundle_integrity",
+      "faultId": "bundle_integrity",
+      "status": "PASSED",
+      "controlCounts": {
+        "vertices": 1000,
+        "edges": 1000,
+        "tags": {
+          "case_tag": 1000
+        },
+        "edgeTypes": {
+          "case_edge": 1000
+        }
+      },
+      "expectedStatus": "ERROR",
+      "actual": {
+        "faultDetected": true,
+        "acceptedAsMatch": false
+      },
+      "failure": null,
+      "archive": {
+        "file": "task/acceptance/artifacts/final-faults/qa_fault_260914_final_bundle_integrity.tar.gz",
+        "bytes": 122729,
+        "sha256": "5ee5ff58900d7d1cc358f2c052d55f270d26350ea959b40ade29f45e1f6a9aab"
+      },
+      "report": "/home/sch/nebula/nebula-java/task/acceptance/reports/final-faults/qa_fault_260914_final_bundle_integrity.json"
+    },
+    {
+      "id": "qa_fault_260914_final_snapshot_integrity",
+      "faultId": "snapshot_integrity",
+      "status": "PASSED",
+      "controlCounts": {
+        "vertices": 1000,
+        "edges": 1000,
+        "tags": {
+          "case_tag": 1000
+        },
+        "edgeTypes": {
+          "case_edge": 1000
+        }
+      },
+      "expectedStatus": "ERROR",
+      "actual": {
+        "faultDetected": true,
+        "acceptedAsMatch": false
+      },
+      "failure": null,
+      "archive": {
+        "file": "task/acceptance/artifacts/final-faults/qa_fault_260914_final_snapshot_integrity.tar.gz",
+        "bytes": 212195,
+        "sha256": "1cdd91d9640ada352d69a843f6e699cab09851696585a0200f34670d05d80ab5"
+      },
+      "report": "/home/sch/nebula/nebula-java/task/acceptance/reports/final-faults/qa_fault_260914_final_snapshot_integrity.json"
+    }
+  ]
+}

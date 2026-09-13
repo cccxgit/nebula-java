@@ -1,9 +1,14 @@
 package com.vesoft.nebula.verification;
 
+import com.vesoft.nebula.Coordinate;
 import com.vesoft.nebula.DataSet;
 import com.vesoft.nebula.Edge;
 import com.vesoft.nebula.ErrorCode;
+import com.vesoft.nebula.Geography;
+import com.vesoft.nebula.LineString;
 import com.vesoft.nebula.NullType;
+import com.vesoft.nebula.Point;
+import com.vesoft.nebula.Polygon;
 import com.vesoft.nebula.Row;
 import com.vesoft.nebula.Tag;
 import com.vesoft.nebula.Value;
@@ -98,7 +103,94 @@ public class FetchCollectorTest {
     @Test(expected = IllegalStateException.class)
     public void rejectsUnsupportedActuallyUsedSchemaEvenWhenValueIsNull() {
         FetchCollector.validateProperties(property(Value.nVal(NullType.__NULL__)),
+                oneProperty("GEOGRAPHY(MULTIPOINT)", true));
+    }
+
+    @Test
+    public void supportsNullableAndEveryNativeGeographyShape() {
+        String[] types = {"GEOGRAPHY(POINT)", "GEOGRAPHY(LINESTRING)", "GEOGRAPHY(POLYGON)"};
+        Value[] values = geographyValues();
+        for (int i = 0; i < types.length; i++) {
+            FetchCollector.validateProperties(property(values[i]), oneProperty(types[i], false));
+            FetchCollector.validateProperties(property(values[i]), oneProperty("GEOGRAPHY", false));
+            FetchCollector.validateProperties(property(Value.nVal(NullType.__NULL__)),
+                    oneProperty(types[i], true));
+        }
+        FetchCollector.validateProperties(property(Value.nVal(NullType.__NULL__)),
                 oneProperty("GEOGRAPHY", true));
+    }
+
+    @Test
+    public void geographySchemaCanonicalizationRetainsShapeRestrictions() {
+        FetchCollector.SchemaDefinition any = FetchCollector.readSchema(schemaResult(
+                Collections.singletonList(schemaRow("geo", "geography", "YES"))));
+        FetchCollector.SchemaDefinition point = FetchCollector.readSchema(schemaResult(
+                Collections.singletonList(schemaRow("geo", "geography ( point )", "YES"))));
+        FetchCollector.SchemaDefinition line = FetchCollector.readSchema(schemaResult(
+                Collections.singletonList(schemaRow("geo", "geography(linestring)", "YES"))));
+        FetchCollector.SchemaDefinition polygon = FetchCollector.readSchema(schemaResult(
+                Collections.singletonList(schemaRow("geo", "geography(polygon)", "YES"))));
+        Assert.assertTrue(point.canonical().contains("GEOGRAPHY(POINT)"));
+        Assert.assertTrue(line.canonical().contains("GEOGRAPHY(LINESTRING)"));
+        Assert.assertTrue(polygon.canonical().contains("GEOGRAPHY(POLYGON)"));
+        Assert.assertNotEquals(any.canonical(), point.canonical());
+        Assert.assertNotEquals(point.canonical(), line.canonical());
+        Assert.assertNotEquals(line.canonical(), polygon.canonical());
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void rejectsPointValueForLineStringSchema() {
+        FetchCollector.validateProperties(property(geographyValues()[0]),
+                oneProperty("GEOGRAPHY(LINESTRING)", false));
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void rejectsPolygonValueForPointSchema() {
+        FetchCollector.validateProperties(property(geographyValues()[2]),
+                oneProperty("GEOGRAPHY(POINT)", false));
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void rejectsWktStringInsteadOfNativeGeography() {
+        FetchCollector.validateProperties(property(Value.sVal(bytes("POINT(0 0)"))),
+                oneProperty("GEOGRAPHY", false));
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void dataSetValueIsNotTheGeographyUnionField() {
+        FetchCollector.validateProperties(property(Value.gVal(new DataSet())),
+                oneProperty("GEOGRAPHY", false));
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void rejectsGeographyWithoutNativeShape() {
+        FetchCollector.validateProperties(property(Value.ggVal(new Geography())),
+                oneProperty("GEOGRAPHY", false));
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void rejectsNullForNonNullableGeography() {
+        FetchCollector.validateProperties(property(Value.nVal(NullType.__NULL__)),
+                oneProperty("GEOGRAPHY(POLYGON)", false));
+    }
+
+    @Test
+    public void collectsGeographyForBothVertexAndEdgeWithoutTextFormatting() {
+        FetchCollector.SchemaDefinition definition = oneProperty("GEOGRAPHY(POINT)", false);
+        Vertex vertex = vertex("place");
+        vertex.tags.get(0).props = property(geographyValues()[0]);
+        Map<String, FetchCollector.SchemaDefinition> schemas = schemas("place");
+        schemas.put("TAG/" + Identifiers.nameCell("place"), definition);
+        FetchCollector.validateVertex(vertex, VID, schemas, Collections.emptyMap());
+        Edge edge = edge(42);
+        edge.props = property(geographyValues()[0]);
+        FetchCollector.validateEdge(edge, VID, Identifiers.nameCell("knows"), -7, VID, definition);
+        String point = NativeValueCodec.encode(geographyValues()[0]);
+        Assert.assertEquals(point, NativeValueCodec.fields(Value.vVal(vertex))
+                .get("tag/cGxhY2U=/prop/cA=="));
+        Assert.assertEquals(point, NativeValueCodec.fields(Value.eVal(edge)).get("prop/cA=="));
+        Assert.assertTrue("Negative-zero longitude must retain its raw bit pattern",
+                point.contains("8000000000000000"));
     }
 
     @Test
@@ -119,7 +211,7 @@ public class FetchCollectorTest {
         Assert.assertEquals("{}", FetchCollector.readSchema(schemaResult(Collections.emptyList()))
                 .canonical());
         Assert.assertTrue(FetchCollector.readSchema(schemaResult(Collections.singletonList(
-                schemaRow("geo", "geography(point)", "YES")))).canonical().contains("GEOGRAPHY"));
+                schemaRow("geo", "geography(multipoint)", "YES")))).canonical().contains("GEOGRAPHY"));
     }
 
     @Test
@@ -165,6 +257,18 @@ public class FetchCollectorTest {
             tags.add(new Tag(bytes(name), Collections.emptyMap()));
         }
         return new Vertex(VID, tags);
+    }
+
+    private static Value[] geographyValues() {
+        Coordinate first = new Coordinate(-0.0d, 0.1d);
+        Coordinate second = new Coordinate(1.0d, 1.0d);
+        Coordinate third = new Coordinate(1.0d, 0.0d);
+        return new Value[] {
+            Value.ggVal(Geography.ptVal(new Point(first))),
+            Value.ggVal(Geography.lsVal(new LineString(Arrays.asList(first, second)))),
+            Value.ggVal(Geography.pgVal(new Polygon(Collections.singletonList(
+                    Arrays.asList(first, second, third, first)))))
+        };
     }
 
     private static Edge edge(int type) {

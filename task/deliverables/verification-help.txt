@@ -1,0 +1,9 @@
+Nebula Data Verifier: separate source/target FETCH capture and offline comparison.
+prepare --migration-dir EXPORT --out PLAN
+prepare-ids --vertices VERTICES_CSV --edges EDGES_CSV --vid-type TYPE --out PLAN
+capture --plan PLAN --space SPACE --out CAPTURE [--host 127.0.0.1] [--port 9669]
+        [--user root] [--password-env NEBULA_PASSWORD] [--timeout-ms 60000]
+compare --source SOURCE_CAPTURE --target TARGET_CAPTURE --out REPORT_DIRECTORY
+All output directories must be new or empty. Copy the SAME plan to both environments.
+Exit codes: 0=success/MATCH, 2=DIFFERENT, 1=ERROR/incomplete capture.
+Scope: listed objects only; strings compare raw bytes, floating values compare raw bits.

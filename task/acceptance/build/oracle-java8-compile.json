@@ -1,0 +1,8 @@
+{
+  "exitCode": 0,
+  "javaHome": "/usr/lib/jvm/java-8-openjdk-amd64",
+  "source": "task/acceptance/FixtureSourceOracle.java",
+  "sourceSha256": "80c6b5f16ea4efbd26240732266ebc6b65b19e8de76aac66c7ff8a121121f7bc",
+  "classSha256": "4128f5437a5b37ba7aaf63acf1d56e93dadcdb44c9c3f826f1e269e0ef3c4a24",
+  "purpose": "Verify standalone acceptance helper compiles with Java 8 without changing the frozen campaign classes."
+}

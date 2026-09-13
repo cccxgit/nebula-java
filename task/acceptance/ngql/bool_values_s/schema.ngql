@@ -1,0 +1,3 @@
+USE `qa_20260914_s_bool_values`;
+CREATE TAG `case_tag`(`value` BOOL NULL);
+CREATE EDGE `case_edge`(`value` BOOL NULL);

@@ -1,0 +1,45 @@
+{
+  "allExpectationsMatched": true,
+  "probes": [
+    {
+      "probe": "equal",
+      "expectedExit": 0,
+      "actualExit": 0,
+      "status": "MATCH",
+      "matched": true,
+      "scope": "Local copied metadata only; not a source-target migration verdict"
+    },
+    {
+      "probe": "space_comment",
+      "expectedExit": 1,
+      "actualExit": 1,
+      "status": "DIFFERENT",
+      "matched": false,
+      "scope": "Local copied metadata only; not a source-target migration verdict"
+    },
+    {
+      "probe": "schema_digest",
+      "expectedExit": 1,
+      "actualExit": 1,
+      "status": "ERROR",
+      "matched": false,
+      "scope": "Local copied metadata only; not a source-target migration verdict"
+    },
+    {
+      "probe": "duplicate_table",
+      "expectedExit": 1,
+      "actualExit": 1,
+      "status": "ERROR",
+      "matched": false,
+      "scope": "Local copied metadata only; not a source-target migration verdict"
+    },
+    {
+      "probe": "incomplete",
+      "expectedExit": 1,
+      "actualExit": 1,
+      "status": "ERROR",
+      "matched": false,
+      "scope": "Local copied metadata only; not a source-target migration verdict"
+    }
+  ]
+}

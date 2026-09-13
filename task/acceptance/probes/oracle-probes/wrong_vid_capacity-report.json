@@ -1,0 +1,9 @@
+{
+	"id":"vid_values_s",
+	"startedAt":"2026-09-13T17:34:31.672162707Z",
+	"oracleSha256":"64d0236332acd7b07f0aed1e4e8f9574c0912b7e2ac800d35bd1f2c37678ec25",
+	"passed":false,
+	"status":"FAILED",
+	"failure":"java.lang.IllegalStateException: Source space VID schema differs from fixture",
+	"finishedAt":"2026-09-13T17:34:31.759224538Z"
+}

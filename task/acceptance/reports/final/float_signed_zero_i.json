@@ -1,0 +1,581 @@
+{
+  "id": "float_signed_zero_i",
+  "scenarioId": "float_signed_zero",
+  "vidType": "INT64",
+  "description": "FLOAT正零和负零按IEEE754校验",
+  "sourceSpace": "qa_20260914_i_float_signed_zero",
+  "targetSpace": "qa_20260914_i_float_signed_zero_target_final",
+  "expected": {
+    "vertices": 1000,
+    "edges": 1000,
+    "tags": {
+      "case_tag": 1000
+    },
+    "edgeTypes": {
+      "case_edge": 1000
+    }
+  },
+  "startedAt": "2026-09-13T18:17:08.200085+00:00",
+  "status": "PASSED",
+  "steps": [
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-cp",
+        "/home/sch/nebula/nebula-java/verification/target/nebula-data-verifier-3.8.4.jar:/home/sch/nebula/nebula-java/verification/target/fixture-oracle",
+        "FixtureSourceOracle",
+        "--oracle",
+        "/home/sch/nebula/nebula-java/task/acceptance/oracles/float_signed_zero_i.json",
+        "--space",
+        "qa_20260914_i_float_signed_zero",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "9669",
+        "--user",
+        "root",
+        "--out",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/source-fixture-oracle.json"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/source-fixture-oracle.txt",
+      "startedAt": "2026-09-13T18:17:08.218759+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 3.031,
+      "sha256": "ee06e09723d23838b3e79f7c6fc9c3037d140b309da72318a6df4e0081c5825d",
+      "finishedAt": "2026-09-13T18:17:11.250613+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/source-stats/submit-stats.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/source-stats/submit-stats.txt",
+      "startedAt": "2026-09-13T18:17:11.252797+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.01,
+      "sha256": "fb973bf1defc0f1b73d1eef0d051b3a0497bb4d8cc384ce43d727609f51b1821",
+      "finishedAt": "2026-09-13T18:17:11.263382+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/source-stats/job-0.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/source-stats/job-0.txt",
+      "startedAt": "2026-09-13T18:17:11.263525+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "sha256": "2aa06d1a3faf6834c1410925119a524610396653f3cdb63fb2926f7c1ecb7273",
+      "finishedAt": "2026-09-13T18:17:11.271193+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/source-stats/show-stats.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/source-stats/show-stats.txt",
+      "startedAt": "2026-09-13T18:17:11.271361+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "sha256": "2e3ba52de8aec9630732cce31d2d949ca9174fc70e40ca935e92027ce89930f4",
+      "finishedAt": "2026-09-13T18:17:11.278999+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/source-console/fetch-samples.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/source-console/fetch-samples.txt",
+      "startedAt": "2026-09-13T18:17:11.279269+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.016,
+      "sha256": "dc61262a0d087a1895139d6d58c6f343d3e80710eb22edc656be1856a88f7c25",
+      "finishedAt": "2026-09-13T18:17:11.294999+00:00"
+    },
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-jar",
+        "/home/sch/nebula/nebula-java/migration/target/migration-3.8.4.jar",
+        "export",
+        "--source-space",
+        "qa_20260914_i_float_signed_zero",
+        "--directory",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/bundle",
+        "--source-host",
+        "127.0.0.1",
+        "--source-graph-port",
+        "9669",
+        "--source-meta-port",
+        "9559",
+        "--source-user",
+        "root",
+        "--scan-limit",
+        "113"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/migration-export.txt",
+      "startedAt": "2026-09-13T18:17:11.295144+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.616,
+      "sha256": "5af8f6177128289cf08d2d11485fc8a8d9e27d52552ab3b7df35398c77fb4bbd",
+      "finishedAt": "2026-09-13T18:17:11.911334+00:00"
+    },
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-jar",
+        "/home/sch/nebula/nebula-java/verification/target/nebula-data-verifier-3.8.4.jar",
+        "prepare",
+        "--migration-dir",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/bundle",
+        "--out",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/plan"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/prepare.txt",
+      "startedAt": "2026-09-13T18:17:11.911421+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.214,
+      "sha256": "a31a736f3358ce8b1128b0ad5ed438279f64aa74203fa547821281fb5100c330",
+      "finishedAt": "2026-09-13T18:17:12.125739+00:00"
+    },
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-jar",
+        "/home/sch/nebula/nebula-java/verification/target/nebula-data-verifier-3.8.4.jar",
+        "capture",
+        "--plan",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/plan",
+        "--space",
+        "qa_20260914_i_float_signed_zero",
+        "--out",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/source",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "9669",
+        "--user",
+        "root"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/source-capture.txt",
+      "startedAt": "2026-09-13T18:17:12.125934+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 2.979,
+      "sha256": "cafe3e14aa87795bf6a10602c51e75e7da8f8c54b3764a24714ebda929bbe08b",
+      "finishedAt": "2026-09-13T18:17:15.104862+00:00"
+    },
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-jar",
+        "/home/sch/nebula/nebula-java/migration/target/migration-3.8.4.jar",
+        "import",
+        "--target-space",
+        "qa_20260914_i_float_signed_zero_target_final",
+        "--directory",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/bundle",
+        "--target-host",
+        "127.0.0.1",
+        "--target-graph-port",
+        "9669",
+        "--target-meta-port",
+        "9559",
+        "--target-user",
+        "root",
+        "--schema-wait-ms",
+        "20000",
+        "--scan-limit",
+        "113"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/migration-import.txt",
+      "startedAt": "2026-09-13T18:17:15.104977+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 42.586,
+      "sha256": "e9d0fdbb2580e27f6b38d16438cb9b98f8474305fec707224ee5785367d04cc1",
+      "finishedAt": "2026-09-13T18:17:57.691100+00:00"
+    },
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-jar",
+        "/home/sch/nebula/nebula-java/verification/target/nebula-data-verifier-3.8.4.jar",
+        "capture",
+        "--plan",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/plan",
+        "--space",
+        "qa_20260914_i_float_signed_zero_target_final",
+        "--out",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/target",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "9669",
+        "--user",
+        "root"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/target-capture.txt",
+      "startedAt": "2026-09-13T18:17:57.691206+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 2.977,
+      "sha256": "56c73cbe6a5c3d1b903149f637e81bdda2bb4796a4bfd5b894e80588a9cfc8eb",
+      "finishedAt": "2026-09-13T18:18:00.668518+00:00"
+    },
+    {
+      "argv": [
+        "java",
+        "-Xmx3g",
+        "-jar",
+        "/home/sch/nebula/nebula-java/verification/target/nebula-data-verifier-3.8.4.jar",
+        "compare",
+        "--source",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/source",
+        "--target",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/target",
+        "--out",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/comparison"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/compare.txt",
+      "startedAt": "2026-09-13T18:18:00.668680+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.267,
+      "sha256": "d6c9713280e2bd170499f50fc7481bf2d9403971a5f600d194f45e8a0bcf68c0",
+      "finishedAt": "2026-09-13T18:18:00.935910+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/target-stats/submit-stats.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/target-stats/submit-stats.txt",
+      "startedAt": "2026-09-13T18:18:00.936167+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.01,
+      "sha256": "bb7268cb78077a10776f457840d2d0452ce3737e3e2eeb691bcc369ba74426c1",
+      "finishedAt": "2026-09-13T18:18:00.945872+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/target-stats/job-0.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/target-stats/job-0.txt",
+      "startedAt": "2026-09-13T18:18:00.946066+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "sha256": "280f57d3fa6b3e4fa6accc4f20217dddccc5bda88982f3f85603123579c244bf",
+      "finishedAt": "2026-09-13T18:18:00.953773+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/target-stats/show-stats.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/target-stats/show-stats.txt",
+      "startedAt": "2026-09-13T18:18:00.953885+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "sha256": "e9b68b0e1ed8c40b201b0e118be994c900e081af2db1af2fa8411adadb9ef9ee",
+      "finishedAt": "2026-09-13T18:18:00.962444+00:00"
+    },
+    {
+      "argv": [
+        "/home/sch/nebula-run/nebula-console",
+        "-addr",
+        "127.0.0.1",
+        "-port",
+        "9669",
+        "-u",
+        "root",
+        "-p",
+        "<password-env>",
+        "-timeout",
+        "60000",
+        "-f",
+        "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/target-console/fetch-samples.ngql"
+      ],
+      "log": "/home/sch/nebula/nebula-java/verification/target/task-campaign-final/float_signed_zero_i/target-console/fetch-samples.txt",
+      "startedAt": "2026-09-13T18:18:00.963231+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.021,
+      "sha256": "11e75daf8cc3b574c029677792b3cb8586fed98e2f079602c067e414acc7e0a2",
+      "finishedAt": "2026-09-13T18:18:00.984446+00:00"
+    }
+  ],
+  "dataRowsPerScene": 1000,
+  "schemaWaitMillis": 20000,
+  "variantCounts": {
+    "positive_zero": 500,
+    "negative_zero": 500
+  },
+  "negative": false,
+  "scanLimit": 113,
+  "migrationJarSha256": "f760ab235da35fadc8a0ffb1db7f1a26e9522bdb7b22732bab755524cd721c54",
+  "verificationJarSha256": "dc8ecf68fe311d64c15efa08cfec2d6db1ed61956be5c31ac3d8df404b5cc099",
+  "fixtureFileHashes": {
+    "float_signed_zero_i/space.ngql": {
+      "bytes": 97,
+      "sha256": "0fcc29886ead4bed7e779ad7070030e9b8b60cb97f92d92a078e03ee6ab6d2f1"
+    },
+    "float_signed_zero_i/schema.ngql": {
+      "bytes": 127,
+      "sha256": "027c0be640c494a5ce6e82064d69a9efc9ace177da20baef5a82a37c98bcea09"
+    },
+    "float_signed_zero_i/data.ngql": {
+      "bytes": 135621,
+      "sha256": "361e4872126930d46220c1ab472be767a27471e60a2633bddfcef738afbccdff"
+    },
+    "float_signed_zero_i/sample.ngql": {
+      "bytes": 325,
+      "sha256": "28853d47bd998d10936e3ec3ad2caffab1358aa84f9e02b05920e18f83245fe6"
+    }
+  },
+  "sourceFixtureOracle": {
+    "id": "float_signed_zero_i",
+    "startedAt": "2026-09-13T18:17:08.314331365Z",
+    "oracleSha256": "53d187577ef17cdeb6001f8bd67bc3d5ff25f2b1d5ad8eaf731020cc2ae4e395",
+    "passed": true,
+    "status": "PASSED",
+    "space": "qa_20260914_i_float_signed_zero",
+    "fixtureFileHashes": {
+      "float_signed_zero_i/data.ngql": {
+        "sha256": "361e4872126930d46220c1ab472be767a27471e60a2633bddfcef738afbccdff",
+        "bytes": 135621
+      },
+      "float_signed_zero_i/space.ngql": {
+        "sha256": "0fcc29886ead4bed7e779ad7070030e9b8b60cb97f92d92a078e03ee6ab6d2f1",
+        "bytes": 97
+      },
+      "float_signed_zero_i/schema.ngql": {
+        "sha256": "027c0be640c494a5ce6e82064d69a9efc9ace177da20baef5a82a37c98bcea09",
+        "bytes": 127
+      },
+      "float_signed_zero_i/sample.ngql": {
+        "sha256": "28853d47bd998d10936e3ec3ad2caffab1358aa84f9e02b05920e18f83245fe6",
+        "bytes": 325
+      }
+    },
+    "validatedRows": 2000,
+    "validatedVertices": 1000,
+    "validatedEdges": 1000,
+    "variantCounts": {
+      "negative_zero": 500,
+      "positive_zero": 500
+    },
+    "expectedAndActualFieldsSha256": "47f9ae8bf22d337b570fc96ebcb0617efd24e6c42f035aa7e02526d65f83cd49",
+    "expressionGroups": 2,
+    "schemaMatched": true,
+    "comparison": "Native fields are exact; only FLOAT float32 promotion is applied. GEOGRAPHY expected values use ST_GeogFromText YIELD, which normalizes and validates on the source server; the oracle never normalizes FETCH values.",
+    "finishedAt": "2026-09-13T18:17:11.166756987Z",
+    "reportSha256": "84ab0bd25e98ad41250c09d693091a414906facef13a3e931a65a3db2d994993"
+  },
+  "sourceStats": {
+    "jobId": 507,
+    "finished": true,
+    "counts": {
+      "tag/case_tag": 1000,
+      "edge/case_edge": 1000,
+      "space/vertices": 1000,
+      "space/edges": 1000
+    },
+    "expectedCounts": {
+      "space/vertices": 1000,
+      "space/edges": 1000,
+      "tag/case_tag": 1000,
+      "edge/case_edge": 1000
+    },
+    "matchedExpected": true
+  },
+  "sourceConsole": {
+    "queries": 6,
+    "tablesSha256": "83d17150f9d4e10524aedef3a547ae573587a94f6464a720db5f2b5cc82fcfa1"
+  },
+  "sourceCapture": {
+    "capturedAt": "2026-09-13T18:17:12.258845159Z",
+    "errorCount": 0,
+    "errors": [],
+    "formatVersion": 1,
+    "missingCount": 0,
+    "okCount": 2000,
+    "planDigest": "52a9122a4906b8b7b87492f79c2938018a4b3a9b904f0b5cd71feb6829fe90f4",
+    "planId": "f47fefea-7281-4b81-b58d-f9578e8908ad",
+    "recordCount": 2000,
+    "recordsSha256": "ab52e1f21b1a5794a20122d022846312701225568692d34c4ba2e5928c38365d",
+    "requestedCount": 2000,
+    "requestedKeysSha256": "4c8e753863bb09be908451261208bcbf8426289c6eb07ae50f6b7a9ffab531a5",
+    "schemas": {
+      "EDGE/V:Y2FzZV9lZGdl": "{\"V:dmFsdWU=\":{\"nullable\":true,\"type\":\"FLOAT\"}}",
+      "TAG/V:Y2FzZV90YWc=": "{\"V:dmFsdWU=\":{\"nullable\":true,\"type\":\"FLOAT\"}}"
+    },
+    "space": "qa_20260914_i_float_signed_zero",
+    "status": "COMPLETE",
+    "valueFormat": "nebula-native-fields-v1",
+    "vidType": "INT64"
+  },
+  "sourceBaselineFinishedAt": "2026-09-13T18:17:15.104940+00:00",
+  "targetImportStartedAt": "2026-09-13T18:17:15.104943+00:00",
+  "targetImportFinishedAt": "2026-09-13T18:17:57.691111+00:00",
+  "migrationVerification": {
+    "edgeRows": 1000,
+    "matched": true,
+    "rowsByTable": {
+      "TAG/case_tag": 1000,
+      "EDGE/case_edge": 1000
+    },
+    "sourceRechecked": false,
+    "sourceSpace": "qa_20260914_i_float_signed_zero",
+    "tagRows": 1000,
+    "targetSpace": "qa_20260914_i_float_signed_zero_target_final",
+    "verifiedAt": "2026-09-13T18:17:57.655629702Z"
+  },
+  "targetCapture": {
+    "capturedAt": "2026-09-13T18:17:57.809253556Z",
+    "errorCount": 0,
+    "errors": [],
+    "formatVersion": 1,
+    "missingCount": 0,
+    "okCount": 2000,
+    "planDigest": "52a9122a4906b8b7b87492f79c2938018a4b3a9b904f0b5cd71feb6829fe90f4",
+    "planId": "f47fefea-7281-4b81-b58d-f9578e8908ad",
+    "recordCount": 2000,
+    "recordsSha256": "ab52e1f21b1a5794a20122d022846312701225568692d34c4ba2e5928c38365d",
+    "requestedCount": 2000,
+    "requestedKeysSha256": "4c8e753863bb09be908451261208bcbf8426289c6eb07ae50f6b7a9ffab531a5",
+    "schemas": {
+      "EDGE/V:Y2FzZV9lZGdl": "{\"V:dmFsdWU=\":{\"nullable\":true,\"type\":\"FLOAT\"}}",
+      "TAG/V:Y2FzZV90YWc=": "{\"V:dmFsdWU=\":{\"nullable\":true,\"type\":\"FLOAT\"}}"
+    },
+    "space": "qa_20260914_i_float_signed_zero_target_final",
+    "status": "COMPLETE",
+    "valueFormat": "nebula-native-fields-v1",
+    "vidType": "INT64"
+  },
+  "verification": {
+    "comparedAt": "2026-09-13T18:18:00.862745126Z",
+    "comparedRecords": 2000,
+    "detailsTruncated": false,
+    "differenceFields": 0,
+    "differences": [],
+    "differentRecords": 0,
+    "errorRecords": 0,
+    "matched": true,
+    "planId": "f47fefea-7281-4b81-b58d-f9578e8908ad",
+    "scope": "CONTENTS_OF_LISTED_OBJECTS_ONLY",
+    "sourceCapturedAt": "2026-09-13T18:17:12.258845159Z",
+    "sourceSpace": "qa_20260914_i_float_signed_zero",
+    "status": "MATCH",
+    "targetCapturedAt": "2026-09-13T18:17:57.809253556Z",
+    "targetSpace": "qa_20260914_i_float_signed_zero_target_final"
+  },
+  "targetStats": {
+    "jobId": 513,
+    "finished": true,
+    "counts": {
+      "tag/case_tag": 1000,
+      "edge/case_edge": 1000,
+      "space/vertices": 1000,
+      "space/edges": 1000
+    },
+    "expectedCounts": {
+      "space/vertices": 1000,
+      "space/edges": 1000,
+      "tag/case_tag": 1000,
+      "edge/case_edge": 1000
+    },
+    "matchedExpected": true
+  },
+  "targetConsole": {
+    "queries": 6,
+    "tablesSha256": "83d17150f9d4e10524aedef3a547ae573587a94f6464a720db5f2b5cc82fcfa1"
+  },
+  "consoleSamplesMatched": true,
+  "statsMatched": true,
+  "finishedAt": "2026-09-13T18:18:00.984626+00:00",
+  "archive": {
+    "file": "task/acceptance/artifacts/final/float_signed_zero_i.tar.gz",
+    "bytes": 285762,
+    "sha256": "d3344e261f4765d7e4fd4d82d92a79f828f68016a906f6a0d2c462daf84a2e43"
+  }
+}

@@ -1,0 +1,1 @@
+{"positiveExecutions": 80, "negativeExecutions": 10, "minimumPositiveVertices": 80000, "minimumPositiveEdges": 80000, "expectedRejectedRequests": 10000}

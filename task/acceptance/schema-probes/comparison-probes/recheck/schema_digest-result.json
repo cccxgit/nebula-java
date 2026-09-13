@@ -1,0 +1,11 @@
+{
+  "comparedAt": "2026-09-13T18:20:42.962526+00:00",
+  "matched": false,
+  "status": "ERROR",
+  "differences": [],
+  "sourceSpace": "qa_schema_260914_s_source",
+  "targetSpace": "qa_schema_260914_s_source",
+  "sourceSnapshotSha256": "cf8d24c05c101596b6e28f10a9ecec81cb2fb567f038f9aeadb71c245c705664",
+  "targetSnapshotSha256": "8a522e126c20f4d0bfb396731acc1a8145045c982c9e71ad76d01b1c0dcd642e",
+  "error": "Native Schema digest differs: TAG/defaults_tag"
+}

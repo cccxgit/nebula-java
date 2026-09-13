@@ -1,0 +1,59 @@
+{
+  "status": "PASSED",
+  "artifactsUnchanged": true,
+  "checkedAt": "2026-09-13T18:32:22.489344+00:00",
+  "executionArtifacts": {
+    "file": "task/acceptance/reports/final-faults/execution-artifacts.json",
+    "sha256": "15fd08458f9afc5a63c1e1728365f8a32d19a1227df942a21f2676b3945ea2fd"
+  },
+  "migrationJarSha256": "f760ab235da35fadc8a0ffb1db7f1a26e9522bdb7b22732bab755524cd721c54",
+  "verificationJarSha256": "dc8ecf68fe311d64c15efa08cfec2d6db1ed61956be5c31ac3d8df404b5cc099",
+  "files": [
+    {
+      "file": "migration/target/migration-3.8.4.jar",
+      "bytes": 16715572,
+      "sha256": "f760ab235da35fadc8a0ffb1db7f1a26e9522bdb7b22732bab755524cd721c54",
+      "unchanged": true
+    },
+    {
+      "file": "verification/target/nebula-data-verifier-3.8.4.jar",
+      "bytes": 16721092,
+      "sha256": "dc8ecf68fe311d64c15efa08cfec2d6db1ed61956be5c31ac3d8df404b5cc099",
+      "unchanged": true
+    },
+    {
+      "file": "task/deliverables/migration-3.8.4.jar",
+      "bytes": 16715572,
+      "sha256": "f760ab235da35fadc8a0ffb1db7f1a26e9522bdb7b22732bab755524cd721c54",
+      "unchanged": true
+    },
+    {
+      "file": "task/deliverables/nebula-data-verifier-3.8.4.jar",
+      "bytes": 16721092,
+      "sha256": "dc8ecf68fe311d64c15efa08cfec2d6db1ed61956be5c31ac3d8df404b5cc099",
+      "unchanged": true
+    },
+    {
+      "file": "task/acceptance/run_campaign.py",
+      "bytes": 24670,
+      "sha256": "d9fa786c243bfbb6a4d67e42e0302c158b1d77f465da1754310d750e158135e6",
+      "unchanged": true
+    },
+    {
+      "file": "task/acceptance/run_fault_campaign.py",
+      "bytes": 38919,
+      "sha256": "d20eceda09a5c34ce11878cc211b5e1bdf4530292dce551bced56c875cdf2be8",
+      "unchanged": true
+    },
+    {
+      "file": "task/acceptance/ngql/scenarios.json",
+      "bytes": 426850,
+      "sha256": "be1112d62abc4a529a23102b382fed6c089fe7a916858eff2688028dfe757b57",
+      "unchanged": true
+    }
+  ],
+  "auditor": {
+    "file": "task/acceptance/finalize_fault_reports.py",
+    "sha256": "87926a5af42cc98b8173a95400ce8bacf82d3689219ff9a6386452e93c2b59b4"
+  }
+}

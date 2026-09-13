@@ -1,0 +1,3 @@
+USE `qa_20260914_s_geography_line`;
+CREATE TAG `case_tag`(`value` GEOGRAPHY(LINESTRING) NULL);
+CREATE EDGE `case_edge`(`value` GEOGRAPHY(LINESTRING) NULL);

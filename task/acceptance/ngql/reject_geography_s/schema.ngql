@@ -1,0 +1,3 @@
+USE `qa_20260914_s_reject_geography`;
+CREATE TAG `case_tag`(`value` GEOGRAPHY NOT NULL);
+CREATE EDGE `case_edge`(`value` GEOGRAPHY NOT NULL);

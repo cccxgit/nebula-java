@@ -1,0 +1,31 @@
+{
+  "status": "PASSED",
+  "artifactsUnchanged": true,
+  "caseId": "qa_fault_260914_final_snapshot_integrity",
+  "faultId": "snapshot_integrity",
+  "boundAt": "2026-09-13T18:32:22.489344+00:00",
+  "executionArtifacts": {
+    "file": "task/acceptance/reports/final-faults/execution-artifacts.json",
+    "sha256": "15fd08458f9afc5a63c1e1728365f8a32d19a1227df942a21f2676b3945ea2fd"
+  },
+  "migrationJarSha256": "f760ab235da35fadc8a0ffb1db7f1a26e9522bdb7b22732bab755524cd721c54",
+  "verificationJarSha256": "dc8ecf68fe311d64c15efa08cfec2d6db1ed61956be5c31ac3d8df404b5cc099",
+  "archiveSha256": "1cdd91d9640ada352d69a843f6e699cab09851696585a0200f34670d05d80ab5",
+  "originalReportSha256": "672c7feb99e05d4a908b49810b567b988565338e20cd915d4ee8e891b03c245a",
+  "preLaunchVerification": {
+    "kind": "AGENT_OBSERVED_SHA256_CHECK",
+    "verifiedBeforeLaunch": true,
+    "explanation": "The agent actually SHA-256 checked both execution JARs against the delivered JARs during preparation, before launching the first five-fault process at 2026-09-13T18:14:02 UTC. The fixed execution manifest was written while that process was running; its timestamp is not represented as a prelaunch timestamp. All fixed identities were checked again immediately before launching the geography process at 2026-09-13T18:30:01 UTC, with a separate geography-launch-check.json record, and at this final binding."
+  },
+  "executedJars": [
+    {
+      "file": "verification/target/nebula-data-verifier-3.8.4.jar",
+      "sha256": "dc8ecf68fe311d64c15efa08cfec2d6db1ed61956be5c31ac3d8df404b5cc099"
+    }
+  ],
+  "actualCommandJarArgumentsVerified": true,
+  "finalExecutionAudit": {
+    "file": "task/acceptance/reports/final-faults/final-execution-audit.json",
+    "sha256": "c197220356b4c4dd2cd1fd3023883029b4a27da10f567142a7af12197432b6ac"
+  }
+}

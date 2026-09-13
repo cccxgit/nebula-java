@@ -2,6 +2,7 @@ package com.vesoft.nebula.verification;
 
 import com.alibaba.fastjson.JSON;
 import com.vesoft.nebula.Edge;
+import com.vesoft.nebula.Geography;
 import com.vesoft.nebula.NullType;
 import com.vesoft.nebula.Row;
 import com.vesoft.nebula.Tag;
@@ -246,6 +247,10 @@ public final class FetchCollector {
             case "DATETIME": expected = Value.DTVAL; break;
             case "DURATION": expected = Value.DUVAL; break;
             case "STRING": expected = Value.SVAL; break;
+            case "GEOGRAPHY":
+            case "GEOGRAPHY(POINT)":
+            case "GEOGRAPHY(LINESTRING)":
+            case "GEOGRAPHY(POLYGON)": expected = Value.GGVAL; break;
             default:
                 require(type.matches("FIXED_STRING\\([1-9][0-9]*\\)"),
                         "Unsupported actual property schema type: " + type);
@@ -257,7 +262,24 @@ public final class FetchCollector {
                     "Error NULL or NULL in a NOT NULL property");
         } else {
             require(value.getSetField() == expected, "Native property type differs from schema " + type);
+            if (expected == Value.GGVAL) {
+                validateGeographyShape(value.getGgVal(), type);
+            }
         }
+    }
+
+    private static void validateGeographyShape(Geography geography, String type) {
+        require(geography != null && geography.getFieldValue() != null,
+                "Missing native geography shape");
+        String shape;
+        switch (geography.getSetField()) {
+            case Geography.PTVAL: shape = "POINT"; break;
+            case Geography.LSVAL: shape = "LINESTRING"; break;
+            case Geography.PGVAL: shape = "POLYGON"; break;
+            default: throw new IllegalStateException("Unsupported native geography shape");
+        }
+        require(type.equals("GEOGRAPHY") || type.equals("GEOGRAPHY(" + shape + ")"),
+                "Native geography shape differs from schema " + type);
     }
 
     private static Baseline readBaseline(Graph graph, PlanBundle.Plan plan) throws Exception {

@@ -1,0 +1,10 @@
+(root@nebula) [(none)]> CREATE SPACE `qa_schema_260914_ddl_probe`(partition_num=1,replica_factor=1,vid_type=INT64) comment = "\351\273\230\350\256\244\054\047\042\134\015\012\011\000\360\237\230\200\145\314\201\377\376";
+Execution succeeded (time spent 936µs/1.054114ms)
+
+Mon, 14 Sep 2026 02:02:53 CST
+
+
+
+Bye root!
+Mon, 14 Sep 2026 02:02:53 CST
+

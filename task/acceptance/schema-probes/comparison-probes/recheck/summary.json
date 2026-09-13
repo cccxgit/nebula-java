@@ -1,0 +1,46 @@
+{
+  "allExpectationsMatched": true,
+  "scope": "Local metadata-only copied fixture probes; no database queries or writes.",
+  "probes": [
+    {
+      "probe": "equal",
+      "expectedExit": 0,
+      "actualExit": 0,
+      "status": "MATCH",
+      "matched": true,
+      "sha256": "2dda625ba8c7ffb978957721cedbf7becc8b0bc85e5b00838652845026e08c43"
+    },
+    {
+      "probe": "space_comment",
+      "expectedExit": 1,
+      "actualExit": 1,
+      "status": "DIFFERENT",
+      "matched": false,
+      "sha256": "d4d0c667399e4cf19771ab9d27b08f8e94fd225d81ce8d790e01e0d89fdb76ba"
+    },
+    {
+      "probe": "schema_digest",
+      "expectedExit": 1,
+      "actualExit": 1,
+      "status": "ERROR",
+      "matched": false,
+      "sha256": "a1cc9daca7bafa80862c6383899072169c9a1dd19a421c5dc64326b19310da18"
+    },
+    {
+      "probe": "duplicate_table",
+      "expectedExit": 1,
+      "actualExit": 1,
+      "status": "ERROR",
+      "matched": false,
+      "sha256": "897089207dd6cfbf6d22664d01fc831f7d8da45eedaba4cf0e8d09c0d19a7851"
+    },
+    {
+      "probe": "incomplete",
+      "expectedExit": 1,
+      "actualExit": 1,
+      "status": "ERROR",
+      "matched": false,
+      "sha256": "66c84398eb118c6ccd2baa916e7c451dddb13a41cc93ba2a6eb2a27756aa55ae"
+    }
+  ]
+}

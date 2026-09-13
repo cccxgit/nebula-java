@@ -2,6 +2,8 @@
 
 文档入口：[手工搬迁操作手册](../数据搬迁操作手册.md) · [实现分析报告](系统软件实现分析报告.md) · [独立 FETCH 校验工具](../verification/README.md)。文档中的本机绝对路径是验收环境示例，部署时按实际目录替换。
 
+扩展验收：[全量场景手动测试指导书](../task/acceptance/手动测试指导书.md) · [任务产出报告](../task/任务产出报告.md)。新增地理类型与千条级场景的执行结果以对应报告为准。
+
 以数据正确性为目标：`源空间 → StorageClient.scan → CSV + manifest.json → 参数化 INSERT → 目标 scan → 完整键和值比较`。
 
 支持同一集群的空间 A 搬到新空间 B，也支持不同集群。每个 Tag/Edge 一个 CSV，包含空表；按完整标识排序。工具逐条写入，不提供并发优化、自动重试、断点续传或回滚。发生错误时退出码为 1，目标可能是不完整空间；不会把部分完成报告成成功。
@@ -12,8 +14,8 @@
 
 ## 范围与前提
 
-- 支持 BOOL、INT8/16/32/64（INT）、FLOAT、DOUBLE、STRING、FIXED_STRING(N)、DATE、TIME、DATETIME、TIMESTAMP、DURATION 和正常 NULL。
-- 不支持 GEOGRAPHY；导出发现不支持的属性类型即失败。
+- 支持 15 种持久化属性类型：BOOL、INT8/16/32/64（INT）、FLOAT、DOUBLE、STRING、FIXED_STRING(N)、DATE、TIME、DATETIME、TIMESTAMP、DURATION、GEOGRAPHY，以及允许为空属性的正常 NULL。
+- GEOGRAPHY 支持通用类型（Meta 的 ANY）及 `GEOGRAPHY(POINT)`、`GEOGRAPHY(LINESTRING)`、`GEOGRAPHY(POLYGON)`；形状约束原样保存在 Schema 中。非有限坐标、形状不匹配和缺失的原生坐标字段均拒绝。
 - 源数据不存在无 Tag 的点，字符串 VID 和 FIXED_STRING 属性没有 NUL。普通 STRING 可以包含 NUL、任意字节和无效 UTF-8。
 - 迁移过程中源空间停止写入及 Schema 变更，目标空间由本工具独占。重新扫描源只能检查最终状态，不能代替一致性快照。
 - 当前版本拒绝启用 TTL 的 Schema，避免迁移期间自动过期。索引、账号、权限、集群配置不是本工具的迁移内容。
@@ -104,8 +106,41 @@ V:dXNlcjE=,V:dXNlcjI=,V:Nw==,V:YSxi
 | TIME | `[hour,minute,second,totalMicrosecond]` |
 | DATETIME | `[year,month,day,hour,minute,second,totalMicrosecond]` |
 | DURATION | `[months,seconds,microseconds]`，不换算月份或归一化字段 |
+| GEOGRAPHY | 紧凑 JSON 形状树：`["point",[xBits,yBits]]`、`["linestring",[[xBits,yBits],...]]`、`["polygon",[[[xBits,yBits],...],...]]`；每个坐标分量是带引号的 16 位小写 binary64 十六进制字符串 |
 
-解码后直接构造原生 Value 参数，不把 Base64、十六进制或日期数组直接拼进 nGQL。源/目标比较对浮点使用位模式，对字符串使用字节；不使用 nGQL 近似浮点相等。IEEE NaN 的载荷可能被底层 Thrift 规范化，特殊非有限值不能笼统承诺往返，导入预检和最终比较会阻止静默成功。
+解码后直接构造原生 Value 参数，不把 Base64、十六进制或日期数组直接拼进 nGQL。源/目标比较对浮点使用位模式，对字符串使用字节；不使用 nGQL 近似浮点相等。
+
+### 浮点重放边界
+
+FLOAT 的原生 `fVal` 是 float32 提升后的 double；导入检查它再次经过 float32 存储并提升后，raw64 位仍相同。DOUBLE 直接保留返回的 raw64 位。正负零分别是 `0000000000000000` 和 `8000000000000000`，不能合并比较。
+
+| 源接口返回的特殊值 | FLOAT | DOUBLE |
+|---|---|---|
+| 规范 NaN，`7ff8000000000000` | 允许；转换为 float32 再提升仍为相同位模式 | 允许 |
+| 正 Infinity，`7ff0000000000000` | 拒绝；当前存储范围检查不接受 | 允许 |
+| 负 Infinity，`fff0000000000000` | 拒绝；当前存储范围检查不接受 | 允许 |
+| 其他 NaN 位模式 | 拒绝 | 拒绝 |
+
+编码器可以无损保存其他 NaN 载荷，但当前 bundled Thrift 的 `writeDouble` 使用 `Double.doubleToLongBits`，会把它们改成规范 NaN。因此搬迁预检拒绝此类记录，不能先归一化再宣称位一致。`fVal` 的 NaN 与异常 `NullType.NaN` 不同；后者始终拒绝。实际参数与源数据读取证据见 [只读探针输出](../task/acceptance/probes/scalar-wire-probe.txt) 和 [可复现源码](../task/acceptance/probes/ScalarWireProbe.java)。该探针没有执行 INSERT，完整搬迁结论仍以各场景验收报告为准。
+
+### GEOGRAPHY 编码与还原
+
+以源接口返回的 `POINT(1 2)` 为例，Base64 前的完整载荷是：
+
+```json
+["point",["3ff0000000000000","4000000000000000"]]
+```
+
+如果这一行 VID 为 `user1`、唯一属性 `p0` 的类型为 `GEOGRAPHY(POINT)`，CSV 为：
+
+```csv
+_vid,p0
+V:dXNlcjE=,V:WyJwb2ludCIsWyIzZmYwMDAwMDAwMDAwMDAwIiwiNDAwMDAwMDAwMDAwMDAwMCJdXQ==
+```
+
+导入器解码形状和坐标位模式，直接构造原生 `Value.ggVal(Geography)` 作为属性 INSERT 参数。线保留坐标顺序，面保留各环及环内坐标顺序；不会经过 WKT 格式化、JTS 运算或自行调整闭环。通用 `GEOGRAPHY` 可以存三种支持形状，限定 POINT 的属性不能写入线或面；正常 NULL 仍编码为 `N`。
+
+地理坐标必须是有限数，NaN/Infinity 在导出和导入预检中均失败。工具不复刻服务端的 S2 拓扑判断，因此文件可解析不等于任意自造几何一定可写入数据库。迁移基准是**源 scan/FETCH 已返回的原生形状与坐标**：服务端在写入或读取时可能规范化几何，例如移除相邻重复坐标，工具不把规范化前的输入文本作为最终存储值。
 
 ### NebulaGraph 3.6 的标识参数兼容
 
@@ -116,6 +151,8 @@ V:dXNlcjE=,V:dXNlcjI=,V:Nw==,V:YSxi
 目标写入前，用只读查询验证 1..255 的所有字节能原样解析。需要 Graph 服务允许八进制转义（`disable_octal_escape_char=false`）；工具不会自动修改服务器配置。不满足时在建目标空间前拒绝。NUL VID 仍按既定源数据约束排除。
 
 ## 测试
+
+下面保留的是 2026-09-13 的 14 类型样本与既有测试入口；该历史验收不包含 GEOGRAPHY。新增 POINT/LINESTRING/POLYGON、形状约束、非法地理输入及千条级场景，按 [扩展测试指导书](../task/acceptance/手动测试指导书.md) 执行，结果见 [任务产出报告](../task/任务产出报告.md)。
 
 不会访问数据库的单元/回归测试：
 

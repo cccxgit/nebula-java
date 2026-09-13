@@ -7,22 +7,35 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import com.facebook.thrift.protocol.TBinaryProtocol;
+import com.facebook.thrift.protocol.TCompactProtocol;
+import com.facebook.thrift.protocol.TProtocol;
+import com.facebook.thrift.transport.TMemoryBuffer;
+import com.vesoft.nebula.Coordinate;
 import com.vesoft.nebula.Date;
 import com.vesoft.nebula.DateTime;
 import com.vesoft.nebula.Duration;
+import com.vesoft.nebula.Geography;
+import com.vesoft.nebula.LineString;
 import com.vesoft.nebula.NullType;
+import com.vesoft.nebula.Point;
+import com.vesoft.nebula.Polygon;
 import com.vesoft.nebula.Time;
 import com.vesoft.nebula.Value;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 import org.junit.Test;
 
 public class ValueCodecTest {
     private static final String[] TYPES = {"bool", "int8", "int16", "int32", "int64",
             "int", "float", "double", "string", "fixed_string(32)", "date", "time",
-            "datetime", "timestamp", "duration"};
+            "datetime", "timestamp", "duration", "geography", "geography(point)",
+            "geography(linestring)", "geography(polygon)"};
 
     @Test
     public void normalNullRoundTripsForEverySupportedType() {
@@ -117,6 +130,46 @@ public class ValueCodecTest {
             double value = Double.longBitsToDouble(bits);
             assertEquals(bits, Double.doubleToRawLongBits(roundTrip(Value.fVal(value),
                     "double").getFVal()));
+        }
+    }
+
+    @Test
+    public void canonicalScalarValuesSurviveCsvAndNativeThriftTransport() throws Exception {
+        // Canonical NaN is also stable when a FLOAT is stored as float32 and read as double.
+        double canonicalNaN = Double.longBitsToDouble(0x7ff8000000000000L);
+        assertBitsEqual(canonicalNaN, (double) (float) canonicalNaN);
+        List<Double> values = new ArrayList<>(Arrays.asList(0.0, -0.0, Double.MIN_VALUE,
+                -Double.MIN_VALUE, Double.MIN_NORMAL, Double.MAX_VALUE, -Double.MAX_VALUE,
+                (double) Float.MIN_VALUE, (double) Float.MAX_VALUE, canonicalNaN,
+                Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY));
+        Random random = new Random(0x7363616c6172L);
+        while (values.size() < 1000) {
+            double value = Double.longBitsToDouble(random.nextLong());
+            if (!Double.isNaN(value)) {
+                values.add(value);
+            }
+        }
+        for (boolean compact : new boolean[]{false, true}) {
+            for (double value : values) {
+                Value decoded = roundTrip(Value.fVal(value), "double");
+                Value transported = nativeProtocolRoundTrip(decoded, compact);
+                assertEquals(Value.FVAL, transported.getSetField());
+                assertBitsEqual(value, transported.getFVal());
+            }
+        }
+        // This only establishes transport support. FLOAT +/-Infinity is rejected by storage.
+    }
+
+    @Test
+    public void nonCanonicalNanBitsSurviveCsvButAreCanonicalizedByBundledThrift() throws Exception {
+        for (boolean compact : new boolean[]{false, true}) {
+            for (int i = 1; i <= 1000; i++) {
+                long bits = ((i & 1) == 0 ? 0x7ff8000000000000L : 0xfff8000000000000L) | i;
+                Value decoded = roundTrip(Value.fVal(Double.longBitsToDouble(bits)), "double");
+                assertEquals(bits, Double.doubleToRawLongBits(decoded.getFVal()));
+                Value transported = nativeProtocolRoundTrip(decoded, compact);
+                assertEquals(0x7ff8000000000000L, Double.doubleToRawLongBits(transported.getFVal()));
+            }
         }
     }
 
@@ -343,7 +396,7 @@ public class ValueCodecTest {
         }
         assertEquals(ValueCodec.encode(Value.iVal(42), "int64"),
                 ValueCodec.encode(Value.iVal(42), " INT "));
-        for (String unsupported : Arrays.asList(null, "", "geography", "geography(point)",
+        for (String unsupported : Arrays.asList(null, "", "geography(any)", "geography(multipoint)",
                 "list", "map", "set", "vertex", "unknown", "fixed_string", "fixed_string(0)",
                 "fixed_string(-1)", "fixed_string(01)", "fixed_string(32768)",
                 "fixed_string(9223372036854775808)")) {
@@ -355,6 +408,196 @@ public class ValueCodecTest {
             }
             rejectCell("N", unsupported);
         }
+    }
+
+    @Test
+    public void geographyPointHasCanonicalShapeAndRawCoordinatePayload() {
+        Value point = Value.ggVal(Geography.ptVal(new Point(new Coordinate(1, 2))));
+        String expected = "[\"point\",[\"3ff0000000000000\",\"4000000000000000\"]]";
+        assertEquals(payload(expected), ValueCodec.encode(point, "geography"));
+        assertEquals(payload(expected), ValueCodec.encode(point, " Geography ( POINT ) "));
+        assertGeography(point.getGgVal(), roundTrip(point, "geography(point)").getGgVal());
+    }
+
+    @Test
+    public void geographyLineAndPolygonKeepRepeatedPointsClosureAndHoleOrder() {
+        List<Coordinate> exterior = Arrays.asList(new Coordinate(-0.0, 0.0), new Coordinate(2, 0),
+                new Coordinate(2, 0), new Coordinate(0, 2), new Coordinate(-0.0, 0.0));
+        List<Coordinate> hole = Arrays.asList(new Coordinate(0.1, 0.1), new Coordinate(0.1, 0.2),
+                new Coordinate(0.2, 0.1), new Coordinate(0.1, 0.1));
+        Geography line = Geography.lsVal(new LineString(exterior));
+        Geography polygon = Geography.pgVal(new Polygon(Arrays.asList(exterior, hole)));
+        assertGeography(line, roundTrip(Value.ggVal(line), "geography(linestring)").getGgVal());
+        assertGeography(polygon, roundTrip(Value.ggVal(polygon), "geography(polygon)").getGgVal());
+        assertEquals(exterior.size(), ValueCodec.decode(ValueCodec.encode(Value.ggVal(line), "geography"),
+                "geography").getGgVal().getLsVal().coordList.size());
+        Geography reversedRings = Geography.pgVal(new Polygon(Arrays.asList(hole, exterior)));
+        assertNotEquals(ValueCodec.encode(Value.ggVal(polygon), "geography"),
+                ValueCodec.encode(Value.ggVal(reversedRings), "geography"));
+    }
+
+    @Test
+    public void geographySchemaShapeMismatchAndWrongNativeTypeAreRejected() {
+        Value[] values = {Value.ggVal(Geography.ptVal(new Point(new Coordinate(1, 2)))),
+                Value.ggVal(Geography.lsVal(new LineString(Arrays.asList(new Coordinate(1, 2),
+                        new Coordinate(3, 4))))),
+                Value.ggVal(Geography.pgVal(new Polygon(Collections.emptyList())))};
+        String[] shapes = {"geography(point)", "geography(linestring)", "geography(polygon)"};
+        for (int i = 0; i < values.length; i++) {
+            for (int j = 0; j < shapes.length; j++) {
+                if (i != j) {
+                    rejectEncode(values[i], shapes[j]);
+                    rejectCell(ValueCodec.encode(values[i], "geography"), shapes[j]);
+                }
+            }
+        }
+        rejectEncode(bytes("POINT(1 2)"), "geography");
+        rejectEncode(Value.iVal(1), "geography");
+        rejectEncode(values[0], "string");
+    }
+
+    @Test
+    public void geographyDoesNotNormalizeSignedZeroOrAdjacentFiniteDoubles() {
+        for (long bits : new long[]{0L, Long.MIN_VALUE, 1L, 0x3ff0000000000001L}) {
+            Geography point = Geography.ptVal(new Point(new Coordinate(Double.longBitsToDouble(bits), -0.0)));
+            assertGeography(point, roundTrip(Value.ggVal(point), "geography(point)").getGgVal());
+        }
+        assertNotEquals(ValueCodec.encode(Value.ggVal(Geography.ptVal(new Point(new Coordinate(0.0, 0.0)))),
+                "geography"), ValueCodec.encode(Value.ggVal(Geography.ptVal(new Point(
+                        new Coordinate(-0.0, 0.0)))), "geography"));
+    }
+
+    @Test
+    public void geographyNonFiniteCoordinatesAreRejectedOnBothExportAndImport() {
+        for (long bits : new long[]{0x7ff0000000000000L, 0xfff0000000000000L,
+                0x7ff8000000000042L, 0x7ff0000000000001L}) {
+            double value = Double.longBitsToDouble(bits);
+            rejectEncode(Value.ggVal(Geography.ptVal(new Point(new Coordinate(value, 0)))), "geography");
+            rejectEncode(Value.ggVal(Geography.ptVal(new Point(new Coordinate(0, value)))), "geography");
+            String hex = String.format(java.util.Locale.ROOT, "%016x", bits);
+            rejectCell(payload("[\"point\",[\"" + hex + "\",\"0000000000000000\"]]"), "geography");
+            rejectCell(payload("[\"point\",[\"0000000000000000\",\"" + hex + "\"]]"), "geography");
+        }
+    }
+
+    @Test
+    public void oneThousandPointLineAndPolygonShapesRoundTripBitForBit() {
+        Random random = new Random(0x67656fL);
+        for (int i = 0; i < 1000; i++) {
+            List<Coordinate> first = randomCoordinates(random, 2 + i % 5);
+            List<Coordinate> second = randomCoordinates(random, 3 + i % 7);
+            Geography[] shapes = {Geography.ptVal(new Point(first.get(0))),
+                    Geography.lsVal(new LineString(first)),
+                    Geography.pgVal(new Polygon(Arrays.asList(first, second)))};
+            for (Geography shape : shapes) {
+                assertGeography(shape, roundTrip(Value.ggVal(shape), "geography").getGgVal());
+            }
+        }
+    }
+
+    @Test
+    public void emptySequencesAreRetainedWithoutClaimingTheyAreValidDatabaseGeometries() {
+        Geography line = Geography.lsVal(new LineString(Collections.emptyList()));
+        Geography emptyPolygon = Geography.pgVal(new Polygon(Collections.emptyList()));
+        Geography emptyRing = Geography.pgVal(new Polygon(Collections.singletonList(Collections.emptyList())));
+        assertEquals(payload("[\"linestring\",[]]"), ValueCodec.encode(Value.ggVal(line), "geography"));
+        assertGeography(line, roundTrip(Value.ggVal(line), "geography").getGgVal());
+        assertGeography(emptyPolygon, roundTrip(Value.ggVal(emptyPolygon), "geography").getGgVal());
+        assertGeography(emptyRing, roundTrip(Value.ggVal(emptyRing), "geography").getGgVal());
+        assertNotEquals(ValueCodec.encode(Value.ggVal(emptyPolygon), "geography"),
+                ValueCodec.encode(Value.ggVal(emptyRing), "geography"));
+    }
+
+    @Test
+    public void geographyMissingShapeListsAndCoordinateComponentsFailClosed() {
+        rejectEncode(Value.ggVal(new Geography()), "geography");
+        rejectEncode(Value.ggVal(Geography.ptVal(new Point())), "geography");
+        rejectEncode(Value.ggVal(Geography.ptVal(new Point(new Coordinate()))), "geography");
+        rejectEncode(Value.ggVal(Geography.lsVal(new LineString())), "geography");
+        rejectEncode(Value.ggVal(Geography.lsVal(new LineString(Collections.singletonList(null)))), "geography");
+        rejectEncode(Value.ggVal(Geography.pgVal(new Polygon())), "geography");
+        rejectEncode(Value.ggVal(Geography.pgVal(new Polygon(Collections.singletonList(null)))), "geography");
+        Coordinate missingY = new Coordinate(1, 2);
+        missingY.unsetY();
+        rejectEncode(Value.ggVal(Geography.ptVal(new Point(missingY))), "geography");
+    }
+
+    @Test
+    public void geographyParserRejectsNonCanonicalAndMalformedShapeTrees() {
+        String good = "[\"point\",[\"3ff0000000000000\",\"4000000000000000\"]]";
+        for (String malformed : new String[]{"", "[]", "null", "{}", "[\"point\",null]",
+                "[\"point\",[1,2]]", "[\"point\",[\"0\",\"0\"]]", "[\"linestring\",null]",
+                "[\"polygon\",[null]]", "[\"Point\",[]]", "[\"multipoint\",[]]",
+                good + "\n", " " + good, good + "[]", good.replace(",", ", "),
+                good.replace("3ff", "3FF"), good.replace("4000000000000000", "g000000000000000"),
+                good.substring(0, good.length() - 1), good.replace("]]", ",]]"),
+                good.replace("point", "point\\u0000")}) {
+            rejectCell(payload(malformed), "geography");
+        }
+    }
+
+    @Test
+    public void generatedGeographyDecoderPreservesFiniteCoordinatesInBinaryAndCompactProtocols() throws Exception {
+        List<Coordinate> coordinates = Arrays.asList(new Coordinate(-0.0, 0.0),
+                new Coordinate(Math.nextUp(0.1), Double.MIN_VALUE), new Coordinate(180, -90));
+        Geography[] shapes = {Geography.ptVal(new Point(coordinates.get(0))),
+                Geography.lsVal(new LineString(coordinates)),
+                Geography.pgVal(new Polygon(Arrays.asList(coordinates, coordinates)))};
+        for (Geography shape : shapes) {
+            for (boolean compact : new boolean[]{false, true}) {
+                TMemoryBuffer buffer = new TMemoryBuffer(128);
+                TProtocol writer = compact ? new TCompactProtocol(buffer) : new TBinaryProtocol(buffer);
+                Value.ggVal(shape).write(writer);
+                TProtocol reader = compact ? new TCompactProtocol(buffer) : new TBinaryProtocol(buffer);
+                Value read = new Value();
+                read.read(reader);
+                assertEquals(Value.GGVAL, read.getSetField());
+                assertGeography(shape, read.getGgVal());
+            }
+        }
+    }
+
+    private static List<Coordinate> randomCoordinates(Random random, int size) {
+        List<Coordinate> result = new ArrayList<>();
+        for (int i = 0; i < size; i++) {
+            result.add(new Coordinate(random.nextDouble() * 360 - 180,
+                    random.nextDouble() * 180 - 90));
+        }
+        return result;
+    }
+
+    private static void assertGeography(Geography expected, Geography actual) {
+        assertEquals(expected.getSetField(), actual.getSetField());
+        switch (expected.getSetField()) {
+            case Geography.PTVAL:
+                assertCoordinate(expected.getPtVal().coord, actual.getPtVal().coord);
+                break;
+            case Geography.LSVAL:
+                assertCoordinates(expected.getLsVal().coordList, actual.getLsVal().coordList);
+                break;
+            case Geography.PGVAL:
+                List<List<Coordinate>> left = expected.getPgVal().coordListList;
+                List<List<Coordinate>> right = actual.getPgVal().coordListList;
+                assertEquals(left.size(), right.size());
+                for (int i = 0; i < left.size(); i++) {
+                    assertCoordinates(left.get(i), right.get(i));
+                }
+                break;
+            default:
+                fail("Unexpected test shape");
+        }
+    }
+
+    private static void assertCoordinates(List<Coordinate> expected, List<Coordinate> actual) {
+        assertEquals(expected.size(), actual.size());
+        for (int i = 0; i < expected.size(); i++) {
+            assertCoordinate(expected.get(i), actual.get(i));
+        }
+    }
+
+    private static void assertCoordinate(Coordinate expected, Coordinate actual) {
+        assertBitsEqual(expected.x, actual.x);
+        assertBitsEqual(expected.y, actual.y);
     }
 
     private static Value bytes(String text) {
@@ -370,6 +613,14 @@ public class ValueCodecTest {
         Value decoded = ValueCodec.decode(cell, type);
         assertEquals(cell, ValueCodec.encode(decoded, type));
         return decoded;
+    }
+
+    private static Value nativeProtocolRoundTrip(Value value, boolean compact) throws Exception {
+        TMemoryBuffer buffer = new TMemoryBuffer(64);
+        value.write(compact ? new TCompactProtocol(buffer) : new TBinaryProtocol(buffer));
+        Value read = new Value();
+        read.read(compact ? new TCompactProtocol(buffer) : new TBinaryProtocol(buffer));
+        return read;
     }
 
     private static void assertBitsEqual(double expected, double actual) {

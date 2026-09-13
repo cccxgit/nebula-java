@@ -1,0 +1,3 @@
+USE `qa_20260914_i_quoted_schema`;
+CREATE TAG `tag with space`(`name with space` STRING NULL,`属性` STRING NULL,`limit` INT64 NULL);
+CREATE EDGE `edge with space`(`name with space` STRING NULL,`属性` STRING NULL,`limit` INT64 NULL);

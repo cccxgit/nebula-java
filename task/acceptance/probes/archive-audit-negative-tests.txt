@@ -1,0 +1,16 @@
+PASS unchanged
+PASS archive_size
+PASS archive_sha
+PASS case_report
+PASS missing_log
+PASS log_bytes
+PASS csv_bytes
+PASS csv_count
+PASS plan_csv_bytes
+PASS plan_count
+PASS capture_missing_row
+PASS capture_error_record
+PASS wrong_plan_id
+PASS changed_target_value
+PASS duplicate_tar_member
+PASS duplicate_json_key

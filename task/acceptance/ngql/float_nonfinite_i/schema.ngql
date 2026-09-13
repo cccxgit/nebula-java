@@ -1,0 +1,3 @@
+USE `qa_20260914_i_float_nonfinite`;
+CREATE TAG `case_tag`(`value` FLOAT NULL);
+CREATE EDGE `case_edge`(`value` FLOAT NULL);

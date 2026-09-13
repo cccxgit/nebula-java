@@ -1,0 +1,10 @@
+compat=false output=["polygon",[]]
+equal=false
+compat=true output=["polygon",[[["8000000000000000","0000000000000000"],["3ff0000000000001","0000000000000000"],["3ff0000000000000","3ff0000000000000"],["0000000000000000","3ff0000000000000"],["8000000000000000","0000000000000000"]],[["3fc999999999999a","3fc999999999999a"],["3fc999999999999a","3fd3333333333333"],["3fd3333333333333","3fd3333333333333"],["3fd3333333333333","3fc999999999999a"],["3fc999999999999a","3fc999999999999a"]]]]
+equal=true
+toFloat("NaN") field=4 value=NaN
+toFloat("Infinity") field=4 value=Infinity
+toFloat("-Infinity") field=4 value=-Infinity
+native input=NaN field=4 raw=7ff8000000000000
+native input=Infinity field=4 raw=7ff0000000000000
+native input=-Infinity field=4 raw=fff0000000000000

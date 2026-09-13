@@ -1,15 +1,18 @@
 package com.vesoft.nebula.verification;
 
+import com.vesoft.nebula.Coordinate;
 import com.vesoft.nebula.Date;
 import com.vesoft.nebula.DateTime;
 import com.vesoft.nebula.Duration;
 import com.vesoft.nebula.Edge;
+import com.vesoft.nebula.Geography;
 import com.vesoft.nebula.NullType;
 import com.vesoft.nebula.Tag;
 import com.vesoft.nebula.Time;
 import com.vesoft.nebula.Value;
 import com.vesoft.nebula.Vertex;
 import java.util.Base64;
+import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -50,6 +53,8 @@ public final class NativeValueCodec {
             case Value.DUVAL:
                 Duration duration = value.getDuVal();
                 return numbers("duration", duration.months, duration.seconds, duration.microseconds);
+            case Value.GGVAL:
+                return geography(value.getGgVal());
             default:
                 throw new IllegalArgumentException("Unsupported native scalar field: " + value.getSetField());
         }
@@ -96,6 +101,59 @@ public final class NativeValueCodec {
         for (Map.Entry<byte[], Value> property : properties.entrySet()) {
             put(result, prefix + base64(property.getKey()), encode(property.getValue()));
         }
+    }
+
+    /** Preserve the source's returned geometry, including ordering, closure and coordinate bits. */
+    private static String geography(Geography value) {
+        require(value != null && value.getFieldValue() != null, "Missing Geography shape");
+        StringBuilder result = new StringBuilder("[\"geography\",");
+        switch (value.getSetField()) {
+            case Geography.PTVAL:
+                result.append("\"point\",");
+                coordinate(result, value.getPtVal().coord);
+                break;
+            case Geography.LSVAL:
+                result.append("\"linestring\",");
+                sequence(result, value.getLsVal().coordList);
+                break;
+            case Geography.PGVAL:
+                result.append("\"polygon\",[");
+                List<List<Coordinate>> rings = value.getPgVal().coordListList;
+                require(rings != null, "Missing Geography polygon rings");
+                for (int i = 0; i < rings.size(); i++) {
+                    if (i > 0) {
+                        result.append(',');
+                    }
+                    sequence(result, rings.get(i));
+                }
+                result.append(']');
+                break;
+            default:
+                throw new IllegalArgumentException("Unsupported Geography shape: " + value.getSetField());
+        }
+        return result.append(']').toString();
+    }
+
+    private static void sequence(StringBuilder result, List<Coordinate> coordinates) {
+        require(coordinates != null, "Missing Geography coordinate sequence");
+        result.append('[');
+        for (int i = 0; i < coordinates.size(); i++) {
+            if (i > 0) {
+                result.append(',');
+            }
+            coordinate(result, coordinates.get(i));
+        }
+        result.append(']');
+    }
+
+    private static void coordinate(StringBuilder result, Coordinate coordinate) {
+        require(coordinate != null && coordinate.isSetX() && coordinate.isSetY(),
+                "Missing Geography coordinate component");
+        require(Double.isFinite(coordinate.x) && Double.isFinite(coordinate.y),
+                "Geography coordinate must be finite");
+        String x = String.format(java.util.Locale.ROOT, "%016x", Double.doubleToRawLongBits(coordinate.x));
+        String y = String.format(java.util.Locale.ROOT, "%016x", Double.doubleToRawLongBits(coordinate.y));
+        result.append("[\"").append(x).append("\",\"").append(y).append("\"]");
     }
 
     private static void identifier(Value value) {

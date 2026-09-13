@@ -1,0 +1,3 @@
+USE `qa_20260914_i_int8_values`;
+CREATE TAG `case_tag`(`value` INT8 NULL);
+CREATE EDGE `case_edge`(`value` INT8 NULL);

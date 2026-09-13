@@ -1,0 +1,3 @@
+USE `qa_20260914_i_geography_polygon`;
+CREATE TAG `case_tag`(`value` GEOGRAPHY(POLYGON) NULL);
+CREATE EDGE `case_edge`(`value` GEOGRAPHY(POLYGON) NULL);

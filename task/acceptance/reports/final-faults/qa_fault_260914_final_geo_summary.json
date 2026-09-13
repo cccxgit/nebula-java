@@ -1,0 +1,70 @@
+{
+  "status": "PASSED",
+  "updatedAt": "2026-09-13T18:32:11.189832+00:00",
+  "expectedScenes": 2,
+  "completedScenes": 2,
+  "passedScenes": 2,
+  "failedScenes": 0,
+  "pendingScenes": 0,
+  "selectedFaults": [
+    "geography_coordinate_bit",
+    "geography_schema_shape"
+  ],
+  "passMeaning": "Expected faults were detected, never accepted as MATCH",
+  "scenes": [
+    {
+      "id": "qa_fault_260914_final_geo_geography_coordinate_bit",
+      "faultId": "geography_coordinate_bit",
+      "status": "PASSED",
+      "controlCounts": {
+        "vertices": 1000,
+        "edges": 1000,
+        "tags": {
+          "case_tag": 1000
+        },
+        "edgeTypes": {
+          "case_edge": 1000
+        }
+      },
+      "expectedStatus": "DIFFERENT",
+      "actual": {
+        "faultDetected": true,
+        "acceptedAsMatch": false
+      },
+      "failure": null,
+      "archive": {
+        "file": "task/acceptance/artifacts/final-faults/qa_fault_260914_final_geo_geography_coordinate_bit.tar.gz",
+        "bytes": 244269,
+        "sha256": "2d48cf1c02a4d665d224e8c26092162629c5b47bd9d1aa6787daa55397b8bcd4"
+      },
+      "report": "/home/sch/nebula/nebula-java/task/acceptance/reports/final-faults/qa_fault_260914_final_geo_geography_coordinate_bit.json"
+    },
+    {
+      "id": "qa_fault_260914_final_geo_geography_schema_shape",
+      "faultId": "geography_schema_shape",
+      "status": "PASSED",
+      "controlCounts": {
+        "vertices": 1000,
+        "edges": 1000,
+        "tags": {
+          "case_tag": 1000
+        },
+        "edgeTypes": {
+          "case_edge": 1000
+        }
+      },
+      "expectedStatus": "ERROR",
+      "actual": {
+        "faultDetected": true,
+        "acceptedAsMatch": false
+      },
+      "failure": null,
+      "archive": {
+        "file": "task/acceptance/artifacts/final-faults/qa_fault_260914_final_geo_geography_schema_shape.tar.gz",
+        "bytes": 252671,
+        "sha256": "01033b99061a585e8fb0530ac0845654be65f32cd1206a09cdd3788633916df1"
+      },
+      "report": "/home/sch/nebula/nebula-java/task/acceptance/reports/final-faults/qa_fault_260914_final_geo_geography_schema_shape.json"
+    }
+  ]
+}

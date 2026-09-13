@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.vesoft.nebula.verification.PlanBundleTest" time="0.09" tests="11" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="gnome"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/home/sch/nebula/nebula-java/verification/target/test-classes:/home/sch/nebula/nebula-java/verification/target/classes:/home/sch/nebula/nebula-java/client/target/client-3.8.4.jar:/home/sch/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/home/sch/.m2/repository/org/apache/commons/commons-lang3/3.8/commons-lang3-3.8.jar:/home/sch/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/home/sch/.m2/repository/com/google/guava/guava/32.0.0-jre/guava-32.0.0-jre.jar:/home/sch/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/home/sch/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/home/sch/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/home/sch/.m2/repository/org/checkerframework/checker-qual/3.33.0/checker-qual-3.33.0.jar:/home/sch/.m2/repository/com/google/errorprone/error_prone_annotations/2.18.0/error_prone_annotations-2.18.0.jar:/home/sch/.m2/repository/com/google/j2objc/j2objc-annotations/2.8/j2objc-annotations-2.8.jar:/home/sch/.m2/repository/commons-codec/commons-codec/1.13/commons-codec-1.13.jar:/home/sch/.m2/repository/org/apache/commons/commons-pool2/2.2/commons-pool2-2.2.jar:/home/sch/.m2/repository/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar:/home/sch/.m2/repository/com/alibaba/fastjson/1.2.83/fastjson-1.2.83.jar:/home/sch/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.69/bcpkix-jdk15on-1.69.jar:/home/sch/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.69/bcprov-jdk15on-1.69.jar:/home/sch/.m2/repository/org/bouncycastle/bcutil-jdk15on/1.69/bcutil-jdk15on-1.69.jar:/home/sch/.m2/repository/org/locationtech/jts/jts-core/1.16.1/jts-core-1.16.1.jar:/home/sch/.m2/repository/com/squareup/okhttp3/okhttp/3.14.0/okhttp-3.14.0.jar:/home/sch/.m2/repository/com/squareup/okio/okio/1.17.2/okio-1.17.2.jar:/home/sch/.m2/repository/org/mortbay/jetty/alpn/alpn-boot/8.1.13.v20181017/alpn-boot-8.1.13.v20181017.jar:/home/sch/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar:/home/sch/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
+    <property name="java.vm.vendor" value="Private Build"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value=""/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Linux"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64"/>
+    <property name="sun.java.command" value="/home/sch/nebula/nebula-java/verification/target/surefire/surefirebooter2952728236183909945.jar /home/sch/nebula/nebula-java/verification/target/surefire 2026-09-14T02-09-54_081-jvmRun1 surefire2627501638640461235tmp surefire_14546776038723868502tmp"/>
+    <property name="test" value="PartScanQueueTest,ScanIteratorLifecycleTest,ScanIteratorPaginationTest,ValueCodecTest,MigrationBundleTest,FetchCollectorTest,NativeValueCodecTest,IdentifiersTest,OfflineComparatorTest,PlanBundleTest,VerifierCliTest"/>
+    <property name="surefire.test.class.path" value="/home/sch/nebula/nebula-java/verification/target/test-classes:/home/sch/nebula/nebula-java/verification/target/classes:/home/sch/nebula/nebula-java/client/target/client-3.8.4.jar:/home/sch/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/home/sch/.m2/repository/org/apache/commons/commons-lang3/3.8/commons-lang3-3.8.jar:/home/sch/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/home/sch/.m2/repository/com/google/guava/guava/32.0.0-jre/guava-32.0.0-jre.jar:/home/sch/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/home/sch/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/home/sch/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/home/sch/.m2/repository/org/checkerframework/checker-qual/3.33.0/checker-qual-3.33.0.jar:/home/sch/.m2/repository/com/google/errorprone/error_prone_annotations/2.18.0/error_prone_annotations-2.18.0.jar:/home/sch/.m2/repository/com/google/j2objc/j2objc-annotations/2.8/j2objc-annotations-2.8.jar:/home/sch/.m2/repository/commons-codec/commons-codec/1.13/commons-codec-1.13.jar:/home/sch/.m2/repository/org/apache/commons/commons-pool2/2.2/commons-pool2-2.2.jar:/home/sch/.m2/repository/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar:/home/sch/.m2/repository/com/alibaba/fastjson/1.2.83/fastjson-1.2.83.jar:/home/sch/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.69/bcpkix-jdk15on-1.69.jar:/home/sch/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.69/bcprov-jdk15on-1.69.jar:/home/sch/.m2/repository/org/bouncycastle/bcutil-jdk15on/1.69/bcutil-jdk15on-1.69.jar:/home/sch/.m2/repository/org/locationtech/jts/jts-core/1.16.1/jts-core-1.16.1.jar:/home/sch/.m2/repository/com/squareup/okhttp3/okhttp/3.14.0/okhttp-3.14.0.jar:/home/sch/.m2/repository/com/squareup/okio/okio/1.17.2/okio-1.17.2.jar:/home/sch/.m2/repository/org/mortbay/jetty/alpn/alpn-boot/8.1.13.v20181017/alpn-boot-8.1.13.v20181017.jar:/home/sch/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar:/home/sch/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/sch"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="/usr/lib/jvm/java-8-openjdk-amd64/jre"/>
+    <property name="basedir" value="/home/sch/nebula/nebula-java/verification"/>
+    <property name="file.separator" value="/"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/home/sch/nebula/nebula-java/verification/target/surefire/surefirebooter2952728236183909945.jar:/home/sch/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar"/>
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/classes"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="1.8.0_502-8u502-ga~us1-0ubuntu1~22.04-b07"/>
+    <property name="user.name" value="sch"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="6.8.0-136-generic"/>
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/endorsed"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="surefire.failIfNoSpecifiedTests" value="false"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="/home/sch/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="java.version" value="1.8.0_502"/>
+    <property name="user.dir" value="/home/sch/nebula/nebula-java/verification"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Private Build"/>
+    <property name="java.vm.version" value="25.502-b07"/>
+    <property name="java.specification.maintenance.version" value="6"/>
+    <property name="java.ext.dirs" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="52.0"/>
+  </properties>
+  <testcase name="planLoadRejectsChangedVertexOrEdgeCsv" classname="com.vesoft.nebula.verification.PlanBundleTest" time="0.055"/>
+  <testcase name="migrationDuplicateRowsAreRejectedEvenWithUpdatedChecksumAndCount" classname="com.vesoft.nebula.verification.PlanBundleTest" time="0.003"/>
+  <testcase name="standaloneInt64InventoryPreparesAndLoadsRealCsvFormat" classname="com.vesoft.nebula.verification.PlanBundleTest" time="0.007"/>
+  <testcase name="stringInventoryKeepsEmptyAndInvalidUtf8IdentifiersExact" classname="com.vesoft.nebula.verification.PlanBundleTest" time="0.003"/>
+  <testcase name="migrationManifestRejectsUnsafeFilesDuplicateTablesAndUnknownEncoding" classname="com.vesoft.nebula.verification.PlanBundleTest" time="0.004"/>
+  <testcase name="migrationInventoryDeduplicatesMultiTagVerticesAndIncludesEdgeEndpoints" classname="com.vesoft.nebula.verification.PlanBundleTest" time="0.003"/>
+  <testcase name="duplicateStandaloneVertexAndEdgeIdsAreRejected" classname="com.vesoft.nebula.verification.PlanBundleTest" time="0.001"/>
+  <testcase name="emptyInventoryAndNonemptyOutputAreRejectedWithoutOverwriting" classname="com.vesoft.nebula.verification.PlanBundleTest" time="0.002"/>
+  <testcase name="migrationCsvChecksumAndManifestRowCountAreChecked" classname="com.vesoft.nebula.verification.PlanBundleTest" time="0.003"/>
+  <testcase name="planIdentityDigestAndRecordCountCannotBeSilentlyChanged" classname="com.vesoft.nebula.verification.PlanBundleTest" time="0.004"/>
+  <testcase name="identifierHeadersNullsFieldCountsAndRankMinimumAreRejected" classname="com.vesoft.nebula.verification.PlanBundleTest" time="0.005"/>
+</testsuite>

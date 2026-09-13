@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "geography_pilot",
+      "scenarioId": "geography_pilot",
+      "vidType": "FIXED_STRING(128)",
+      "sourceSpace": "qa_geo_260914_a",
+      "targetSpace": "qa_geo_260914_d_final",
+      "rows": 1000,
+      "description": "GEOGRAPHY ANY/POINT/LINESTRING/POLYGON四列共1000点1000边严格时序试跑",
+      "negative": false,
+      "expected": {
+        "vertices": 1000,
+        "edges": 1000,
+        "tags": {
+          "geo": 1000
+        },
+        "edgeTypes": {
+          "geoe": 1000
+        }
+      },
+      "sampleQueries": [
+        "FETCH PROP ON * \"geo_0\" YIELD vertex AS v;",
+        "FETCH PROP ON geoe \"geo_0\"->\"geo_1\"@-500 YIELD edge AS e;",
+        "FETCH PROP ON * \"geo_500\" YIELD vertex AS v;",
+        "FETCH PROP ON geoe \"geo_500\"->\"geo_501\"@0 YIELD edge AS e;",
+        "FETCH PROP ON * \"geo_999\" YIELD vertex AS v;",
+        "FETCH PROP ON geoe \"geo_999\"->\"geo_0\"@499 YIELD edge AS e;"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+YIELD ST_AsText(ST_Point(-0.0, 0.0)) AS point, ST_IsValid(ST_Point(180, 90)) AS pole;
+YIELD ST_AsText(ST_GeogFromText("POLYGON((0 0,10 0,10 10,0 10,0 0),(2 2,2 3,3 3,3 2,2 2))")) AS polygon;
+YIELD size(rpad("a",65536,"b")) AS long_length;
+YIELD 1.7976931348623157e308 AS max_double, 4.9406564584124654e-324 AS min_subnormal, -0.0 AS negative_zero;
+YIELD time({hour:23,minute:59,second:59,millisecond:999,microsecond:999}) AS microseconds;

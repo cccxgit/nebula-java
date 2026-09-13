@@ -1,0 +1,11 @@
+{
+  "comparedAt": "2026-09-13T18:20:43.003485+00:00",
+  "matched": false,
+  "status": "ERROR",
+  "differences": [],
+  "sourceSpace": "qa_schema_260914_s_source",
+  "targetSpace": "qa_schema_260914_s_source",
+  "sourceSnapshotSha256": "cf8d24c05c101596b6e28f10a9ecec81cb2fb567f038f9aeadb71c245c705664",
+  "targetSnapshotSha256": "fab2f9168894bf7960ff65573332a90e2371e3ab7d7e5ade91005e6b5c05d1fe",
+  "error": "Metadata snapshot did not pass its fixture checks"
+}
