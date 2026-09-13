@@ -1,0 +1,47 @@
+{
+  "verificationUnitTests": [
+    {
+      "name": "com.vesoft.nebula.verification.FetchCollectorTest",
+      "tests": "18",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.vesoft.nebula.verification.IdentifiersTest",
+      "tests": "12",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.vesoft.nebula.verification.NativeValueCodecTest",
+      "tests": "13",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.vesoft.nebula.verification.OfflineComparatorTest",
+      "tests": "18",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.vesoft.nebula.verification.PlanBundleTest",
+      "tests": "11",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.vesoft.nebula.verification.VerifierCliTest",
+      "tests": "6",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    }
+  ],
+  "clientRegressionTests": 18
+}

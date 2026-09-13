@@ -126,12 +126,12 @@ public class ScanResultIterator implements Serializable {
 
     protected void handleSucceedResult(AtomicInteger existSuccess, ScanResponse response,
                                        PartScanInfo partInfo) {
-        existSuccess.addAndGet(1);
         if (response.getCursors().get(partInfo.getPart()).next_cursor == null) {
             partScanQueue.dropPart(partInfo);
         } else {
             partInfo.setCursor(response.getCursors().get(partInfo.getPart()));
         }
+        existSuccess.incrementAndGet();
     }
 
     protected void handleFailedResult(ScanResponse response, PartScanInfo partInfo,

@@ -12,6 +12,7 @@ import com.vesoft.nebula.client.storage.data.ScanStatus;
 import com.vesoft.nebula.client.storage.processor.EdgeProcessor;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,6 +52,15 @@ public class ScanEdgeResult implements Serializable {
         this.dataSets = dataSets;
         this.scanStatus = status;
         this.isEmpty = isDatasetEmpty();
+    }
+
+    /**
+     * Get the original scan datasets without decoding binary string values.
+     *
+     * @return an unmodifiable list; dataset objects must be treated as read-only
+     */
+    public List<DataSet> getDataSets() {
+        return dataSets == null ? Collections.emptyList() : Collections.unmodifiableList(dataSets);
     }
 
     /**

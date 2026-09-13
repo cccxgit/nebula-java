@@ -13,6 +13,29 @@ is the JDBC implementing for nebula graph.
 
 > **NOTE**: Nebula Java is not thread-safe.
 
+## 本分支新增：数据搬迁与独立内容校验
+
+`nebula-java-3.8` 分支在 client 3.8.4 基础上增加两个独立可执行 JAR，并包含搬迁所需的扫描死锁、漏页及连接超时修复。
+
+| 模块 | 数据流程 | 使用指导 | 实现分析 |
+|---|---|---|---|
+| [migration](migration/README.md) | 源 scan → CSV → 目标 INSERT → 扫描核对 | [数据搬迁操作手册](数据搬迁操作手册.md) | [搬迁实现分析](migration/系统软件实现分析报告.md) |
+| [verification](verification/README.md) | 固定 ID → 两侧分别 FETCH 保存文件 → 离线比较 | [数据校验工具使用手册](数据校验工具使用手册.md) | [校验设计与实现分析](verification/设计与实现分析.md) |
+
+搬迁与校验支持除 GEOGRAPHY 外的 14 种持久化属性类型，保留普通 STRING 的原始字节、FLOAT/DOUBLE 原始位和时间微秒。使用前需阅读手册中的源数据约束、采集期间的数据稳定要求及服务器兼容边界。独立校验工具只检查清单内对象内容，不验证全库数量或清单外数据。
+
+在仓库根目录，用 JDK 8 和 Maven 构建：
+
+```bash
+mvn -pl migration,verification -am package -DskipTests -Dmaven.javadoc.skip=true
+```
+
+输出分别为 `migration/target/migration-3.8.4.jar` 和 `verification/target/nebula-data-verifier-3.8.4.jar`。每个 JAR 均包含其运行依赖。上述命令跳过测试；各模块 README 提供单元测试与显式启用的真实集群验收命令。
+
+已保存 [搬迁真实验收记录](migration/acceptance/2026-09-13/README.md) 和 [校验真实验收记录](verification/acceptance/2026-09-13/README.md)。验收使用本机 NebulaGraph 3.6 的不同空间；独立校验的跨机器隔离部署及严格“源基准 → 导入 → 目标基准”时序尚未完整验收。文档中的 `/home/sch/...` 是原验收机示例路径，部署时需按环境替换。
+
+源码、测试、分析和使用文档、精选验收报告进入版本控制；`target/`、JAR、日志及完整运行数据保留为本地构建和验收产物。
+
 ## Two main branches of this repository
 
 In this repository, you can find two branches for the source code of Nebula Java of different

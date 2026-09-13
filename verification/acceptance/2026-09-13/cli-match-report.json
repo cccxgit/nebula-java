@@ -1,0 +1,17 @@
+{
+	"comparedAt":"2026-09-13T09:57:16.275406125Z",
+	"comparedRecords":258,
+	"detailsTruncated":false,
+	"differenceFields":0,
+	"differences":[],
+	"differentRecords":0,
+	"errorRecords":0,
+	"matched":true,
+	"planId":"80a925fa-4486-45bb-ad31-7aabce72d1f5",
+	"scope":"CONTENTS_OF_LISTED_OBJECTS_ONLY",
+	"sourceCapturedAt":"2026-09-13T09:57:00.350346642Z",
+	"sourceSpace":"mig_mtzi85s0_s_a",
+	"status":"MATCH",
+	"targetCapturedAt":"2026-09-13T09:57:05.484844346Z",
+	"targetSpace":"verify_20260913_s_b"
+}

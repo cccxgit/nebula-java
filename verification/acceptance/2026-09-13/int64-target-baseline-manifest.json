@@ -1,0 +1,26 @@
+{
+	"capturedAt":"2026-09-13T09:55:55.719Z",
+	"errorCount":0,
+	"errors":[],
+	"formatVersion":1,
+	"missingCount":0,
+	"okCount":258,
+	"planDigest":"6ef78553bbe731b97fe42ac29ad5632acc398a24e32aa9486c610471f6453ddb",
+	"planId":"0e1e95da-77bc-400d-a96c-a80c74bae086",
+	"recordCount":258,
+	"recordsSha256":"fc3235a6986fb6b14c3b52c4274a7278aa56384d21bc3b10a2b20f2c341e90b8",
+	"requestedCount":258,
+	"requestedKeysSha256":"41fa4d7f34ca27643c5dd8af5464485f6a06769c80dd853f0196b0cb2f40dee8",
+	"schemas":{
+		"EDGE/V:YWxsX2VkZ2Vz":"{\"V:Yg==\":{\"nullable\":true,\"type\":\"BOOL\"},\"V:ZGF0ZV92YWx1ZQ==\":{\"nullable\":true,\"type\":\"DATE\"},\"V:ZGF0ZXRpbWVfdmFsdWU=\":{\"nullable\":true,\"type\":\"DATETIME\"},\"V:ZHVy\":{\"nullable\":true,\"type\":\"DURATION\"},\"V:ZjMy\":{\"nullable\":true,\"type\":\"FLOAT\"},\"V:ZjY0\":{\"nullable\":true,\"type\":\"DOUBLE\"},\"V:ZnM=\":{\"nullable\":true,\"type\":\"FIXED_STRING(128)\"},\"V:aTE2\":{\"nullable\":true,\"type\":\"INT16\"},\"V:aTMy\":{\"nullable\":true,\"type\":\"INT32\"},\"V:aTY0\":{\"nullable\":true,\"type\":\"INT64\"},\"V:aTg=\":{\"nullable\":true,\"type\":\"INT8\"},\"V:cw==\":{\"nullable\":true,\"type\":\"STRING\"},\"V:dGltZV92YWx1ZQ==\":{\"nullable\":true,\"type\":\"TIME\"},\"V:dHM=\":{\"nullable\":true,\"type\":\"TIMESTAMP\"}}",
+		"EDGE/V:YmFyZV9lZGdl":"{}",
+		"TAG/V:YWxpYXNfdGFn":"{\"V:bGFiZWw=\":{\"nullable\":true,\"type\":\"STRING\"}}",
+		"TAG/V:YWxsX3R5cGVz":"{\"V:Yg==\":{\"nullable\":true,\"type\":\"BOOL\"},\"V:ZGF0ZV92YWx1ZQ==\":{\"nullable\":true,\"type\":\"DATE\"},\"V:ZGF0ZXRpbWVfdmFsdWU=\":{\"nullable\":true,\"type\":\"DATETIME\"},\"V:ZHVy\":{\"nullable\":true,\"type\":\"DURATION\"},\"V:ZjMy\":{\"nullable\":true,\"type\":\"FLOAT\"},\"V:ZjY0\":{\"nullable\":true,\"type\":\"DOUBLE\"},\"V:ZnM=\":{\"nullable\":true,\"type\":\"FIXED_STRING(128)\"},\"V:aTE2\":{\"nullable\":true,\"type\":\"INT16\"},\"V:aTMy\":{\"nullable\":true,\"type\":\"INT32\"},\"V:aTY0\":{\"nullable\":true,\"type\":\"INT64\"},\"V:aTg=\":{\"nullable\":true,\"type\":\"INT8\"},\"V:cw==\":{\"nullable\":true,\"type\":\"STRING\"},\"V:dGltZV92YWx1ZQ==\":{\"nullable\":true,\"type\":\"TIME\"},\"V:dHM=\":{\"nullable\":true,\"type\":\"TIMESTAMP\"}}",
+		"TAG/V:YmFyZV90YWc=":"{}",
+		"TAG/V:dGFnIHdpdGggc3BhY2U=":"{\"V:Y291bnQ=\":{\"nullable\":true,\"type\":\"INT64\"},\"V:YSBi\":{\"nullable\":false,\"type\":\"STRING\"}}"
+	},
+	"space":"verify_20260913_i_b",
+	"status":"COMPLETE",
+	"valueFormat":"nebula-native-fields-v1",
+	"vidType":"INT64"
+}

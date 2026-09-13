@@ -106,6 +106,7 @@ public class StorageClient implements Serializable {
     public boolean connect() throws Exception {
         connection.open(addresses.get(0), timeout, enableSSL, sslParam);
         StoragePoolConfig config = new StoragePoolConfig();
+        config.setTimeout(timeout);
         config.setEnableSSL(enableSSL);
         config.setSslParam(sslParam);
         pool = new StorageConnPool(config);

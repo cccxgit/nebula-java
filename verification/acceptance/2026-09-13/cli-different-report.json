@@ -1,0 +1,25 @@
+{
+	"comparedAt":"2026-09-13T09:57:16.369735843Z",
+	"comparedRecords":258,
+	"detailsTruncated":false,
+	"differenceFields":1,
+	"differences":[
+		{
+			"field":"tag/YWxsX3R5cGVz/prop/ZjY0",
+			"key":"vertex|V:aWQnIlwNCvCfmIBlzIE=",
+			"reason":"FIELD_DIFFERS",
+			"sourceValue":"[\"float\",\"3fb999999999999a\"]",
+			"targetValue":"[\"float\",\"3fb999999999999b\"]"
+		}
+	],
+	"differentRecords":1,
+	"errorRecords":0,
+	"matched":false,
+	"planId":"6f8c0dd4-89e4-41c4-98ac-550e99c5e720",
+	"scope":"CONTENTS_OF_LISTED_OBJECTS_ONLY",
+	"sourceCapturedAt":"2026-09-13T09:55:02.884Z",
+	"sourceSpace":"mig_mtzi85s0_s_a",
+	"status":"DIFFERENT",
+	"targetCapturedAt":"2026-09-13T09:55:04.883Z",
+	"targetSpace":"verify_20260913_s_b"
+}

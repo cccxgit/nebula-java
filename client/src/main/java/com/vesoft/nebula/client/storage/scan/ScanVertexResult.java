@@ -13,6 +13,7 @@ import com.vesoft.nebula.client.storage.data.VertexTableRow;
 import com.vesoft.nebula.client.storage.processor.VertexProcessor;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,6 +54,15 @@ public class ScanVertexResult implements Serializable {
         this.dataSets = dataSets;
         this.scanStatus = status;
         this.isEmpty = isDatasetEmpty();
+    }
+
+    /**
+     * Get the original scan datasets without decoding binary string values.
+     *
+     * @return an unmodifiable list; dataset objects must be treated as read-only
+     */
+    public List<DataSet> getDataSets() {
+        return dataSets == null ? Collections.emptyList() : Collections.unmodifiableList(dataSets);
     }
 
     /**
@@ -207,5 +217,4 @@ public class ScanVertexResult implements Serializable {
     }
 
 }
-
 

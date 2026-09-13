@@ -44,6 +44,8 @@
     </developers>
     <modules>
         <module>client</module>
+        <module>migration</module>
+        <module>verification</module>
         <module>examples</module>
     </modules>
 

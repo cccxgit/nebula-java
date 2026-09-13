@@ -1,0 +1,19 @@
+{
+	"edgeRows":131,
+	"matched":true,
+	"rowsByTable":{
+		"TAG/alias_tag":5,
+		"TAG/all_types":127,
+		"TAG/bare_tag":1,
+		"TAG/empty_tag":0,
+		"TAG/tag with space":1,
+		"EDGE/all_edges":130,
+		"EDGE/bare_edge":1,
+		"EDGE/empty_edge":0
+	},
+	"sourceRechecked":true,
+	"sourceSpace":"mig_mtzi85s0_i_a",
+	"tagRows":134,
+	"targetSpace":"mig_mtzi85s0_i_b",
+	"verifiedAt":"2026-09-13T07:47:02.039684600Z"
+}

@@ -1,0 +1,18 @@
+startedAt=2026-09-13T09:55:02.746Z
+sourceSpace=mig_mtzi85s0_s_a
+targetSpace=verify_20260913_s_b
+bundle=/home/sch/nebula/nebula-java/migration/target/acceptance/mtzi85s0/bundle_s
+planId=6f8c0dd4-89e4-41c4-98ac-550e99c5e720
+planDigest=f7610cec0e7003894679ffc555427f626392165e7514a727ee4462e4696e23af
+plannedVertices=127
+plannedEdges=131
+baseline: status=MATCH, matched=true, comparedRecords=258, differentRecords=0, errorRecords=0
+double-one-bit-change: status=DIFFERENT, matched=false, comparedRecords=258, differentRecords=1, errorRecords=0
+missing-zero-property-tag: status=DIFFERENT, matched=false, comparedRecords=258, differentRecords=1, errorRecords=0
+additional-zero-property-tag: status=DIFFERENT, matched=false, comparedRecords=258, differentRecords=1, errorRecords=0
+missing-zero-property-edge: status=ERROR, matched=false, comparedRecords=257, differentRecords=0, errorRecords=1
+error-first: collection rejected missing space (IllegalStateException)
+error-second: collection rejected missing space (IllegalStateException)
+restored: status=MATCH, matched=true, comparedRecords=258, differentRecords=0, errorRecords=0
+status=PASSED
+finishedAt=2026-09-13T09:55:29.334Z
